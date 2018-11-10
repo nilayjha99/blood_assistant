@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BFAB52AA2196587C00A9B94A /* HospitalDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAB52A92196587C00A9B94A /* HospitalDashboardController.swift */; };
 		CEEEADF621961E6C00BD847C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEADF521961E6C00BD847C /* AppDelegate.swift */; };
-		CEEEADF821961E6C00BD847C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEADF721961E6C00BD847C /* ViewController.swift */; };
+		CEEEADF821961E6C00BD847C /* HospitalProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEADF721961E6C00BD847C /* HospitalProfileViewController.swift */; };
 		CEEEADFB21961E6C00BD847C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEEEADF921961E6C00BD847C /* Main.storyboard */; };
 		CEEEADFE21961E6C00BD847C /* bloodAssitant.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CEEEADFC21961E6C00BD847C /* bloodAssitant.xcdatamodeld */; };
 		CEEEAE0021961EBA00BD847C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEEEADFF21961EBA00BD847C /* Assets.xcassets */; };
@@ -16,9 +17,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BFAB52A92196587C00A9B94A /* HospitalDashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalDashboardController.swift; sourceTree = "<group>"; };
 		CEEEADF221961E6C00BD847C /* bloodAssitant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bloodAssitant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEEEADF521961E6C00BD847C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CEEEADF721961E6C00BD847C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CEEEADF721961E6C00BD847C /* HospitalProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalProfileViewController.swift; sourceTree = "<group>"; };
 		CEEEADFA21961E6C00BD847C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CEEEADFD21961E6C00BD847C /* bloodAssitant.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = bloodAssitant.xcdatamodel; sourceTree = "<group>"; };
 		CEEEADFF21961EBA00BD847C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -40,6 +42,7 @@
 		CEEEADE921961E6B00BD847C = {
 			isa = PBXGroup;
 			children = (
+				BFAB52A92196587C00A9B94A /* HospitalDashboardController.swift */,
 				CEEEADF421961E6C00BD847C /* bloodAssitant */,
 				CEEEADF321961E6C00BD847C /* Products */,
 			);
@@ -57,7 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				CEEEADF521961E6C00BD847C /* AppDelegate.swift */,
-				CEEEADF721961E6C00BD847C /* ViewController.swift */,
+				CEEEADF721961E6C00BD847C /* HospitalProfileViewController.swift */,
 				CEEEADF921961E6C00BD847C /* Main.storyboard */,
 				CEEEADFF21961EBA00BD847C /* Assets.xcassets */,
 				CEEEAE0121961EBA00BD847C /* LaunchScreen.storyboard */,
@@ -138,7 +141,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEEEADF821961E6C00BD847C /* ViewController.swift in Sources */,
+				BFAB52AA2196587C00A9B94A /* HospitalDashboardController.swift in Sources */,
+				CEEEADF821961E6C00BD847C /* HospitalProfileViewController.swift in Sources */,
 				CEEEADF621961E6C00BD847C /* AppDelegate.swift in Sources */,
 				CEEEADFE21961E6C00BD847C /* bloodAssitant.xcdatamodeld in Sources */,
 			);
@@ -287,6 +291,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6X5B26J782;
 				INFOPLIST_FILE = bloodAssitant/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -304,6 +309,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6X5B26J782;
 				INFOPLIST_FILE = bloodAssitant/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
