@@ -1,7 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,7 +16,40 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="hUD-uP-sjq">
+                                <rect key="frame" x="59" y="57" width="257" height="257"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hUD-uP-sjq" secondAttribute="height" multiplier="1:1" id="q5z-di-kjX"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blood Assistant" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WpV-8Z-0Dg">
+                                <rect key="frame" x="59" y="336" width="257" height="36"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="29"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's Donate For Life" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UXb-qf-lkr">
+                                <rect key="frame" x="65" y="390.5" width="241" height="21.5"/>
+                                <fontDescription key="fontDescription" name="Verdana-Italic" family="Verdana" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="WpV-8Z-0Dg" firstAttribute="trailing" secondItem="hUD-uP-sjq" secondAttribute="trailing" id="5HZ-Cp-L47"/>
+                            <constraint firstItem="WpV-8Z-0Dg" firstAttribute="leading" secondItem="hUD-uP-sjq" secondAttribute="leading" id="6YD-de-Oef"/>
+                            <constraint firstItem="hUD-uP-sjq" firstAttribute="width" secondItem="hUD-uP-sjq" secondAttribute="height" multiplier="1:1" id="92e-he-sez"/>
+                            <constraint firstItem="WpV-8Z-0Dg" firstAttribute="top" secondItem="hUD-uP-sjq" secondAttribute="bottom" constant="22" id="EOP-6J-aKz"/>
+                            <constraint firstItem="WpV-8Z-0Dg" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="TGG-a4-5v5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="UXb-qf-lkr" secondAttribute="bottom" constant="255" id="V9Q-Y8-8d9"/>
+                            <constraint firstItem="UXb-qf-lkr" firstAttribute="top" secondItem="WpV-8Z-0Dg" secondAttribute="bottom" constant="18.5" id="Y6j-ij-kTc"/>
+                            <constraint firstItem="UXb-qf-lkr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="65" id="ri7-Q7-4k7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UXb-qf-lkr" secondAttribute="trailing" constant="69" id="tdP-EZ-N3k"/>
+                            <constraint firstAttribute="bottom" secondItem="WpV-8Z-0Dg" secondAttribute="bottom" constant="295" id="wnF-d9-DjS"/>
+                            <constraint firstItem="WpV-8Z-0Dg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="59" id="xRV-nd-MSH"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -22,4 +58,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Image" width="320" height="320"/>
+    </resources>
 </document>

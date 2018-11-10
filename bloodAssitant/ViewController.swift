@@ -10,6 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
+  
+    @IBOutlet weak var splashImage: UIImageView!
+    @IBOutlet weak var splashAppName: UILabel!
+    @IBOutlet weak var splashAppName2: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
