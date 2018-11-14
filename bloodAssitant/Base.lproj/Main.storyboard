@@ -52,20 +52,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pgp-VE-oP6">
-                                <rect key="frame" x="0.0" y="108" width="375" height="142"/>
+                                <rect key="frame" x="6" y="108" width="363" height="142"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="142" id="7i9-Sv-yn7"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Fcy-qu-4gi">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Fcy-qu-4gi">
                                     <size key="itemSize" width="184" height="122"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="D1n-FW-VKe">
-                                        <rect key="frame" x="95.5" y="0.0" width="184" height="122"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="reauestCard" id="D1n-FW-VKe" customClass="BloodRequestViewCell" customModule="bloodAssitant" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="10" width="184" height="122"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="184" height="122"/>
@@ -131,14 +131,33 @@
                                             <constraint firstItem="8dF-c3-4wd" firstAttribute="leading" secondItem="5ME-wJ-Y26" secondAttribute="trailing" constant="10" id="wI1-zp-YMl"/>
                                             <constraint firstItem="3ep-cO-J1E" firstAttribute="top" secondItem="ECq-eo-GCf" secondAttribute="bottom" constant="15" id="yGw-mv-8WI"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="requestedUnits" destination="8dF-c3-4wd" id="L9h-5o-4jw"/>
+                                            <outlet property="userBloodGroup" destination="0np-vJ-mSU" id="V4F-pV-KX3"/>
+                                            <outlet property="userName" destination="aLO-sk-Oyh" id="qnH-ZV-tyS"/>
+                                            <outlet property="userThumbnail" destination="ECq-eo-GCf" id="SIT-EW-CP1"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blood Requests(4)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3u-Nm-2Ew">
+                                <rect key="frame" x="6" y="79" width="143" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p1I-ho-Q4O">
+                                <rect key="frame" x="16" y="288" width="163" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Pgp-VE-oP6" firstAttribute="trailing" secondItem="hlK-6U-8ZF" secondAttribute="trailing" id="qzP-ci-m5X"/>
-                            <constraint firstItem="Pgp-VE-oP6" firstAttribute="leading" secondItem="hlK-6U-8ZF" secondAttribute="leading" id="rk0-iz-OAA"/>
+                            <constraint firstItem="M3u-Nm-2Ew" firstAttribute="top" secondItem="hlK-6U-8ZF" secondAttribute="top" constant="15" id="1PO-aY-nxx"/>
+                            <constraint firstItem="M3u-Nm-2Ew" firstAttribute="leading" secondItem="hlK-6U-8ZF" secondAttribute="leading" constant="6" id="p9J-rR-l4N"/>
+                            <constraint firstItem="Pgp-VE-oP6" firstAttribute="trailing" secondItem="hlK-6U-8ZF" secondAttribute="trailing" constant="-6" id="qzP-ci-m5X"/>
+                            <constraint firstItem="Pgp-VE-oP6" firstAttribute="leading" secondItem="hlK-6U-8ZF" secondAttribute="leading" constant="6" id="rk0-iz-OAA"/>
                             <constraint firstItem="Pgp-VE-oP6" firstAttribute="top" secondItem="hlK-6U-8ZF" secondAttribute="top" constant="44" id="sHF-ZW-2UB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hlK-6U-8ZF"/>
@@ -146,6 +165,10 @@
                     <navigationItem key="navigationItem" title="Dashboard" id="QO4-pK-GSW">
                         <barButtonItem key="rightBarButtonItem" id="8DA-JX-ueZ"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="button" destination="p1I-ho-Q4O" id="c0T-3n-Z4Z"/>
+                        <outlet property="collectionView" destination="Pgp-VE-oP6" id="1ZJ-Ez-Hi1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ynf-S9-Ik4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
