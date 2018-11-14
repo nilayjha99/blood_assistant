@@ -373,6 +373,9 @@
                                 <state key="normal" title="City">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="32Q-XT-BBu" kind="showDetail" identifier="TableViewControllerForCity" id="dXF-Ma-DJ1"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6UZ-bb-7cP">
                                 <rect key="frame" x="16" y="398" width="343" height="30"/>
@@ -395,14 +398,14 @@
                         <barButtonItem key="rightBarButtonItem" title="Cancel" id="Siw-oM-RVF"/>
                     </navigationItem>
                     <connections>
-                        <segue destination="KKH-BT-aCi" kind="showDetail" identifier="TableViewControllerForCountry" id="CAM-KZ-DIy"/>
+                        <segue destination="xth-xE-R9r" kind="showDetail" identifier="TableViewControllerForCountry" id="CAM-KZ-DIy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zCp-hR-XtR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3072.8000000000002" y="-715.59220389805103"/>
         </scene>
-        <!--Table View Controller For Country-->
+        <!--Country-->
         <scene sceneID="1eV-TW-YUj">
             <objects>
                 <tableViewController storyboardIdentifier="TableViewControllerForCountry" id="KKH-BT-aCi" customClass="TableViewControllerForCountry" customModule="bloodAssitant" customModuleProvider="target" sceneMemberID="viewController">
@@ -415,10 +418,42 @@
                             <outlet property="delegate" destination="KKH-BT-aCi" id="dGK-AQ-HTe"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Country" id="isg-XO-wjH">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="PS7-IT-Urh">
+                            <connections>
+                                <action selector="cancelSearch:" destination="KKH-BT-aCi" id="dta-gN-B6T"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jVY-V9-bdM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3815" y="-716"/>
+            <point key="canvasLocation" x="4684" y="-716"/>
+        </scene>
+        <!--City-->
+        <scene sceneID="wpc-CR-3YD">
+            <objects>
+                <tableViewController id="TVH-P3-Psh" customClass="TableViewControllerForCity" customModule="bloodAssitant" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="zLc-iS-zLU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <connections>
+                            <outlet property="dataSource" destination="TVH-P3-Psh" id="K2u-v4-GJH"/>
+                            <outlet property="delegate" destination="TVH-P3-Psh" id="DnM-OG-HAs"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="City" id="g9U-NY-qIa">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="nnL-Hk-XuG">
+                            <connections>
+                                <action selector="cancelSearchForCity:" destination="TVH-P3-Psh" id="bhu-ib-deF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ysE-rW-oaV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4684" y="36"/>
         </scene>
         <!--Profile-->
         <scene sceneID="Ftn-wS-tiR">
@@ -636,6 +671,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PRx-Cg-qAN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3073" y="-1646"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hIy-sp-JJE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xth-xE-R9r" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dWe-Zi-Sd0">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KKH-BT-aCi" kind="relationship" relationship="rootViewController" id="1AB-fe-yH2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zpu-kz-ubw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3813.5999999999999" y="-716.49175412293857"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="VqV-QU-H2a">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="32Q-XT-BBu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GmH-v3-hIw">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="TVH-P3-Psh" kind="relationship" relationship="rootViewController" id="jTV-9T-OuP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jJm-sh-JmZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3814" y="36"/>
         </scene>
     </scenes>
     <resources>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE2453C9219BE68B00F7D79E /* TableViewControllerForCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2453C8219BE68B00F7D79E /* TableViewControllerForCity.swift */; };
 		CEEEADF621961E6C00BD847C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEADF521961E6C00BD847C /* AppDelegate.swift */; };
 		CEEEADF821961E6C00BD847C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEADF721961E6C00BD847C /* ViewController.swift */; };
 		CEEEADFB21961E6C00BD847C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEEEADF921961E6C00BD847C /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE2453C8219BE68B00F7D79E /* TableViewControllerForCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerForCity.swift; sourceTree = "<group>"; };
 		CEEEADF221961E6C00BD847C /* bloodAssitant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bloodAssitant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEEEADF521961E6C00BD847C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEEEADF721961E6C00BD847C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			children = (
 				CEEEADF521961E6C00BD847C /* AppDelegate.swift */,
 				CEEEADF721961E6C00BD847C /* ViewController.swift */,
+				CE2453C8219BE68B00F7D79E /* TableViewControllerForCity.swift */,
 				CEEEAE10219A503100BD847C /* TableViewControllerForCountry.swift */,
 				CEEEADF921961E6C00BD847C /* Main.storyboard */,
 				CEEEADFF21961EBA00BD847C /* Assets.xcassets */,
@@ -143,6 +146,7 @@
 			files = (
 				CEEEAE11219A503100BD847C /* TableViewControllerForCountry.swift in Sources */,
 				CEEEADF821961E6C00BD847C /* ViewController.swift in Sources */,
+				CE2453C9219BE68B00F7D79E /* TableViewControllerForCity.swift in Sources */,
 				CEEEADF621961E6C00BD847C /* AppDelegate.swift in Sources */,
 				CEEEADFE21961E6C00BD847C /* bloodAssitant.xcdatamodeld in Sources */,
 			);
