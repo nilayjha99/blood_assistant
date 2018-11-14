@@ -11,9 +11,8 @@ import UIKit
 class ViewController: UIViewController {
 
   
-    @IBOutlet weak var splashImage: UIImageView!
-    @IBOutlet weak var splashAppName: UILabel!
-    @IBOutlet weak var splashAppName2: UILabel!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,5 +20,10 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func countrySelectButton(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "TableViewControllerForCountry", sender: self)
+    }
 }
+
 

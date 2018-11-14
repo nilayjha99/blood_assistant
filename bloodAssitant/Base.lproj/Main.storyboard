@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KKH-BT-aCi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hru-IC-NNG">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -290,7 +290,7 @@
         <!--Profile-->
         <scene sceneID="LsD-eT-4C3">
             <objects>
-                <viewController id="Hru-IC-NNG" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="Hru-IC-NNG" customClass="ViewController" customModule="bloodAssitant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="z02-Py-Dor">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -382,6 +382,9 @@
                                 <state key="normal" title="Country">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="countrySelectButton:" destination="Hru-IC-NNG" eventType="touchUpInside" id="aaB-ff-pSy"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -391,15 +394,18 @@
                         <barButtonItem key="leftBarButtonItem" title="Save" id="XVg-Fl-tfE"/>
                         <barButtonItem key="rightBarButtonItem" title="Cancel" id="Siw-oM-RVF"/>
                     </navigationItem>
+                    <connections>
+                        <segue destination="KKH-BT-aCi" kind="showDetail" identifier="TableViewControllerForCountry" id="CAM-KZ-DIy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zCp-hR-XtR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3072.8000000000002" y="-715.59220389805103"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Table View Controller For Country-->
         <scene sceneID="1eV-TW-YUj">
             <objects>
-                <tableViewController id="KKH-BT-aCi" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="TableViewControllerForCountry" id="KKH-BT-aCi" customClass="TableViewControllerForCountry" customModule="bloodAssitant" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vx3-dT-hjl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -412,7 +418,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jVY-V9-bdM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4544" y="-713"/>
+            <point key="canvasLocation" x="3815" y="-716"/>
         </scene>
         <!--Profile-->
         <scene sceneID="Ftn-wS-tiR">
