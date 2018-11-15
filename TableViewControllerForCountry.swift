@@ -37,10 +37,10 @@ class TableViewControllerForCountry: UITableViewController , UISearchResultsUpda
     
     }
     
-    
+    // The below function will take only item which contains inside the Countryarray
     func updateSearchResults(for searchController: UISearchController) {
         
-        filteredCountry = Countryarray.filter({ (array:String) -> Bool in
+        filteredCountry = Countryarray.filter({ (Countryarray:String) -> Bool in
             
              if Countryarray.contains(searchController.searchBar.text!)
             

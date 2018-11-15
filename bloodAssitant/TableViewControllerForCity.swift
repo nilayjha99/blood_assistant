@@ -12,7 +12,7 @@ class TableViewControllerForCity: UITableViewController , UISearchResultsUpdatin
     
     
     
-    
+    var myIndex = 0
     var Cityarray = ["Regina","Toronto","Vancouver","saskatoon","moosejaw"]
     
     
@@ -38,7 +38,7 @@ class TableViewControllerForCity: UITableViewController , UISearchResultsUpdatin
     
     func updateSearchResults(for searchController: UISearchController) {
         
-        filteredCity = Cityarray.filter({ (array:String) -> Bool in
+        filteredCity = Cityarray.filter({ (Cityarray:String) -> Bool in
             
             if Cityarray.contains(searchController.searchBar.text!)
                 
@@ -81,10 +81,14 @@ class TableViewControllerForCity: UITableViewController , UISearchResultsUpdatin
         if tableView == resultsController.tableView
         {
             cell.textLabel?.text = filteredCity[indexPath.row]
+            
+            //citySelect  = (cell.textLabel?.text)!
         }
         else
         {
             cell.textLabel?.text = Cityarray[indexPath.row]
+//            citySelect  = (cell.textLabel?.text)!
+            
         }
         return  cell
     }
@@ -96,6 +100,12 @@ class TableViewControllerForCity: UITableViewController , UISearchResultsUpdatin
         
         
         
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        myIndex = indexPath.row
+        performSegue(withIdentifier: "ViewController", sender: self)
     }
     
     

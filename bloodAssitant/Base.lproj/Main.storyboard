@@ -374,7 +374,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="32Q-XT-BBu" kind="showDetail" identifier="TableViewControllerForCity" id="dXF-Ma-DJ1"/>
+                                    <action selector="citySelectButton:" destination="Hru-IC-NNG" eventType="touchUpInside" id="nSe-JB-DKR"/>
+                                    <segue destination="32Q-XT-BBu" kind="showDetail" identifier="TableViewControllerForCity" id="vys-LK-TBp"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6UZ-bb-7cP">
@@ -398,6 +399,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Cancel" id="Siw-oM-RVF"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="citySelectInProfile" destination="oNA-fT-hRB" id="sHF-FL-lvU"/>
                         <segue destination="xth-xE-R9r" kind="showDetail" identifier="TableViewControllerForCountry" id="CAM-KZ-DIy"/>
                     </connections>
                 </viewController>
@@ -421,7 +423,7 @@
                     <navigationItem key="navigationItem" title="Country" id="isg-XO-wjH">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="PS7-IT-Urh">
                             <connections>
-                                <action selector="cancelSearch:" destination="KKH-BT-aCi" id="dta-gN-B6T"/>
+                                <action selector="cancelSearch:" destination="KKH-BT-aCi" id="jS5-iD-VXP"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -453,7 +455,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ysE-rW-oaV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4684" y="36"/>
+            <point key="canvasLocation" x="4684" y="56"/>
         </scene>
         <!--Profile-->
         <scene sceneID="Ftn-wS-tiR">
@@ -706,7 +708,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jJm-sh-JmZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3814" y="36"/>
+            <point key="canvasLocation" x="3814" y="57"/>
         </scene>
     </scenes>
     <resources>

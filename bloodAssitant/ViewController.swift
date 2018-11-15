@@ -11,12 +11,15 @@ import UIKit
 class ViewController: UIViewController {
 
   
-    
-    
-    
+   
+    @IBOutlet weak var citySelectInProfile: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
+       citySelectInProfile.titleLabel.text = Cityarray[IndexPath]
+        
     }
 
 
@@ -24,6 +27,12 @@ class ViewController: UIViewController {
         
         self.performSegue(withIdentifier: "TableViewControllerForCountry", sender: self)
     }
+    
+    
+    @IBAction func citySelectButton(_ sender: Any) {
+        self.performSegue(withIdentifier: "TableViewControllerForCity", sender: self)
+    }
+    
 }
 
 
