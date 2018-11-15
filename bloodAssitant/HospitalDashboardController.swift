@@ -9,18 +9,27 @@
 import UIKit
 
 class HospitalDashboardController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    @IBOutlet weak var button: UIButton!
+//    
+//    @IBOutlet weak var button1: UIButton!
+//    @IBOutlet weak var button: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet weak var updateReositoryButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+        
         GeneralUtils.setBorder(
-            viewObject: self.button,
-           borderColor: UIColor.black.cgColor,
-           borderWidth: 2)
+            viewObject: self.updateReositoryButton,
+            borderColor: self.updateReositoryButton!.tintColor.cgColor,
+           borderWidth: 1)
+        GeneralUtils.makeRoundCorners(viewObject: self.updateReositoryButton, radius: 10)
+//        GeneralUtils.setBorder(
+//            viewObject: self.button1,
+//            borderColor: UIColor.black.cgColor,
+//            borderWidth: 2)
         // Do any additional setup after loading the view, typically from a nib.
     }
     
