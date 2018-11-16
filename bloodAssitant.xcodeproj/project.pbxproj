@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BF2E2668219D06F100A33056 /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2E2667219D06F100A33056 /* BorderedButton.swift */; };
+		BF2EDE95219E5FBA00E4E804 /* HospitalAppointMentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2EDE94219E5FBA00E4E804 /* HospitalAppointMentViewCell.swift */; };
+		BF2EDE97219E621600E4E804 /* HospitalAppointmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2EDE96219E621500E4E804 /* HospitalAppointmentsViewController.swift */; };
 		BFAB52AA2196587C00A9B94A /* HospitalDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAB52A92196587C00A9B94A /* HospitalDashboardController.swift */; };
 		BFD7EC07219BB95F007C72B3 /* BloodRequestVewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD7EC06219BB95F007C72B3 /* BloodRequestVewCell.swift */; };
 		BFD7EC09219BC199007C72B3 /* GeneralUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD7EC08219BC199007C72B3 /* GeneralUtils.swift */; };
@@ -22,6 +24,8 @@
 
 /* Begin PBXFileReference section */
 		BF2E2667219D06F100A33056 /* BorderedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
+		BF2EDE94219E5FBA00E4E804 /* HospitalAppointMentViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalAppointMentViewCell.swift; sourceTree = "<group>"; };
+		BF2EDE96219E621500E4E804 /* HospitalAppointmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalAppointmentsViewController.swift; sourceTree = "<group>"; };
 		BFAB52A92196587C00A9B94A /* HospitalDashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalDashboardController.swift; sourceTree = "<group>"; };
 		BFD7EC06219BB95F007C72B3 /* BloodRequestVewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodRequestVewCell.swift; sourceTree = "<group>"; };
 		BFD7EC08219BC199007C72B3 /* GeneralUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralUtils.swift; sourceTree = "<group>"; };
@@ -78,6 +82,8 @@
 				BFD7EC08219BC199007C72B3 /* GeneralUtils.swift */,
 				BFD7EC0A219BE6F5007C72B3 /* RepositoryTableViewCell.swift */,
 				BF2E2667219D06F100A33056 /* BorderedButton.swift */,
+				BF2EDE94219E5FBA00E4E804 /* HospitalAppointMentViewCell.swift */,
+				BF2EDE96219E621500E4E804 /* HospitalAppointmentsViewController.swift */,
 			);
 			path = bloodAssitant;
 			sourceTree = "<group>";
@@ -155,7 +161,9 @@
 			files = (
 				BFD7EC09219BC199007C72B3 /* GeneralUtils.swift in Sources */,
 				BFD7EC07219BB95F007C72B3 /* BloodRequestVewCell.swift in Sources */,
+				BF2EDE97219E621600E4E804 /* HospitalAppointmentsViewController.swift in Sources */,
 				BF2E2668219D06F100A33056 /* BorderedButton.swift in Sources */,
+				BF2EDE95219E5FBA00E4E804 /* HospitalAppointMentViewCell.swift in Sources */,
 				BFD7EC0B219BE6F5007C72B3 /* RepositoryTableViewCell.swift in Sources */,
 				BFAB52AA2196587C00A9B94A /* HospitalDashboardController.swift in Sources */,
 				CEEEADF821961E6C00BD847C /* HospitalProfileViewController.swift in Sources */,

@@ -26,11 +26,6 @@ class HospitalDashboardController: UIViewController, UICollectionViewDelegate, U
             borderColor: self.updateReositoryButton!.tintColor.cgColor,
            borderWidth: 1)
         GeneralUtils.makeRoundCorners(viewObject: self.updateReositoryButton, radius: 10)
-//        GeneralUtils.setBorder(
-//            viewObject: self.button1,
-//            borderColor: UIColor.black.cgColor,
-//            borderWidth: 2)
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -46,11 +41,21 @@ class HospitalDashboardController: UIViewController, UICollectionViewDelegate, U
         cell.userBloodGroup.text = "AB+"
         cell.requestedUnits.text = "2"
         GeneralUtils.makeRoundCorners(viewObject: cell, radius: 10)
-
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.showAlert(indexPath: indexPath)
+    }
     
+    func showAlert(indexPath: IndexPath) {
+        let alert = UIAlertController(title: "Give Blood",
+                                      message: "give blood to \(indexPath.row)",
+            preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default, handler: nil);
+        alert.addAction(action)
+        present(alert, animated: true)
+    }
 }
 
 
