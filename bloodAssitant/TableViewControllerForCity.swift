@@ -12,7 +12,7 @@ class TableViewControllerForCity: UITableViewController , UISearchResultsUpdatin
     
     
     
-    var myIndex = 0
+   // var myIndex = 0
     var Cityarray = ["Regina","Toronto","Vancouver","saskatoon","moosejaw"]
     
     
@@ -103,10 +103,10 @@ class TableViewControllerForCity: UITableViewController , UISearchResultsUpdatin
     }
     
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+  /*  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         myIndex = indexPath.row
         performSegue(withIdentifier: "ViewController", sender: self)
-    }
+    }*/
     
     
     

@@ -11,22 +11,18 @@ import UIKit
 
 class ViewController: UIViewController  {
 
-     
     
     
     
     
+   // @IBOutlet weak var datePickerTF: UITextField!
     
-    
-    
-    @IBOutlet weak var datePickerTF: UITextField!
-    
-    let datePicker = UIDatePicker()
+   // let datePicker = UIDatePicker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        dateForAppointment ()
+       // dateForAppointment ()
         
       //Use of unresolved identifier 'Cityarray'
     }
@@ -43,31 +39,31 @@ class ViewController: UIViewController  {
     }
     
     
-    func dateForAppointment () {
-    datePickerTF.inputView = datePicker
+    //func dateForAppointment () {
+    ///datePickerTF.inputView = datePicker
    
     
     //Create tool bar for apointment selection date picker
         
-        let toolBar = UIToolbar()
-        toolBar.sizeToFit()
+      //  let toolBar = UIToolbar()
+      //  toolBar.sizeToFit()
         
         //add a done button
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done , target: nil , action: #selector(doneClicked))
+       // let doneButton = UIBarButtonItem(barButtonSystemItem: .done , target: nil , action: #selector(doneClicked))
         
         //let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel , target: nil , action: nil)
        
-        toolBar.setItems([doneButton], animated: true)
-        datePickerTF.inputAccessoryView = toolBar
+        //toolBar.setItems([doneButton], animated: true)
+        //datePickerTF.inputAccessoryView = toolBar
         
         
-    }
-    @objc func doneClicked(){
+    //}
+    ///@objc func doneClicked(){
         
-        datePickerTF.text = "\(datePicker.date)"
-        self.view.endEditing(true)
-        
-    }
+      //  datePickerTF.text = "\(datePicker.date)"
+      //  self.view.endEditing(true)
+    
+   // }
     
 
 }

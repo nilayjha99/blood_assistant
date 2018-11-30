@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CE2453C9219BE68B00F7D79E /* TableViewControllerForCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2453C8219BE68B00F7D79E /* TableViewControllerForCity.swift */; };
+		CE2453CF21B0D80600F7D79E /* tabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2453CE21B0D80600F7D79E /* tabViewController.swift */; };
 		CEEEADF621961E6C00BD847C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEADF521961E6C00BD847C /* AppDelegate.swift */; };
 		CEEEADF821961E6C00BD847C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEADF721961E6C00BD847C /* ViewController.swift */; };
 		CEEEADFB21961E6C00BD847C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEEEADF921961E6C00BD847C /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		CE2453C8219BE68B00F7D79E /* TableViewControllerForCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerForCity.swift; sourceTree = "<group>"; };
+		CE2453CE21B0D80600F7D79E /* tabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabViewController.swift; sourceTree = "<group>"; };
 		CEEEADF221961E6C00BD847C /* bloodAssitant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bloodAssitant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEEEADF521961E6C00BD847C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEEEADF721961E6C00BD847C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				CEEEADF721961E6C00BD847C /* ViewController.swift */,
 				CE2453C8219BE68B00F7D79E /* TableViewControllerForCity.swift */,
 				CEEEAE10219A503100BD847C /* TableViewControllerForCountry.swift */,
+				CE2453CE21B0D80600F7D79E /* tabViewController.swift */,
 				CEEEADF921961E6C00BD847C /* Main.storyboard */,
 				CEEEADFF21961EBA00BD847C /* Assets.xcassets */,
 				CEEEAE0121961EBA00BD847C /* LaunchScreen.storyboard */,
@@ -145,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEEEAE11219A503100BD847C /* TableViewControllerForCountry.swift in Sources */,
+				CE2453CF21B0D80600F7D79E /* tabViewController.swift in Sources */,
 				CEEEADF821961E6C00BD847C /* ViewController.swift in Sources */,
 				CE2453C9219BE68B00F7D79E /* TableViewControllerForCity.swift in Sources */,
 				CEEEADF621961E6C00BD847C /* AppDelegate.swift in Sources */,
