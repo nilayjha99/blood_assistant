@@ -16,7 +16,7 @@
 		BFD7EC0B219BE6F5007C72B3 /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD7EC0A219BE6F5007C72B3 /* RepositoryTableViewCell.swift */; };
 		CEEEADF621961E6C00BD847C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEADF521961E6C00BD847C /* AppDelegate.swift */; };
 		CEEEADF821961E6C00BD847C /* HospitalProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEADF721961E6C00BD847C /* HospitalProfileViewController.swift */; };
-		CEEEADFB21961E6C00BD847C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEEEADF921961E6C00BD847C /* Main.storyboard */; };
+		CEEEADFB21961E6C00BD847C /* Doctor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEEEADF921961E6C00BD847C /* Doctor.storyboard */; };
 		CEEEADFE21961E6C00BD847C /* bloodAssitant.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CEEEADFC21961E6C00BD847C /* bloodAssitant.xcdatamodeld */; };
 		CEEEAE0021961EBA00BD847C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEEEADFF21961EBA00BD847C /* Assets.xcassets */; };
 		CEEEAE0321961EBA00BD847C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEEEAE0121961EBA00BD847C /* LaunchScreen.storyboard */; };
@@ -33,7 +33,7 @@
 		CEEEADF221961E6C00BD847C /* bloodAssitant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bloodAssitant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEEEADF521961E6C00BD847C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEEEADF721961E6C00BD847C /* HospitalProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalProfileViewController.swift; sourceTree = "<group>"; };
-		CEEEADFA21961E6C00BD847C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CEEEADFA21961E6C00BD847C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Doctor.storyboard; sourceTree = "<group>"; };
 		CEEEADFD21961E6C00BD847C /* bloodAssitant.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = bloodAssitant.xcdatamodel; sourceTree = "<group>"; };
 		CEEEADFF21961EBA00BD847C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEEEAE0221961EBA00BD847C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 				CEEEADF521961E6C00BD847C /* AppDelegate.swift */,
 				BFAB52A92196587C00A9B94A /* HospitalDashboardController.swift */,
 				CEEEADF721961E6C00BD847C /* HospitalProfileViewController.swift */,
-				CEEEADF921961E6C00BD847C /* Main.storyboard */,
+				CEEEADF921961E6C00BD847C /* Doctor.storyboard */,
 				CEEEADFF21961EBA00BD847C /* Assets.xcassets */,
 				CEEEAE0121961EBA00BD847C /* LaunchScreen.storyboard */,
 				CEEEAE0421961EBA00BD847C /* Info.plist */,
@@ -148,7 +148,7 @@
 			files = (
 				CEEEAE0321961EBA00BD847C /* LaunchScreen.storyboard in Resources */,
 				CEEEAE0021961EBA00BD847C /* Assets.xcassets in Resources */,
-				CEEEADFB21961E6C00BD847C /* Main.storyboard in Resources */,
+				CEEEADFB21961E6C00BD847C /* Doctor.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,12 +175,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CEEEADF921961E6C00BD847C /* Main.storyboard */ = {
+		CEEEADF921961E6C00BD847C /* Doctor.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				CEEEADFA21961E6C00BD847C /* Base */,
 			);
-			name = Main.storyboard;
+			name = Doctor.storyboard;
 			sourceTree = "<group>";
 		};
 		CEEEAE0121961EBA00BD847C /* LaunchScreen.storyboard */ = {
