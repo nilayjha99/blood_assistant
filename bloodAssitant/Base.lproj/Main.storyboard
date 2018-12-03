@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0Ph-Z8-kvk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qX0-Q1-r8y">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,58 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="bloodAssitant" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="T24-gN-BxU">
-                                <rect key="frame" x="58" y="65" width="256" height="256"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="T24-gN-BxU" secondAttribute="height" multiplier="1:1" id="WE7-5V-Dw8"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blood Assistant" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fz-gj-Tlx">
-                                <rect key="frame" x="58" y="343" width="256" height="35.5"/>
-                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="29"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's Donate For Life" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ShE-dc-5qh">
-                                <rect key="frame" x="64" y="397" width="241" height="21"/>
-                                <fontDescription key="fontDescription" name="Verdana-Italic" family="Verdana" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="T24-gN-BxU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="58" id="2fH-we-e8e"/>
-                            <constraint firstItem="3fz-gj-Tlx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="58" id="COD-Mu-SWr"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="T24-gN-BxU" secondAttribute="trailing" constant="61" id="LZq-SZ-B33"/>
-                            <constraint firstItem="T24-gN-BxU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="45" id="RLN-ot-65b"/>
-                            <constraint firstItem="ShE-dc-5qh" firstAttribute="top" secondItem="3fz-gj-Tlx" secondAttribute="bottom" constant="18.5" id="YnU-m9-eGy"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3fz-gj-Tlx" secondAttribute="trailing" constant="61" id="YzB-yN-Dcp"/>
-                            <constraint firstItem="ShE-dc-5qh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="64" id="q6l-Pm-pAV"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ShE-dc-5qh" secondAttribute="trailing" constant="70" id="vZx-3w-crp"/>
-                            <constraint firstItem="3fz-gj-Tlx" firstAttribute="top" secondItem="T24-gN-BxU" secondAttribute="bottom" constant="22" id="vot-0V-vlg"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                    <connections>
-                        <outlet property="splashAppName" destination="3fz-gj-Tlx" id="QnA-km-Lk2"/>
-                        <outlet property="splashAppName2" destination="ShE-dc-5qh" id="Spx-I8-1gK"/>
-                        <outlet property="splashImage" destination="T24-gN-BxU" id="KcJ-fF-GYa"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-838" y="-999"/>
-        </scene>
-        <!--Sign Up-->
+        <!--Sign In-->
         <scene sceneID="cTZ-2c-2h7">
             <objects>
                 <viewController id="POg-fG-Nhr" sceneMemberID="viewController">
@@ -199,7 +148,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Knz-k5-LjO"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Sign Up" id="ih2-g1-Ubh"/>
+                    <tabBarItem key="tabBarItem" title="Sign In" id="ih2-g1-Ubh"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HjO-8e-EVh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -276,6 +225,9 @@
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="jrj-Ht-0hG" kind="show" id="Kay-9n-qkX"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJe-Za-HCI">
                                 <rect key="frame" x="16" y="393" width="343" height="53"/>
@@ -517,6 +469,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SKL-dG-YCo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5511.1999999999998" y="-2458.0209895052476"/>
+        </scene>
+        <!--Doctor-->
+        <scene sceneID="az1-OU-6ri">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Doctor" id="jrj-Ht-0hG" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AAu-ho-tQ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2352" y="-2171"/>
         </scene>
         <!--History-->
         <scene sceneID="DdO-0v-c8U">
@@ -818,15 +778,6 @@
                                 <rect key="frame" x="148" y="85" width="80" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I am available to donate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="faU-je-rLd">
-                                <rect key="frame" x="35" y="187" width="180" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="obH-s0-26e">
-                                <rect key="frame" x="228" y="176" width="51" height="31"/>
-                            </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Gj-eK-Itb">
                                 <rect key="frame" x="35" y="215" width="315" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -886,15 +837,11 @@
                             <constraint firstItem="8pu-AE-08Y" firstAttribute="leading" secondItem="f01-hj-jKj" secondAttribute="leading" id="Ady-90-gU2"/>
                             <constraint firstItem="TDc-8l-rVP" firstAttribute="trailing" secondItem="TS7-wV-Jz0" secondAttribute="trailing" constant="239" id="DhJ-1d-uEi"/>
                             <constraint firstItem="3Gj-eK-Itb" firstAttribute="top" secondItem="ZLQ-nn-58y" secondAttribute="top" constant="215" id="ETL-zB-ITP"/>
-                            <constraint firstItem="obH-s0-26e" firstAttribute="leading" secondItem="faU-je-rLd" secondAttribute="trailing" constant="13" id="GOf-wg-vuF"/>
-                            <constraint firstItem="3Gj-eK-Itb" firstAttribute="top" secondItem="obH-s0-26e" secondAttribute="bottom" constant="8" symbolic="YES" id="JDY-eT-Vk6"/>
                             <constraint firstItem="TDc-8l-rVP" firstAttribute="trailing" secondItem="3Gj-eK-Itb" secondAttribute="trailing" constant="25" id="KXn-lY-Toe"/>
                             <constraint firstItem="5py-b2-soF" firstAttribute="centerX" secondItem="8pu-AE-08Y" secondAttribute="centerX" id="QNg-RB-8vq"/>
                             <constraint firstItem="TS7-wV-Jz0" firstAttribute="top" secondItem="3Gj-eK-Itb" secondAttribute="bottom" constant="17" id="R9f-de-Sgs"/>
                             <constraint firstItem="5py-b2-soF" firstAttribute="top" secondItem="f01-hj-jKj" secondAttribute="bottom" constant="24" id="UCU-ky-ybZ"/>
-                            <constraint firstItem="8pu-AE-08Y" firstAttribute="leading" secondItem="faU-je-rLd" secondAttribute="leading" id="UKm-vH-hVt"/>
                             <constraint firstItem="UHX-eI-pwB" firstAttribute="trailing" secondItem="3Gj-eK-Itb" secondAttribute="trailing" id="Yd9-bt-QpH"/>
-                            <constraint firstItem="3Gj-eK-Itb" firstAttribute="top" secondItem="faU-je-rLd" secondAttribute="bottom" constant="7" id="fou-9j-4wH"/>
                             <constraint firstItem="5py-b2-soF" firstAttribute="leading" secondItem="f01-hj-jKj" secondAttribute="leading" id="hOP-ji-d8b"/>
                             <constraint firstItem="UHX-eI-pwB" firstAttribute="baseline" secondItem="8pu-AE-08Y" secondAttribute="baseline" id="htu-Ss-Xj1"/>
                             <constraint firstItem="8pu-AE-08Y" firstAttribute="leading" secondItem="TDc-8l-rVP" secondAttribute="leading" constant="35" id="iRq-2q-gLf"/>
@@ -1114,7 +1061,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Image" width="320" height="320"/>
         <image name="calendar" width="24" height="24"/>
         <image name="people" width="16" height="16"/>
         <image name="recent" width="16" height="16"/>
