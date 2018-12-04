@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D2F469F803543BE95DCABEB /* Pods_bloodAssitant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8BD2164183B2988DF66DC19 /* Pods_bloodAssitant.framework */; };
+		BF4E144021B721E7004EE660 /* HttpHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4E143F21B721E7004EE660 /* HttpHandler.swift */; };
+		BF4E144221B72B89004EE660 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4E144121B72B89004EE660 /* SignUpViewController.swift */; };
+		BF4E144421B72B9F004EE660 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4E144321B72B9F004EE660 /* LogInViewController.swift */; };
+		BF4E144C21B72C27004EE660 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4E144B21B72C27004EE660 /* UserModel.swift */; };
+		BF4E144E21B72D37004EE660 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4E144D21B72D37004EE660 /* Constants.swift */; };
+		BF4E145021B73384004EE660 /* SharedValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4E144F21B73384004EE660 /* SharedValues.swift */; };
 		BF9D3BAE21B5DF4D006101A2 /* Doctor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF9D3BAD21B5DF4D006101A2 /* Doctor.storyboard */; };
 		BF9D3BB921B5DFD2006101A2 /* HospitalAppointmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D3BB121B5DFD1006101A2 /* HospitalAppointmentsViewController.swift */; };
 		BF9D3BBA21B5DFD2006101A2 /* BloodRequestVewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D3BB221B5DFD1006101A2 /* BloodRequestVewCell.swift */; };
@@ -35,6 +42,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		841A33C064BA205E69630234 /* Pods-bloodAssitant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bloodAssitant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bloodAssitant/Pods-bloodAssitant.debug.xcconfig"; sourceTree = "<group>"; };
+		BF4E143F21B721E7004EE660 /* HttpHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpHandler.swift; sourceTree = "<group>"; };
+		BF4E144121B72B89004EE660 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		BF4E144321B72B9F004EE660 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		BF4E144B21B72C27004EE660 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		BF4E144D21B72D37004EE660 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BF4E144F21B73384004EE660 /* SharedValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedValues.swift; sourceTree = "<group>"; };
 		BF9D3BAD21B5DF4D006101A2 /* Doctor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Doctor.storyboard; sourceTree = "<group>"; };
 		BF9D3BB121B5DFD1006101A2 /* HospitalAppointmentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HospitalAppointmentsViewController.swift; sourceTree = "<group>"; };
 		BF9D3BB221B5DFD1006101A2 /* BloodRequestVewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodRequestVewCell.swift; sourceTree = "<group>"; };
@@ -62,6 +76,8 @@
 		CEEEADFF21961EBA00BD847C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEEEAE0421961EBA00BD847C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEEEAE10219A503100BD847C /* TableViewControllerForCountry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerForCountry.swift; sourceTree = "<group>"; };
+		F8BD2164183B2988DF66DC19 /* Pods_bloodAssitant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bloodAssitant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB593B8C8DD657ED38582DBB /* Pods-bloodAssitant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bloodAssitant.release.xcconfig"; path = "Pods/Target Support Files/Pods-bloodAssitant/Pods-bloodAssitant.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,12 +85,47 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D2F469F803543BE95DCABEB /* Pods_bloodAssitant.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E54F40CF052BF38063882AA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F8BD2164183B2988DF66DC19 /* Pods_bloodAssitant.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF4E144521B72BC9004EE660 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				BF4E144821B72BF2004EE660 /* Controllers */,
+				BF4E144621B72BD2004EE660 /* Models */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		BF4E144621B72BD2004EE660 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BF4E144B21B72C27004EE660 /* UserModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BF4E144821B72BF2004EE660 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BF4E144121B72B89004EE660 /* SignUpViewController.swift */,
+				BF4E144321B72B9F004EE660 /* LogInViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		BF9D3BCB21B5FB45006101A2 /* Volunteer */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +196,9 @@
 				BF9D3BB421B5DFD2006101A2 /* GeneralUtils.swift */,
 				BF9D3BD421B60184006101A2 /* BlackButton.swift */,
 				BF9D3BD621B6068F006101A2 /* BorderedTextField.swift */,
+				BF4E143F21B721E7004EE660 /* HttpHandler.swift */,
+				BF4E144D21B72D37004EE660 /* Constants.swift */,
+				BF4E144F21B73384004EE660 /* SharedValues.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -154,6 +208,8 @@
 			children = (
 				CEEEADF421961E6C00BD847C /* bloodAssitant */,
 				CEEEADF321961E6C00BD847C /* Products */,
+				F4F1C33D8F124ECE46010F85 /* Pods */,
+				9E54F40CF052BF38063882AA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -168,6 +224,7 @@
 		CEEEADF421961E6C00BD847C /* bloodAssitant */ = {
 			isa = PBXGroup;
 			children = (
+				BF4E144521B72BC9004EE660 /* Shared */,
 				BF9D3BD321B5FBF6006101A2 /* Utils */,
 				BF9D3BCD21B5FB64006101A2 /* Hospital */,
 				BF9D3BCB21B5FB45006101A2 /* Volunteer */,
@@ -180,6 +237,15 @@
 			path = bloodAssitant;
 			sourceTree = "<group>";
 		};
+		F4F1C33D8F124ECE46010F85 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				841A33C064BA205E69630234 /* Pods-bloodAssitant.debug.xcconfig */,
+				FB593B8C8DD657ED38582DBB /* Pods-bloodAssitant.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -187,9 +253,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CEEEAE0721961EBA00BD847C /* Build configuration list for PBXNativeTarget "bloodAssitant" */;
 			buildPhases = (
+				0FBD717F36A725A0B36B38CB /* [CP] Check Pods Manifest.lock */,
 				CEEEADEE21961E6B00BD847C /* Sources */,
 				CEEEADEF21961E6B00BD847C /* Frameworks */,
 				CEEEADF021961E6B00BD847C /* Resources */,
+				2BB6D21E838EF4870F0B88CD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -248,12 +316,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0FBD717F36A725A0B36B38CB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-bloodAssitant-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2BB6D21E838EF4870F0B88CD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-bloodAssitant/Pods-bloodAssitant-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-bloodAssitant/Pods-bloodAssitant-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CEEEADEE21961E6B00BD847C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF4E144E21B72D37004EE660 /* Constants.swift in Sources */,
+				BF4E144221B72B89004EE660 /* SignUpViewController.swift in Sources */,
 				CEEEAE11219A503100BD847C /* TableViewControllerForCountry.swift in Sources */,
+				BF4E144021B721E7004EE660 /* HttpHandler.swift in Sources */,
 				BF9D3BDB21B62608006101A2 /* UserAppointmentsTableViewCell.swift in Sources */,
 				BF9D3BD921B61EC5006101A2 /* AddAppoinmentsViewController.swift in Sources */,
 				BF9D3BDD21B627A8006101A2 /* UserAppointmentsViewController.swift in Sources */,
@@ -261,14 +381,17 @@
 				BF9D3BBE21B5DFD2006101A2 /* BorderedButton.swift in Sources */,
 				BF9D3BD721B6068F006101A2 /* BorderedTextField.swift in Sources */,
 				CEEEADF821961E6C00BD847C /* UserProfileViewController.swift in Sources */,
+				BF4E144C21B72C27004EE660 /* UserModel.swift in Sources */,
 				BF9D3BC021B5DFD2006101A2 /* HospitalDashboardController.swift in Sources */,
 				BF9D3BD521B60184006101A2 /* BlackButton.swift in Sources */,
 				BF9D3BBB21B5DFD2006101A2 /* HospitalProfileViewController.swift in Sources */,
 				CE2453C9219BE68B00F7D79E /* TableViewControllerForCity.swift in Sources */,
+				BF4E145021B73384004EE660 /* SharedValues.swift in Sources */,
 				CEEEADF621961E6C00BD847C /* AppDelegate.swift in Sources */,
 				BF9D3BBD21B5DFD2006101A2 /* RepositoryTableViewCell.swift in Sources */,
 				CEEEADFE21961E6C00BD847C /* bloodAssitant.xcdatamodeld in Sources */,
 				BF9D3BBF21B5DFD2006101A2 /* HospitalAppointMentViewCell.swift in Sources */,
+				BF4E144421B72B9F004EE660 /* LogInViewController.swift in Sources */,
 				BF9D3BB921B5DFD2006101A2 /* HospitalAppointmentsViewController.swift in Sources */,
 				BF9D3BBC21B5DFD2006101A2 /* GeneralUtils.swift in Sources */,
 				BF9D3BC221B5DFE1006101A2 /* HospitalDashbordViewontroller.swift in Sources */,
@@ -408,6 +531,7 @@
 		};
 		CEEEAE0821961EBA00BD847C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 841A33C064BA205E69630234 /* Pods-bloodAssitant.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -426,6 +550,7 @@
 		};
 		CEEEAE0921961EBA00BD847C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB593B8C8DD657ED38582DBB /* Pods-bloodAssitant.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
