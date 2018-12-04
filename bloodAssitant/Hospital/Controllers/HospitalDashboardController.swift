@@ -36,7 +36,7 @@ class HospitalDashboardController: UIViewController, UICollectionViewDelegate, U
        
         let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "reauestCard", for: indexPath) as! BloodRequestViewCell
         cell.userThumbnail.setTitle("B", for: .normal)
-        GeneralUtils.calculateRadusforCircle(viewObject: cell.userThumbnail)
+        GeneralUtils.makeItCircle(viewObject: cell.userThumbnail)
         cell.userName.text = "John Doe"
         cell.userBloodGroup.text = "AB+"
         cell.requestedUnits.text = "2"

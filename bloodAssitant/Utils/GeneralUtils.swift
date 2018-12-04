@@ -13,7 +13,7 @@ class GeneralUtils {
         viewObject.layer.masksToBounds = true
     }
     
-    public static func calculateRadusforCircle(viewObject: UIView) {
+    public static func makeItCircle(viewObject: UIView) {
         viewObject.layer.cornerRadius = (viewObject.frame.size.width / 2)
         viewObject.layer.masksToBounds = true
     }

@@ -31,7 +31,7 @@ class HospitalAppointmentsViewController: UIViewController, UITableViewDelegate,
         
         cell.appointmentDate.text = "11/12/2018 at 8:55 PM"
         cell.userName.text = "Johnthah Doe one"
-        GeneralUtils.calculateRadusforCircle(viewObject: cell.bloodGroupThumb)
+        GeneralUtils.makeItCircle(viewObject: cell.bloodGroupThumb)
      
         return cell
     }

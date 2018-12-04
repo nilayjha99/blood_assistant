@@ -15,7 +15,7 @@ class HospitalProfileViewController: UIViewController, MFMailComposeViewControll
     @IBOutlet weak var hospitalProfileThumb: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        GeneralUtils.calculateRadusforCircle(viewObject: self.hospitalProfileThumb)
+        GeneralUtils.makeItCircle(viewObject: self.hospitalProfileThumb)
      
         GeneralUtils.makeRoundCorners(viewObject: self.emailToSUpportTeam, radius: 10)
     }
