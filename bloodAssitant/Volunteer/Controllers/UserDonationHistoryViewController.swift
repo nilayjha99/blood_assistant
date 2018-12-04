@@ -8,7 +8,7 @@
 
 import UIKit
 
-class tabViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
+class UserDonationHistoryViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
     
     

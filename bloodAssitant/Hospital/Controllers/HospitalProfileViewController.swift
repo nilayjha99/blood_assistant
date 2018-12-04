@@ -16,8 +16,6 @@ class HospitalProfileViewController: UIViewController, MFMailComposeViewControll
     override func viewDidLoad() {
         super.viewDidLoad()
         GeneralUtils.makeItCircle(viewObject: self.hospitalProfileThumb)
-     
-        GeneralUtils.makeRoundCorners(viewObject: self.emailToSUpportTeam, radius: 10)
     }
 
     func configureMailController() -> MFMailComposeViewController {

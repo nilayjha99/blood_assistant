@@ -20,8 +20,11 @@
 		BF9D3BC821B5E4F3006101A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF9D3BC721B5E4F3006101A2 /* LaunchScreen.storyboard */; };
 		BF9D3BD521B60184006101A2 /* BlackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D3BD421B60184006101A2 /* BlackButton.swift */; };
 		BF9D3BD721B6068F006101A2 /* BorderedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D3BD621B6068F006101A2 /* BorderedTextField.swift */; };
+		BF9D3BD921B61EC5006101A2 /* AddAppoinmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D3BD821B61EC5006101A2 /* AddAppoinmentsViewController.swift */; };
+		BF9D3BDB21B62608006101A2 /* UserAppointmentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D3BDA21B62608006101A2 /* UserAppointmentsTableViewCell.swift */; };
+		BF9D3BDD21B627A8006101A2 /* UserAppointmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D3BDC21B627A8006101A2 /* UserAppointmentsViewController.swift */; };
 		CE2453C9219BE68B00F7D79E /* TableViewControllerForCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2453C8219BE68B00F7D79E /* TableViewControllerForCity.swift */; };
-		CE2453CF21B0D80600F7D79E /* tabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2453CE21B0D80600F7D79E /* tabViewController.swift */; };
+		CE2453CF21B0D80600F7D79E /* UserDonationHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2453CE21B0D80600F7D79E /* UserDonationHistoryViewController.swift */; };
 		CEEEADF621961E6C00BD847C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEADF521961E6C00BD847C /* AppDelegate.swift */; };
 		CEEEADF821961E6C00BD847C /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEADF721961E6C00BD847C /* UserProfileViewController.swift */; };
 		CEEEADFB21961E6C00BD847C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEEEADF921961E6C00BD847C /* Main.storyboard */; };
@@ -44,8 +47,11 @@
 		BF9D3BC721B5E4F3006101A2 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ../../LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF9D3BD421B60184006101A2 /* BlackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackButton.swift; sourceTree = "<group>"; };
 		BF9D3BD621B6068F006101A2 /* BorderedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedTextField.swift; sourceTree = "<group>"; };
+		BF9D3BD821B61EC5006101A2 /* AddAppoinmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAppoinmentsViewController.swift; sourceTree = "<group>"; };
+		BF9D3BDA21B62608006101A2 /* UserAppointmentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAppointmentsTableViewCell.swift; sourceTree = "<group>"; };
+		BF9D3BDC21B627A8006101A2 /* UserAppointmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAppointmentsViewController.swift; sourceTree = "<group>"; };
 		CE2453C8219BE68B00F7D79E /* TableViewControllerForCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerForCity.swift; sourceTree = "<group>"; };
-		CE2453CE21B0D80600F7D79E /* tabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabViewController.swift; sourceTree = "<group>"; };
+		CE2453CE21B0D80600F7D79E /* UserDonationHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDonationHistoryViewController.swift; sourceTree = "<group>"; };
 		CEEEADF221961E6C00BD847C /* bloodAssitant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bloodAssitant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEEEADF521961E6C00BD847C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEEEADF721961E6C00BD847C /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
@@ -114,7 +120,10 @@
 				CEEEADF721961E6C00BD847C /* UserProfileViewController.swift */,
 				CE2453C8219BE68B00F7D79E /* TableViewControllerForCity.swift */,
 				CEEEAE10219A503100BD847C /* TableViewControllerForCountry.swift */,
-				CE2453CE21B0D80600F7D79E /* tabViewController.swift */,
+				CE2453CE21B0D80600F7D79E /* UserDonationHistoryViewController.swift */,
+				BF9D3BD821B61EC5006101A2 /* AddAppoinmentsViewController.swift */,
+				BF9D3BDA21B62608006101A2 /* UserAppointmentsTableViewCell.swift */,
+				BF9D3BDC21B627A8006101A2 /* UserAppointmentsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -241,7 +250,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEEEAE11219A503100BD847C /* TableViewControllerForCountry.swift in Sources */,
-				CE2453CF21B0D80600F7D79E /* tabViewController.swift in Sources */,
+				BF9D3BDB21B62608006101A2 /* UserAppointmentsTableViewCell.swift in Sources */,
+				BF9D3BD921B61EC5006101A2 /* AddAppoinmentsViewController.swift in Sources */,
+				BF9D3BDD21B627A8006101A2 /* UserAppointmentsViewController.swift in Sources */,
+				CE2453CF21B0D80600F7D79E /* UserDonationHistoryViewController.swift in Sources */,
 				BF9D3BBE21B5DFD2006101A2 /* BorderedButton.swift in Sources */,
 				BF9D3BD721B6068F006101A2 /* BorderedTextField.swift in Sources */,
 				CEEEADF821961E6C00BD847C /* UserProfileViewController.swift in Sources */,

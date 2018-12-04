@@ -36,8 +36,8 @@
                                                 </state>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Abcd Hospital of Xyz Place" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Gb-E1-SnI">
-                                                <rect key="frame" x="0.0" y="121" width="343" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="0.0" y="121" width="343" height="26.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -52,51 +52,78 @@
                                             <constraint firstItem="0Gb-E1-SnI" firstAttribute="top" secondItem="qA5-jZ-iV7" secondAttribute="bottom" constant="29" id="khm-wg-WCJ"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adress :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cC8-ns-oaX">
-                                        <rect key="frame" x="0.0" y="173" width="62" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l68-ji-baZ">
-                                        <rect key="frame" x="0.0" y="216.5" width="343" height="64"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="glC-nf-WAM">
+                                        <rect key="frame" x="0.0" y="173" width="343" height="273.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adress :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cC8-ns-oaX">
+                                                <rect key="frame" x="0.0" y="0.0" width="77" height="26.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l68-ji-baZ">
+                                                <rect key="frame" x="0.0" y="26" width="343" height="66"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="66" id="jjY-M1-Qhn"/>
+                                                </constraints>
+                                                <string key="text">234300 - Abc Avanue,
+ABCD - 454 898,</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJz-1s-c1D">
+                                                <rect key="frame" x="0.0" y="100" width="343" height="26.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+1 901 111 2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbQ-RO-Gwm">
+                                                <rect key="frame" x="0.0" y="134" width="343" height="26.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email address :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbi-nE-JxV">
+                                                <rect key="frame" x="0.0" y="168" width="343" height="26.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Abcd@hospitalofxyz.ca" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tiN-N7-0eG">
+                                                <rect key="frame" x="0.0" y="202" width="343" height="26.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="64" id="Hhy-iU-j8y"/>
+                                            <constraint firstItem="tiN-N7-0eG" firstAttribute="leading" secondItem="glC-nf-WAM" secondAttribute="leading" id="2Ci-5m-KxQ"/>
+                                            <constraint firstItem="l68-ji-baZ" firstAttribute="leading" secondItem="glC-nf-WAM" secondAttribute="leading" id="441-0p-uFX"/>
+                                            <constraint firstAttribute="trailing" secondItem="cbi-nE-JxV" secondAttribute="trailing" id="D1W-eb-l8E"/>
+                                            <constraint firstItem="tiN-N7-0eG" firstAttribute="top" secondItem="cbi-nE-JxV" secondAttribute="bottom" constant="7.5" id="DPf-lk-MvP"/>
+                                            <constraint firstItem="hJz-1s-c1D" firstAttribute="top" secondItem="l68-ji-baZ" secondAttribute="bottom" constant="8" id="Oky-O5-Ch1"/>
+                                            <constraint firstItem="cC8-ns-oaX" firstAttribute="top" secondItem="glC-nf-WAM" secondAttribute="top" id="PCB-L1-aiH"/>
+                                            <constraint firstItem="l68-ji-baZ" firstAttribute="top" secondItem="glC-nf-WAM" secondAttribute="top" constant="26" id="QyY-Zv-MxU"/>
+                                            <constraint firstAttribute="trailing" secondItem="hJz-1s-c1D" secondAttribute="trailing" id="UzD-D3-KnM"/>
+                                            <constraint firstAttribute="trailing" secondItem="tiN-N7-0eG" secondAttribute="trailing" id="Zuv-mf-ESl"/>
+                                            <constraint firstAttribute="trailing" secondItem="l68-ji-baZ" secondAttribute="trailing" id="b7u-si-sPR"/>
+                                            <constraint firstItem="hJz-1s-c1D" firstAttribute="leading" secondItem="glC-nf-WAM" secondAttribute="leading" id="cz2-QM-D15"/>
+                                            <constraint firstItem="cbi-nE-JxV" firstAttribute="leading" secondItem="glC-nf-WAM" secondAttribute="leading" id="jjs-91-vQu"/>
+                                            <constraint firstItem="rbQ-RO-Gwm" firstAttribute="top" secondItem="hJz-1s-c1D" secondAttribute="bottom" constant="7.5" id="lhC-yl-Jua"/>
+                                            <constraint firstItem="cC8-ns-oaX" firstAttribute="leading" secondItem="glC-nf-WAM" secondAttribute="leading" id="nZN-sY-sUi"/>
+                                            <constraint firstItem="rbQ-RO-Gwm" firstAttribute="leading" secondItem="glC-nf-WAM" secondAttribute="leading" id="s1Q-uz-TGQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="rbQ-RO-Gwm" secondAttribute="trailing" id="uYR-t9-ZQW"/>
+                                            <constraint firstItem="cbi-nE-JxV" firstAttribute="top" secondItem="rbQ-RO-Gwm" secondAttribute="bottom" constant="7.5" id="zPE-nk-CeM"/>
                                         </constraints>
-                                        <string key="text">234300 - Abc Avanue,
-ABCD - 454 898,
-XYZ Land</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJz-1s-c1D">
-                                        <rect key="frame" x="0.0" y="303.5" width="70" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+1 901 111 2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbQ-RO-Gwm">
-                                        <rect key="frame" x="0.0" y="347" width="343" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email address :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbi-nE-JxV">
-                                        <rect key="frame" x="0.0" y="390.5" width="115.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Abcd@hospitalofxyz.ca" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tiN-N7-0eG">
-                                        <rect key="frame" x="0.0" y="434" width="343" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ALb-fF-isk">
-                                        <rect key="frame" x="0.0" y="477.5" width="343" height="42"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ALb-fF-isk" customClass="BlackButton" customModule="bloodAssitant" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="469.5" width="343" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="hZs-kP-fbA"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="Emal to support team">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -108,28 +135,16 @@ XYZ Land</string>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="ALb-fF-isk" secondAttribute="bottom" id="6Hh-Y8-Y53"/>
-                                    <constraint firstAttribute="trailing" secondItem="l68-ji-baZ" secondAttribute="trailing" id="Bra-No-5PW"/>
-                                    <constraint firstItem="l68-ji-baZ" firstAttribute="top" secondItem="cC8-ns-oaX" secondAttribute="bottom" constant="23" id="C86-W3-peJ"/>
+                                    <constraint firstItem="glC-nf-WAM" firstAttribute="top" secondItem="Y3v-xI-CRN" secondAttribute="bottom" constant="23" id="7CZ-NN-6wB"/>
+                                    <constraint firstAttribute="trailing" secondItem="glC-nf-WAM" secondAttribute="trailing" id="D33-Yx-EKI"/>
                                     <constraint firstAttribute="trailing" secondItem="Y3v-xI-CRN" secondAttribute="trailing" id="EFh-jL-QxZ"/>
                                     <constraint firstItem="ALb-fF-isk" firstAttribute="leading" secondItem="7WH-kI-dS0" secondAttribute="leading" id="GhR-Fn-psk"/>
-                                    <constraint firstItem="tiN-N7-0eG" firstAttribute="top" secondItem="cbi-nE-JxV" secondAttribute="bottom" constant="23" id="HJB-Ol-3a1"/>
-                                    <constraint firstItem="rbQ-RO-Gwm" firstAttribute="top" secondItem="hJz-1s-c1D" secondAttribute="bottom" constant="23" id="LwI-EA-FRc"/>
-                                    <constraint firstItem="l68-ji-baZ" firstAttribute="centerX" secondItem="7WH-kI-dS0" secondAttribute="centerX" id="VH0-1O-84C"/>
-                                    <constraint firstItem="rbQ-RO-Gwm" firstAttribute="leading" secondItem="7WH-kI-dS0" secondAttribute="leading" id="bKD-3Y-PX2"/>
-                                    <constraint firstItem="hJz-1s-c1D" firstAttribute="top" secondItem="l68-ji-baZ" secondAttribute="bottom" constant="23" id="cNk-Fb-REH"/>
                                     <constraint firstItem="Y3v-xI-CRN" firstAttribute="leading" secondItem="7WH-kI-dS0" secondAttribute="leading" id="eAH-VB-TYH"/>
-                                    <constraint firstItem="cbi-nE-JxV" firstAttribute="leading" secondItem="7WH-kI-dS0" secondAttribute="leading" id="eaW-zh-rgG"/>
-                                    <constraint firstItem="hJz-1s-c1D" firstAttribute="leading" secondItem="7WH-kI-dS0" secondAttribute="leading" id="gv7-GF-5Nd"/>
-                                    <constraint firstAttribute="trailing" secondItem="tiN-N7-0eG" secondAttribute="trailing" id="i6h-Tg-Rsq"/>
-                                    <constraint firstAttribute="trailing" secondItem="rbQ-RO-Gwm" secondAttribute="trailing" id="ikW-he-kHd"/>
+                                    <constraint firstItem="glC-nf-WAM" firstAttribute="leading" secondItem="7WH-kI-dS0" secondAttribute="leading" id="grk-7e-Jqu"/>
                                     <constraint firstAttribute="height" constant="519.5" id="kcA-b1-27k"/>
                                     <constraint firstAttribute="trailing" secondItem="ALb-fF-isk" secondAttribute="trailing" id="nvQ-Dt-xLM"/>
-                                    <constraint firstItem="tiN-N7-0eG" firstAttribute="leading" secondItem="7WH-kI-dS0" secondAttribute="leading" id="s1k-9K-zhC"/>
                                     <constraint firstItem="Y3v-xI-CRN" firstAttribute="top" secondItem="7WH-kI-dS0" secondAttribute="top" id="sjT-xv-ax6"/>
-                                    <constraint firstItem="cbi-nE-JxV" firstAttribute="top" secondItem="rbQ-RO-Gwm" secondAttribute="bottom" constant="23" id="wMD-XO-6ho"/>
-                                    <constraint firstItem="cC8-ns-oaX" firstAttribute="top" secondItem="Y3v-xI-CRN" secondAttribute="bottom" constant="23" id="xcy-pL-wA7"/>
                                     <constraint firstItem="ALb-fF-isk" firstAttribute="centerX" secondItem="7WH-kI-dS0" secondAttribute="centerX" id="xzA-vE-Z6b"/>
-                                    <constraint firstItem="l68-ji-baZ" firstAttribute="leading" secondItem="7WH-kI-dS0" secondAttribute="leading" id="yge-0t-a5T"/>
                                 </constraints>
                             </stackView>
                         </subviews>
