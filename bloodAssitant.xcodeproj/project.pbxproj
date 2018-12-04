@@ -23,6 +23,7 @@
 		BF9D3BD921B61EC5006101A2 /* AddAppoinmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D3BD821B61EC5006101A2 /* AddAppoinmentsViewController.swift */; };
 		BF9D3BDB21B62608006101A2 /* UserAppointmentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D3BDA21B62608006101A2 /* UserAppointmentsTableViewCell.swift */; };
 		BF9D3BDD21B627A8006101A2 /* UserAppointmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D3BDC21B627A8006101A2 /* UserAppointmentsViewController.swift */; };
+		BF9D3BDF21B634A9006101A2 /* UserEditProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF9D3BDE21B634A9006101A2 /* UserEditProfile.storyboard */; };
 		CE2453C9219BE68B00F7D79E /* TableViewControllerForCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2453C8219BE68B00F7D79E /* TableViewControllerForCity.swift */; };
 		CE2453CF21B0D80600F7D79E /* UserDonationHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2453CE21B0D80600F7D79E /* UserDonationHistoryViewController.swift */; };
 		CEEEADF621961E6C00BD847C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEADF521961E6C00BD847C /* AppDelegate.swift */; };
@@ -50,6 +51,7 @@
 		BF9D3BD821B61EC5006101A2 /* AddAppoinmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAppoinmentsViewController.swift; sourceTree = "<group>"; };
 		BF9D3BDA21B62608006101A2 /* UserAppointmentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAppointmentsTableViewCell.swift; sourceTree = "<group>"; };
 		BF9D3BDC21B627A8006101A2 /* UserAppointmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAppointmentsViewController.swift; sourceTree = "<group>"; };
+		BF9D3BDE21B634A9006101A2 /* UserEditProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserEditProfile.storyboard; sourceTree = "<group>"; };
 		CE2453C8219BE68B00F7D79E /* TableViewControllerForCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerForCity.swift; sourceTree = "<group>"; };
 		CE2453CE21B0D80600F7D79E /* UserDonationHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDonationHistoryViewController.swift; sourceTree = "<group>"; };
 		CEEEADF221961E6C00BD847C /* bloodAssitant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bloodAssitant.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +81,7 @@
 				CEEEADF921961E6C00BD847C /* Main.storyboard */,
 				BF9D3BD221B5FB98006101A2 /* Models */,
 				BF9D3BD021B5FB85006101A2 /* Controllers */,
+				BF9D3BDE21B634A9006101A2 /* UserEditProfile.storyboard */,
 			);
 			path = Volunteer;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				CEEEAE0021961EBA00BD847C /* Assets.xcassets in Resources */,
 				BF9D3BC821B5E4F3006101A2 /* LaunchScreen.storyboard in Resources */,
 				CEEEADFB21961E6C00BD847C /* Main.storyboard in Resources */,
+				BF9D3BDF21B634A9006101A2 /* UserEditProfile.storyboard in Resources */,
 				BF9D3BAE21B5DF4D006101A2 /* Doctor.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
