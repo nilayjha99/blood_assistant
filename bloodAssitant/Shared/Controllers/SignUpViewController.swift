@@ -10,6 +10,12 @@ import UIKit
 
 class SignUpViewController: UIViewController {
 
+    @IBOutlet weak var withFacebookButon: UIButton!
+    @IBOutlet weak var withEmailButton: BlackButton!
+    @IBOutlet weak var confirmPassword: BorderedTextField!
+    @IBOutlet weak var userPassword: BorderedTextField!
+    @IBOutlet weak var userEmail: BorderedTextField!
+    var user: UserModel?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,4 +33,7 @@ class SignUpViewController: UIViewController {
     }
     */
 
+    @IBAction func signUpWithEmail(_ sender: Any) {
+//        userEditProfile
+    }
 }

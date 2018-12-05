@@ -14,6 +14,7 @@
 		BF4E144C21B72C27004EE660 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4E144B21B72C27004EE660 /* UserModel.swift */; };
 		BF4E144E21B72D37004EE660 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4E144D21B72D37004EE660 /* Constants.swift */; };
 		BF4E145021B73384004EE660 /* SharedValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4E144F21B73384004EE660 /* SharedValues.swift */; };
+		BF4E145221B79742004EE660 /* VolunteerProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4E145121B79742004EE660 /* VolunteerProfileViewController.swift */; };
 		BF9D3BAE21B5DF4D006101A2 /* Doctor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF9D3BAD21B5DF4D006101A2 /* Doctor.storyboard */; };
 		BF9D3BB921B5DFD2006101A2 /* HospitalAppointmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D3BB121B5DFD1006101A2 /* HospitalAppointmentsViewController.swift */; };
 		BF9D3BBA21B5DFD2006101A2 /* BloodRequestVewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D3BB221B5DFD1006101A2 /* BloodRequestVewCell.swift */; };
@@ -49,6 +50,7 @@
 		BF4E144B21B72C27004EE660 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		BF4E144D21B72D37004EE660 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BF4E144F21B73384004EE660 /* SharedValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedValues.swift; sourceTree = "<group>"; };
+		BF4E145121B79742004EE660 /* VolunteerProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerProfileViewController.swift; sourceTree = "<group>"; };
 		BF9D3BAD21B5DF4D006101A2 /* Doctor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Doctor.storyboard; sourceTree = "<group>"; };
 		BF9D3BB121B5DFD1006101A2 /* HospitalAppointmentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HospitalAppointmentsViewController.swift; sourceTree = "<group>"; };
 		BF9D3BB221B5DFD1006101A2 /* BloodRequestVewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodRequestVewCell.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			children = (
 				BF4E144121B72B89004EE660 /* SignUpViewController.swift */,
 				BF4E144321B72B9F004EE660 /* LogInViewController.swift */,
+				CEEEADF721961E6C00BD847C /* UserProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -171,13 +174,13 @@
 		BF9D3BD021B5FB85006101A2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CEEEADF721961E6C00BD847C /* UserProfileViewController.swift */,
 				CE2453C8219BE68B00F7D79E /* TableViewControllerForCity.swift */,
 				CEEEAE10219A503100BD847C /* TableViewControllerForCountry.swift */,
 				CE2453CE21B0D80600F7D79E /* UserDonationHistoryViewController.swift */,
 				BF9D3BD821B61EC5006101A2 /* AddAppoinmentsViewController.swift */,
 				BF9D3BDA21B62608006101A2 /* UserAppointmentsTableViewCell.swift */,
 				BF9D3BDC21B627A8006101A2 /* UserAppointmentsViewController.swift */,
+				BF4E145121B79742004EE660 /* VolunteerProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				BF9D3BDB21B62608006101A2 /* UserAppointmentsTableViewCell.swift in Sources */,
 				BF9D3BD921B61EC5006101A2 /* AddAppoinmentsViewController.swift in Sources */,
 				BF9D3BDD21B627A8006101A2 /* UserAppointmentsViewController.swift in Sources */,
+				BF4E145221B79742004EE660 /* VolunteerProfileViewController.swift in Sources */,
 				CE2453CF21B0D80600F7D79E /* UserDonationHistoryViewController.swift in Sources */,
 				BF9D3BBE21B5DFD2006101A2 /* BorderedButton.swift in Sources */,
 				BF9D3BD721B6068F006101A2 /* BorderedTextField.swift in Sources */,

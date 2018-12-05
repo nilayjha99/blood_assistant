@@ -77,6 +77,9 @@
                                                 <state key="normal" title="Submit">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="signUpWithEmail:" destination="POg-fG-Nhr" eventType="touchUpInside" id="l6u-NH-md7"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MzJ-ac-hdW">
                                                 <rect key="frame" x="0.0" y="344" width="343" height="50"/>
@@ -167,6 +170,14 @@
                         <viewLayoutGuide key="safeArea" id="Knz-k5-LjO"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Sign-Up" image="Signup" selectedImage="Signup" id="ih2-g1-Ubh"/>
+                    <connections>
+                        <outlet property="confirmPassword" destination="mTa-Ug-aKp" id="EPp-jn-w5o"/>
+                        <outlet property="userEmail" destination="Pmd-Mp-dTi" id="QUd-hb-7KF"/>
+                        <outlet property="userPassword" destination="vV0-tr-1lx" id="OVC-Nx-3rU"/>
+                        <outlet property="withEmailButton" destination="0ug-Qq-qgf" id="geX-LL-vAd"/>
+                        <outlet property="withFacebookButon" destination="MzJ-ac-hdW" id="UhF-uR-1Tz"/>
+                        <segue destination="5TM-DE-iRA" kind="presentation" identifier="userEditProfile" id="s6v-nW-Loo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HjO-8e-EVh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -782,7 +793,7 @@
         <!--Profile-->
         <scene sceneID="Ftn-wS-tiR">
             <objects>
-                <viewController id="JXQ-np-VVa" sceneMemberID="viewController">
+                <viewController id="JXQ-np-VVa" customClass="VolunteerProfileViewController" customModule="bloodAssitant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZLQ-nn-58y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -881,8 +892,18 @@
                                 <segue destination="5TM-DE-iRA" kind="show" id="JPs-lr-n32"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="h0R-dT-JbE"/>
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="h0R-dT-JbE">
+                            <connections>
+                                <segue destination="qX0-Q1-r8y" kind="showDetail" identifier="volunteerLogout" id="Lsu-DA-nvA"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="bloodGroupButton" destination="EVN-Gq-Y8S" id="Trm-4l-Bud"/>
+                        <outlet property="emailField" destination="UHX-eI-pwB" id="ZrK-uz-f3V"/>
+                        <outlet property="userAddress" destination="0xy-g8-xmf" id="FPt-ma-wHe"/>
+                        <outlet property="userName" destination="IK3-s2-Ce9" id="ahW-4v-z21"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XrD-BV-LYh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -894,7 +915,7 @@
                 <viewControllerPlaceholder storyboardName="UserEditProfile" id="5TM-DE-iRA" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="orY-Z3-KdF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4900" y="-1463"/>
+            <point key="canvasLocation" x="3672" y="-654"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="8Ej-i1-ART">
@@ -1204,5 +1225,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="XgL-LG-eXg"/>
+        <segue reference="s6v-nW-Loo"/>
     </inferredMetricsTieBreakers>
 </document>

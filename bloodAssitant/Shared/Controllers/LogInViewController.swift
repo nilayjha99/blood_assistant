@@ -43,49 +43,53 @@ class LogInViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    func performDocorLogin(data: JSON) {
-        let doctor = UserModel(
-            email: data["email"].stringValue,
-            name: data["name"].stringValue,
-            user_id: String(data["id"].intValue),
-            user_token: data["auth_token"].stringValue,
-            fb_user_id: nil,
-            user_role_id: String(Constants.DOCTOR_ROLE_ID),
-            blood_group_id: nil,
-            profile_id: nil,
-            phone_number: data["phone_number"].stringValue,
-            lat: data["address_geo"]["lat"].doubleValue,
-            lng: data["address_geo"]["lng"].doubleValue,
-            gender: nil,
-            address: data["address"].stringValue)
-//        print(data["id"].intValue)
-        UserModel.saveUser(user: doctor)
-        HttpHandler.user_id = data["profile_id"].intValue
-        HttpHandler.user_role_id = Constants.DOCTOR_ROLE_ID
-        HttpHandler.user_token = data["auth_token"].stringValue
-        performSegue(withIdentifier: "doctorProfile", sender: self)
+    func performDocorLogin(data: JSON, isSucess: Bool) {
+        if isSucess {
+            let doctor = UserModel(
+                email: data["email"].stringValue,
+                name: data["name"].stringValue,
+                user_id: String(data["id"].intValue),
+                user_token: data["auth_token"].stringValue,
+                fb_user_id: nil,
+                user_role_id: String(Constants.DOCTOR_ROLE_ID),
+                blood_group_id: nil,
+                profile_id: nil,
+                phone_number: data["phone_number"].stringValue,
+                lat: data["address_geo"]["lat"].doubleValue,
+                lng: data["address_geo"]["long"].doubleValue,
+                gender: nil,
+                address: data["address"].stringValue)
+    //        print(data["id"].intValue)
+            UserModel.saveUser(user: doctor)
+            HttpHandler.user_id = data["profile_id"].intValue
+            HttpHandler.user_role_id = Constants.DOCTOR_ROLE_ID
+            HttpHandler.user_token = data["auth_token"].stringValue
+            performSegue(withIdentifier: "doctorProfile", sender: self)
+        }
     }
     
-    func performVolunteerLogin(data: JSON) {
-        let volunteer = UserModel(
-            email: data["email"].stringValue,
-            name: data["name"].stringValue,
-            user_id: String(data["id"].intValue),
-            user_token: data["auth_token"].stringValue,
-            fb_user_id: nil,
-            user_role_id: String(Constants.VOLUNTEER_ROLE_ID),
-            blood_group_id: String(data["blood_group_id"].intValue),
-            profile_id: nil,
-            phone_number: nil,
-            lat: data["address_geo"]["lat"].doubleValue,
-            lng: data["address_geo"]["lng"].doubleValue,
-            gender: data["gender"].stringValue,
-            address: data["address"].stringValue)
-        UserModel.saveUser(user: volunteer)
-        HttpHandler.user_id = data["profile_id"].intValue
-        HttpHandler.user_role_id = Constants.DOCTOR_ROLE_ID
-        HttpHandler.user_token = data["auth_token"].stringValue
-        performSegue(withIdentifier: "volunteerProfile", sender: self)
+    func performVolunteerLogin(data: JSON, isSucess: Bool) {
+        if isSucess {
+            let volunteer = UserModel(
+                email: data["email"].stringValue,
+                name: data["name"].stringValue,
+                user_id: String(data["id"].intValue),
+                user_token: data["auth_token"].stringValue,
+                fb_user_id: nil,
+                user_role_id: String(Constants.VOLUNTEER_ROLE_ID),
+                blood_group_id: String(data["blood_group"].intValue),
+                profile_id: nil,
+                phone_number: nil,
+                lat: data["address_geo"]["lat"].doubleValue,
+                lng: data["address_geo"]["long"].doubleValue,
+                gender: data["gender"].stringValue,
+                address: data["address"].stringValue)
+            UserModel.saveUser(user: volunteer)
+            HttpHandler.user_id = data["profile_id"].intValue
+            HttpHandler.user_role_id = Constants.DOCTOR_ROLE_ID
+            HttpHandler.user_token = data["auth_token"].stringValue
+            performSegue(withIdentifier: "volunteerProfile", sender: self)
+        }
     }
     
     @IBAction func loginWithEmail(_ sender: UIButton) {

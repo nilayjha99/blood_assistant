@@ -67,7 +67,7 @@ class HospitalProfileViewController: UIViewController, MFMailComposeViewControll
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         self.user?.user_token = nil
         UserModel.saveUser(user: self.user!)
-        self.navigationController?.popViewController(animated:true)
+//        self.navigationController?.popViewController(animated:true)
     }
 
 }

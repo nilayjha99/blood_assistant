@@ -125,7 +125,7 @@ ABCD - 454 898,</string>
                                             <constraint firstAttribute="height" constant="50" id="hZs-kP-fbA"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <state key="normal" title="Emal to support team">
+                                        <state key="normal" title="Email to support team">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>

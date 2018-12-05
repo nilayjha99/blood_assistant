@@ -29,13 +29,13 @@ class HttpHandler {
     }
 //    "https://3344f8bb.ngrok.io/api/v1/login/with/email/"
     
-    static func post(url: String, data: Parameters, responseHandler: @escaping ((JSON) -> Void)) {
+    static func post(url: String, data: Parameters, responseHandler: @escaping ((JSON, Bool) -> Void)) {
         print(data)
         sessionManager.request(url, method: .post, parameters: data, encoding: JSONEncoding.default).responseJSON { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                responseHandler(json["payload"])
+                responseHandler(json["payload"], json["success"].boolValue)
             case .failure(let error):
                 print(error.localizedDescription)
             }
