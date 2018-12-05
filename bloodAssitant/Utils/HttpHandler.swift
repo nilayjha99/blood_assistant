@@ -9,21 +9,29 @@
 import SwiftyJSON
 import Alamofire
 
-
+class MashapeHeadersAdapter: RequestAdapter {
+    func adapt(_ urlRequest: URLRequest) throws -> URLRequest {
+        var urlRequest = urlRequest
+//        if HttpHandler.user_token != nil {
+        urlRequest.setValue(HttpHandler.user_token!, forHTTPHeaderField: "Authorization")
+//        urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
+//        }
+        return urlRequest
+    }
+}
 class HttpHandler {
     static var user_id:Int?
     static var user_token: String?
     static var user_role_id: Int?
-//    "https://3344f8bb.ngrok.io/api/v1/login/with/email/"
-    private func getHttpHeaders() -> HTTPHeaders {
-        let headers: HTTPHeaders = [
-            "Authorization": "Token \(HttpHandler.user_token ??  "user_toke")",
-        ]
-        return headers
+    static var sessionManager = Alamofire.SessionManager.default
+    static func initAdapter(){
+     self.sessionManager.adapter = MashapeHeadersAdapter()
     }
+//    "https://3344f8bb.ngrok.io/api/v1/login/with/email/"
     
     static func post(url: String, data: Parameters, responseHandler: @escaping ((JSON) -> Void)) {
-        Alamofire.request(url, method: .post, parameters: data, encoding: JSONEncoding.default).responseJSON { response in
+        print(data)
+        sessionManager.request(url, method: .post, parameters: data, encoding: JSONEncoding.default).responseJSON { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
@@ -34,7 +42,7 @@ class HttpHandler {
         }
     }
     static func get(url: String, queryParams: Parameters, responseHandler: @escaping ((JSON) -> Void)) {
-        Alamofire.request(url, method: .get, parameters: queryParams, encoding: URLEncoding.default).responseJSON { response in
+       sessionManager.request(url, method: .get, parameters: queryParams, encoding: URLEncoding.default).responseJSON { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
@@ -45,7 +53,7 @@ class HttpHandler {
         }
     }
     static func put(url: String, data: Parameters, responseHandler: @escaping ((JSON) -> Void)) {
-        Alamofire.request(url, method: .put, parameters: data, encoding: JSONEncoding.default).responseJSON { response in
+        sessionManager.request(url, method: .put, parameters: data, encoding: JSONEncoding.default).responseJSON { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
@@ -54,6 +62,8 @@ class HttpHandler {
                 print(error.localizedDescription)
             }
         }
+        
     }
+    
     
 }

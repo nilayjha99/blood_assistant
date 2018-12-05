@@ -28,8 +28,8 @@ class HospitalProfileViewController: UIViewController, MFMailComposeViewControll
         self.hospitalPhone.text = user?.phone_number
         self.hospitalEmail.text = user?.email
         self.hospitalAddress.text = user?.address
-//        let initial = String((user?.name?.first)!)
-//        self.hospitalProfileThumb.setTitle(initial, for: UIControl.State.normal)
+        let initial = String((user?.name?.first)!)
+        self.hospitalProfileThumb.setTitle(initial, for: UIControl.State.normal)
     }
 
     func configureMailController() -> MFMailComposeViewController {
@@ -62,5 +62,13 @@ class HospitalProfileViewController: UIViewController, MFMailComposeViewControll
             showMailError()
         }
     }
+    // MARK: - Navigation -
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        self.user?.user_token = nil
+        UserModel.saveUser(user: self.user!)
+        self.navigationController?.popViewController(animated:true)
+    }
+
 }
 

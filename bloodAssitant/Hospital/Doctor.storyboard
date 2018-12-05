@@ -157,7 +157,11 @@ ABCD - 454 898,</string>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="odC-n7-G3y">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="V4H-3v-QcH"/>
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="V4H-3v-QcH">
+                            <connections>
+                                <segue destination="YvQ-GI-1hc" kind="showDetail" id="Qoj-7q-GUx"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="emailToSUpportTeam" destination="ALb-fF-isk" id="0qu-lM-k0s"/>
@@ -171,6 +175,14 @@ ABCD - 454 898,</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1856.8" y="-448.42578710644682"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="VNU-qI-Eig">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="YvQ-GI-1hc" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nlL-gz-yno" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2577" y="-560"/>
         </scene>
         <!--Appointments-->
         <scene sceneID="mAa-HC-00p">
@@ -672,6 +684,11 @@ ABCD - 454 898,</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="selectedIndex">
+                                <integer key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="n0H-Le-r1S" kind="relationship" relationship="viewControllers" id="IS1-IC-tpg"/>

@@ -17,9 +17,21 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var passwordField: BorderedTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let savedUser = UserModel.loadUser() {
+            // The name must not be empty
+            if savedUser.user_token != nil {
+                let role = savedUser.getIntegerValue(input: savedUser.user_role_id!)
+                if role == Constants.DOCTOR_ROLE_ID {
+                    performSegue(withIdentifier: "doctorProfile", sender: self)
+                } else {
+                    performSegue(withIdentifier: "volunteerProfile", sender: self)
+                }
+            }
+            }
+
+        }
 
         // Do any additional setup after loading the view.
-    }
     
 
     /*
@@ -55,7 +67,6 @@ class LogInViewController: UIViewController {
     }
     
     func performVolunteerLogin(data: JSON) {
-        print(data)
         let volunteer = UserModel(
             email: data["email"].stringValue,
             name: data["name"].stringValue,
@@ -70,11 +81,11 @@ class LogInViewController: UIViewController {
             lng: data["address_geo"]["lng"].doubleValue,
             gender: data["gender"].stringValue,
             address: data["address"].stringValue)
-        print(volunteer)
         UserModel.saveUser(user: volunteer)
         HttpHandler.user_id = data["profile_id"].intValue
         HttpHandler.user_role_id = Constants.DOCTOR_ROLE_ID
         HttpHandler.user_token = data["auth_token"].stringValue
+        performSegue(withIdentifier: "volunteerProfile", sender: self)
     }
     
     @IBAction func loginWithEmail(_ sender: UIButton) {

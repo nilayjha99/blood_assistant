@@ -112,7 +112,7 @@ class UserModel: NSObject, NSCoding {
         self.gender = gender
     }
     
-    private func getIntegerValue(_ input: String) -> Int {
+    func getIntegerValue(input: String) -> Int {
         return Int(input)!
     }
     /// Save/Archieve the meal details added/updated by the user.
