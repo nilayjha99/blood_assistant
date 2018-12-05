@@ -7,16 +7,19 @@
 //
 
 import UIKit
+import Alamofire
 
 class UserAppointmentsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
 
-
+    var userAppointments: [VolunteerAppointments] = []
+    var user: UserModel?
     @IBOutlet weak var appointmentsTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.appointmentsTableView.delegate = self
         self.appointmentsTableView.dataSource = self
+        user = UserModel.loadUser()
         // Do any additional setup after loading the view.
     }
     
@@ -26,7 +29,7 @@ class UserAppointmentsViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return userAppointments.count
     }
     // MARK: - Table view data source -
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -38,8 +41,8 @@ class UserAppointmentsViewController: UIViewController, UITableViewDelegate, UIT
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdntifier, for: indexPath) as? UserAppointmentsTableViewCell else {
             fatalError("The dequeued cell is not an instance of MealTableViewCell.")
         }
-        cell.appointmentDate.text = "12/12/12 at 12:12 PM"
-        cell.hospitalName.text = "Abcd hospital of regina"
+        cell.appointmentDate.text = self.userAppointments[indexPath.row].date
+        cell.hospitalName.text = self.userAppointments[indexPath.row].hospital_name
         return cell
     }
     
@@ -47,17 +50,57 @@ class UserAppointmentsViewController: UIViewController, UITableViewDelegate, UIT
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath as IndexPath], with: .fade)
+            let appointment_id = self.userAppointments[indexPath.row].id
+            HttpHandler.get(url: Constants.BASE_URL + "appointments/" + String(appointment_id!) + "/update/?op=1", queryParams: nil, responseHandler: {(_, success: Bool) in
+                if success {
+                    tableView.deleteRows(at: [indexPath as IndexPath], with: .fade)
+                }
+            })
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        switch(segue.identifier ?? "") {
+        case "addAppointment":
+            SharedValues.lodHospitals(country_id: (self.user?.country_id)!, city_id: (self.user?.city_id)!, handler: nil)
+        default:
+            fatalError("Unexpected Segue Identifier: \(String(describing: segue.identifier))")
+        }
     }
-    */
+    
+    // MARK: - Actions -
+    /// It is a reverse seague handler which edits existing meal details or adds a new cell to tale view for a new meal.
+    @IBAction func unwindToMealList(_ sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? AddAppointmentViewController, let appointment = sourceViewController.appointment {
+            
+//            if let selectedIndexPath = .indexPathForSelectedRow {
+//                // Update an existing meal.
+//                meals[selectedIndexPath.row] = meal
+//                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+//            } else {
+//                // Add a new meal.i
+                // this code computes the location of newer cell where new meal is to be inserted
+    
+            
+            let data: Parameters = [
+                "hospital_id": appointment.hospital_id!,
+                "date": appointment.date!
+            ]
+            // Save the meals.
+            HttpHandler.post(url: Constants.BASE_URL + "appointments/", data: data, responseHandler: {(_, success: Bool) in
+                if success {
+                    let newIndexPath = IndexPath(row: self.userAppointments.count, section: 0)
+                    
+                    self.userAppointments.append(appointment)
+                    // .automatic allows the system to decide which animation
+                    self.appointmentsTableView.insertRows(at: [newIndexPath], with: .automatic)
+                }
+            })
+        }
+    }
+
 
 }

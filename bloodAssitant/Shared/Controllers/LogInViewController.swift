@@ -25,9 +25,10 @@ class LogInViewController: UIViewController {
                 if role == Constants.DOCTOR_ROLE_ID {
                     performSegue(withIdentifier: "doctorProfile", sender: self)
                 } else {
-                    performSegue(withIdentifier: "volunteerProfile", sender: self)
                     let userCountry = SharedValues.getItemName(id: savedUser.country_id!, collection: SharedValues.countries)
                     SharedValues.loadCities(country: userCountry, handler: nil)
+                    performSegue(withIdentifier: "volunteerProfile", sender: self)
+                    
                 }
             }
             }
@@ -70,6 +71,8 @@ class LogInViewController: UIViewController {
             HttpHandler.user_id = data["profile_id"].intValue
             HttpHandler.user_role_id = Constants.DOCTOR_ROLE_ID
             HttpHandler.user_token = data["auth_token"].stringValue
+            HttpHandler.initAdapter()
+           
             performSegue(withIdentifier: "doctorProfile", sender: self)
         }
     }
@@ -97,6 +100,10 @@ class LogInViewController: UIViewController {
             HttpHandler.user_id = data["profile_id"].intValue
             HttpHandler.user_role_id = Constants.DOCTOR_ROLE_ID
             HttpHandler.user_token = data["auth_token"].stringValue
+            SharedValues.loadCountries(handler: nil)
+            let userCountry = SharedValues.getItemName(id: volunteer.country_id!, collection: SharedValues.countries)
+            SharedValues.loadCities(country: userCountry, handler: nil)
+            HttpHandler.initAdapter()
             performSegue(withIdentifier: "volunteerProfile", sender: self)
         }
     }

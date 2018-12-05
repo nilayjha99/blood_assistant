@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class UserDonationHistoryViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
@@ -16,13 +17,28 @@ class UserDonationHistoryViewController: UIViewController,UITableViewDelegate, U
     @IBOutlet weak var segmentedForHistory: UISegmentedControl!
     @IBOutlet weak var tableViewForSegmented: UITableView!
     
-    let donatedTo = ["John" , "Jhonson", "Mike", "Siri", "Tesla" ]
-    let receivedFrom = ["Tega" , "Robert", "Anderson", "Sara", "Sam" ]
+    var donatedTo = [String]()
+    var receivedFrom = [String]()
+    
+    var userHistory: JSON?
     override func viewDidLoad() {
+        HttpHandler.get(url: Constants.BASE_URL + "user/history/", queryParams: nil, responseHandler: { (json: JSON, success: Bool) in
+            if success {
+                let donated = json["donated"]
+                for (_,subJson):(String, JSON) in donated {
+                    self.donatedTo.append("\(subJson["name"])\t\(subJson["date"])")
+                }
+                let received = json["received"]
+                for (_,subJson):(String, JSON) in received {
+                    self.receivedFrom.append("\(subJson["name"])\t\(subJson["date"])")
+                }
+            }
+        })
         super.viewDidLoad()
      
           tableViewForSegmented.delegate = self
           tableViewForSegmented.dataSource = self
+        
         
         // Do any additional setup after loading the view.
     }

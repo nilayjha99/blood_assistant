@@ -22,4 +22,5 @@ class GeneralUtils {
         viewObject.layer.borderColor = borderColor
         viewObject.layer.borderWidth = CGFloat(borderWidth)
     }
+    
 }
