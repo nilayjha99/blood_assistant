@@ -13,9 +13,23 @@ class HospitalProfileViewController: UIViewController, MFMailComposeViewControll
 
     @IBOutlet weak var emailToSUpportTeam: UIButton!
     @IBOutlet weak var hospitalProfileThumb: UIButton!
+    @IBOutlet weak var hospitalName: UILabel!
+    @IBOutlet weak var hospitalAddress: UITextView!
+    @IBOutlet weak var hospitalPhone: UILabel!
+    @IBOutlet weak var hospitalEmail: UILabel!
+    
+    var user: UserModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         GeneralUtils.makeItCircle(viewObject: self.hospitalProfileThumb)
+        self.user = UserModel.loadUser()
+        self.hospitalName.text = user?.name
+        self.hospitalPhone.text = user?.phone_number
+        self.hospitalEmail.text = user?.email
+        self.hospitalAddress.text = user?.address
+//        let initial = String((user?.name?.first)!)
+//        self.hospitalProfileThumb.setTitle(initial, for: UIControl.State.normal)
     }
 
     func configureMailController() -> MFMailComposeViewController {

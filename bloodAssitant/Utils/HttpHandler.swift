@@ -9,6 +9,7 @@
 import SwiftyJSON
 import Alamofire
 
+
 class HttpHandler {
     static var user_id:Int?
     static var user_token: String?

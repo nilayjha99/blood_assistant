@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xhQ-eA-JmG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qX0-Q1-r8y">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,7 +12,7 @@
         <!--Sign-Up-->
         <scene sceneID="cTZ-2c-2h7">
             <objects>
-                <viewController id="POg-fG-Nhr" sceneMemberID="viewController">
+                <viewController id="POg-fG-Nhr" customClass="SignUpViewController" customModule="bloodAssitant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XeM-93-0cq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -175,7 +175,7 @@
         <!--Sign-In-->
         <scene sceneID="Haq-Pd-8HE">
             <objects>
-                <viewController id="3do-Yc-nZZ" sceneMemberID="viewController">
+                <viewController id="3do-Yc-nZZ" customClass="LogInViewController" customModule="bloodAssitant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cv0-RM-2qh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -214,7 +214,7 @@
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="jrj-Ht-0hG" kind="show" identifier="gotoHospitalUser" id="dHm-rX-PIc"/>
+                                                    <action selector="loginWithEmail:" destination="3do-Yc-nZZ" eventType="touchUpInside" id="uNF-NF-we2"/>
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nQf-dm-zpr">
@@ -334,6 +334,12 @@
                         <viewLayoutGuide key="safeArea" id="zEm-aC-UA6"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Sign-In" image="Login" selectedImage="Login" id="mhn-Rc-2MQ"/>
+                    <connections>
+                        <outlet property="accountSwitch" destination="mTZ-tf-i6s" id="qX2-oh-i8a"/>
+                        <outlet property="emailField" destination="tKH-tn-yqT" id="gTi-jv-GFx"/>
+                        <outlet property="passwordField" destination="Xes-2l-Tu6" id="eav-l8-bK5"/>
+                        <segue destination="jrj-Ht-0hG" kind="show" identifier="doctorProfile" id="0sD-FL-KeA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eOg-6w-baF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

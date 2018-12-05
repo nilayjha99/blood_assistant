@@ -161,6 +161,10 @@ ABCD - 454 898,</string>
                     </navigationItem>
                     <connections>
                         <outlet property="emailToSUpportTeam" destination="ALb-fF-isk" id="0qu-lM-k0s"/>
+                        <outlet property="hospitalAddress" destination="l68-ji-baZ" id="25R-TF-yyY"/>
+                        <outlet property="hospitalEmail" destination="tiN-N7-0eG" id="7pN-CY-Suc"/>
+                        <outlet property="hospitalName" destination="0Gb-E1-SnI" id="n0l-8t-vlv"/>
+                        <outlet property="hospitalPhone" destination="rbQ-RO-Gwm" id="1sr-Td-qNa"/>
                         <outlet property="hospitalProfileThumb" destination="qA5-jZ-iV7" id="TJb-0h-hWM"/>
                     </connections>
                 </viewController>

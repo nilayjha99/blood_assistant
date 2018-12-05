@@ -14,14 +14,15 @@ class UserModel: NSObject, NSCoding {
     //properties
     var email: String?
     var name: String?
-    var user_id: Int?
+    var user_id: String?
     var user_token: String?
     var fb_user_id: String?
-    var user_role_id: Int?
-    var blood_group_id: Int?
-    var profile_id: Int?
+    var user_role_id: String?
+    var blood_group_id: String?
+    var profile_id: String?
     var phone_number: String?
-    var address_geo: JSON?
+    var lat: Double?
+    var lng: Double?
     var gender: String?
     var address: String?
     
@@ -40,7 +41,8 @@ class UserModel: NSObject, NSCoding {
         static let blood_group_id = "blood_group_id"
         static let profile_id = "profile_id"
         static let phone_number = "phone_number"
-        static let address_geo = "address_geo"
+        static let lat = "lat"
+        static let lng = "lng"
         static let gender = "gender"
         static let address = "address"
     }
@@ -55,7 +57,8 @@ class UserModel: NSObject, NSCoding {
         aCoder.encode(blood_group_id, forKey: PropertyKey.blood_group_id)
         aCoder.encode(profile_id, forKey: PropertyKey.profile_id)
         aCoder.encode(phone_number, forKey: PropertyKey.phone_number)
-        aCoder.encode(address_geo, forKey: PropertyKey.address_geo)
+        aCoder.encode(lat, forKey: PropertyKey.lat)
+        aCoder.encode(lng, forKey: PropertyKey.lng)
         aCoder.encode(gender, forKey: PropertyKey.gender)
         aCoder.encode(address, forKey: PropertyKey.address)
     }
@@ -63,33 +66,35 @@ class UserModel: NSObject, NSCoding {
     required convenience init?(coder aDecoder: NSCoder) {
         let Name = aDecoder.decodeObject(forKey: PropertyKey.name) as? String
         let Email = aDecoder.decodeObject(forKey: PropertyKey.email) as? String
-        let User_id = aDecoder.decodeInteger(forKey: PropertyKey.user_id)
+        let User_id = aDecoder.decodeObject(forKey: PropertyKey.user_id) as? String
         let Fb_user_id = aDecoder.decodeObject(forKey: PropertyKey.fb_user_id) as? String
         let User_token = aDecoder.decodeObject(forKey: PropertyKey.user_token) as? String
-        let User_role_id = aDecoder.decodeInteger(forKey: PropertyKey.user_role_id)
-        let Blood_group_id = aDecoder.decodeInteger(forKey: PropertyKey.blood_group_id)
-        let Profile_id = aDecoder.decodeInteger(forKey: PropertyKey.profile_id)
+        let User_role_id = aDecoder.decodeObject(forKey: PropertyKey.user_role_id) as? String
+        let Blood_group_id = aDecoder.decodeObject(forKey: PropertyKey.blood_group_id) as? String
+        let Profile_id = aDecoder.decodeObject(forKey: PropertyKey.profile_id) as? String
         let Phone_number = aDecoder.decodeObject(forKey: PropertyKey.phone_number) as? String
-        let Address_geo = aDecoder.decodeObject(forKey: PropertyKey.address_geo) as? JSON
+        let Lat = aDecoder.decodeObject(forKey: PropertyKey.lat) as? Double
+        let Long = aDecoder.decodeObject(forKey: PropertyKey.lng) as? Double
         let Gender = aDecoder.decodeObject(forKey: PropertyKey.gender) as? String
         let Address = aDecoder.decodeObject(forKey: PropertyKey.address) as? String
-        
+     
         self.init(email: Email, name: Name, user_id: User_id, user_token: User_token,
                   fb_user_id: Fb_user_id, user_role_id: User_role_id, blood_group_id: Blood_group_id,
-                  profile_id: Profile_id, phone_number: Phone_number, address_geo: Address_geo,
+                  profile_id: Profile_id, phone_number: Phone_number, lat: Lat, lng: Long,
                   gender: Gender, address: Address)
     }
     
     init(email: String?,
      name: String?,
-     user_id: Int?,
+     user_id: String?,
      user_token: String?,
      fb_user_id: String?,
-     user_role_id: Int?,
-     blood_group_id: Int?,
-     profile_id: Int?,
+     user_role_id: String?,
+     blood_group_id: String?,
+     profile_id: String?,
      phone_number: String?,
-     address_geo: JSON?,
+     lat: Double?,
+     lng: Double?,
      gender: String?,
      address: String?) {
         self.email = email
@@ -101,9 +106,41 @@ class UserModel: NSObject, NSCoding {
         self.blood_group_id = blood_group_id
         self.profile_id = profile_id
         self.phone_number = phone_number
-        self.address_geo = address_geo
-        self.gender = gender
+        self.lat = lat
+        self.lng = lng
         self.address = address
+        self.gender = gender
     }
     
+    private func getIntegerValue(_ input: String) -> Int {
+        return Int(input)!
+    }
+    /// Save/Archieve the meal details added/updated by the user.
+    static func saveUser(user: UserModel) {
+        // depricated as of new IOS 12 API
+        // let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(self.meals, toFile: Meal.ArchiveURL.path)
+        do {
+            let data = try NSKeyedArchiver.archivedData(withRootObject: user, requiringSecureCoding: false)
+            try data.write(to: UserModel.ArchiveURL)
+            print("User data successfully saved.")
+        }   catch {
+            fatalError("Error is saving meals data")
+        }
+    }
+    
+    /// Load/Unarchieve the meal details.
+    static func loadUser() -> UserModel? {
+        // Depricated as of new IOS 12 API
+        // return NSKeyedUnarchiver.unarchiveObject(withFile: Meal.ArchiveURL.path)
+        do {
+            let userDataToRead = try NSData(contentsOf: UserModel.ArchiveURL, options: .dataReadingMapped)
+            let userData = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(Data(referencing: userDataToRead))
+            print("Meals data successfully read.")
+            return userData as? UserModel
+        } catch {
+            print("Error in reading meals data")
+            return nil
+        }
+    }
+
 }
