@@ -180,7 +180,11 @@
                                 <action selector="cancelButton:" destination="4vs-5f-WYF" id="mQB-Nz-Q26"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="pKx-1N-qGH"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="pKx-1N-qGH">
+                            <connections>
+                                <action selector="saveUserProfile:" destination="4vs-5f-WYF" id="fPR-Fq-qoH"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="cityButton" destination="6rq-ZF-4Wr" id="d63-1z-bp0"/>

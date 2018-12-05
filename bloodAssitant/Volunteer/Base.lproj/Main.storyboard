@@ -514,10 +514,10 @@
             </objects>
             <point key="canvasLocation" x="6575" y="-3418"/>
         </scene>
-        <!--View Controller-->
+        <!--Volunteer Dashboard View Controller-->
         <scene sceneID="TID-Bt-6DN">
             <objects>
-                <viewController id="zsr-S0-dAB" sceneMemberID="viewController">
+                <viewController id="zsr-S0-dAB" customClass="VolunteerDashboardViewController" customModule="bloodAssitant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AZg-jl-3dW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -525,7 +525,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="WZB-w6-zPy">
                                 <rect key="frame" x="6" y="81" width="363" height="249"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blood Requests(4)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lUa-v5-XOi">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blood Requests" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lUa-v5-XOi">
                                         <rect key="frame" x="0.0" y="0.0" width="363" height="26.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <nil key="textColor"/>
@@ -634,13 +634,16 @@
                                             <constraint firstItem="ahc-Ej-0MX" firstAttribute="leading" secondItem="roW-gm-kQ7" secondAttribute="leading" id="owZ-kq-BdV"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j17-Aw-klp">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j17-Aw-klp" customClass="BlackButton" customModule="bloodAssitant" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="199" width="363" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="cAu-t0-8wq"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <state key="normal" title="Complete a donation"/>
+                                        <connections>
+                                            <segue destination="IfI-7Y-DLX" kind="presentation" id="nA8-yI-7AT"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -663,10 +666,22 @@
                         <viewLayoutGuide key="safeArea" id="tnC-dX-7NL"/>
                     </view>
                     <navigationItem key="navigationItem" id="DO2-BL-6Hf"/>
+                    <connections>
+                        <outlet property="collectionView" destination="ahc-Ej-0MX" id="tGP-wc-sTg"/>
+                        <outlet property="completeDonationButton" destination="j17-Aw-klp" id="mZn-j8-fuX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SKL-dG-YCo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5013.6000000000004" y="-2073.0134932533733"/>
+        </scene>
+        <!--CompleteDonation-->
+        <scene sceneID="Bl1-UB-V0l">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CompleteDonation" id="IfI-7Y-DLX" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oi5-on-Dj8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5809" y="-2187"/>
         </scene>
         <!--Doctor-->
         <scene sceneID="az1-OU-6ri">

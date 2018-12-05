@@ -102,6 +102,9 @@ class UserProfileViewController: UIViewController  {
         }
     }
 
+    @IBAction func saveUserProfile(_ sender: UIBarButtonItem) {
+        
+    }
     /// It is a reverse seague handler which edits existing meal details or adds a new cell to tale view for a new meal.
 
 
