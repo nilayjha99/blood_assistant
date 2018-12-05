@@ -23,6 +23,8 @@ class TableViewControllerForCountry: UITableViewController , UISearchResultsUpda
     
     var resultsController = UITableViewController()
     
+    var selectedItem: String?
+    var user: UserModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,24 +81,31 @@ class TableViewControllerForCountry: UITableViewController , UISearchResultsUpda
 
    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell =  tableView.dequeueReusableCell(withIdentifier: "simpleCell" , for: indexPath) as! SimpleTableViewCell
+        
         if tableView == resultsController.tableView
         {
-            cell.textLabel?.text = filteredCountry[indexPath.row]
+            cell.itemLabel?.text = filteredCountry[indexPath.row]
         }
         else
         {
-            cell.textLabel?.text = Countryarray[indexPath.row]
+            cell.itemLabel?.text = Countryarray[indexPath.row]
         }
         return  cell
     }
    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedItem = self.Countryarray[indexPath.row]
+        SharedValues.loadCities(country: self.selectedItem!, handler: {
+             self.user?.country_id = SharedValues.getItemId(name: self.selectedItem!, collection: SharedValues.countries)
+            self.dismiss(animated: true, completion: nil)
+        })
+       
+    }
 
     
     @IBAction func cancelSearch(_ sender: UIBarButtonItem) {
          dismiss(animated: true, completion: nil)
-        
-        
     }
     
 }

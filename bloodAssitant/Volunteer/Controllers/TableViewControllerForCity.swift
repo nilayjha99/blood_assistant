@@ -14,14 +14,14 @@ class TableViewControllerForCity: UITableViewController , UISearchResultsUpdatin
     
    // var myIndex = 0
     var Cityarray = ["Regina","Toronto","Vancouver","saskatoon","moosejaw"]
-    
+    var selectedValue: String?
     
     var filteredCity = [String]()
     var searchController = UISearchController()
     
     var resultsController = UITableViewController()
     
-    
+    var user: UserModel?
     override func viewDidLoad() {
         super.viewDidLoad()
         searchController = UISearchController(searchResultsController: resultsController)
@@ -77,16 +77,17 @@ class TableViewControllerForCity: UITableViewController , UISearchResultsUpdatin
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+         let cell =  tableView.dequeueReusableCell(withIdentifier: "simpleCell" , for: indexPath) as! SimpleTableViewCell
+        
         if tableView == resultsController.tableView
         {
-            cell.textLabel?.text = filteredCity[indexPath.row]
+            cell.itemLabel?.text = filteredCity[indexPath.row]
             
             //citySelect  = (cell.textLabel?.text)!
         }
         else
         {
-            cell.textLabel?.text = Cityarray[indexPath.row]
+            cell.itemLabel?.text = Cityarray[indexPath.row]
 //            citySelect  = (cell.textLabel?.text)!
             
         }
@@ -94,6 +95,12 @@ class TableViewControllerForCity: UITableViewController , UISearchResultsUpdatin
     }
     
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedValue = self.Cityarray[indexPath.row]
+        self.user?.city_id = SharedValues.getItemId(name: self.selectedValue!, collection: SharedValues.countries)
+            self.dismiss(animated: true, completion: nil)
+        
+    }
     
     @IBAction func cancelSearchForCity(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)

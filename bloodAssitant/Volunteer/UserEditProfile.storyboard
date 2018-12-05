@@ -51,12 +51,11 @@
                                                     <constraint firstAttribute="height" constant="50" id="vG5-82-NDL"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                                <state key="normal" title="City">
+                                                <state key="normal" title="Country">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="citySelectButton:" destination="4vs-5f-WYF" eventType="touchUpInside" id="qRf-BJ-43H"/>
-                                                    <segue destination="p3L-hc-d7j" kind="showDetail" identifier="TableViewControllerForCity" id="QA3-ph-hew"/>
+                                                    <action selector="countrySelectButton:" destination="4vs-5f-WYF" eventType="touchUpInside" id="im6-q7-V3G"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="choose gender" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l5c-cb-xKT" customClass="BorderedTextField" customModule="bloodAssitant" customModuleProvider="target">
@@ -75,11 +74,11 @@
                                                     <constraint firstAttribute="height" constant="50" id="fbO-I7-qCg"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                                <state key="normal" title="Country">
+                                                <state key="normal" title="City">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="countrySelectButton:" destination="4vs-5f-WYF" eventType="touchUpInside" id="uIC-R0-JY1"/>
+                                                    <action selector="citySelectButton:" destination="4vs-5f-WYF" eventType="touchUpInside" id="rGU-bq-s2q"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eSj-4u-qbY">
@@ -176,11 +175,18 @@
                         <viewLayoutGuide key="safeArea" id="fYv-mt-OFr"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="Fhw-gu-kq0">
-                        <barButtonItem key="leftBarButtonItem" title="Save" id="pKx-1N-qGH"/>
-                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="9g8-JQ-bdU"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="9g8-JQ-bdU">
+                            <connections>
+                                <action selector="cancelButton:" destination="4vs-5f-WYF" id="mQB-Nz-Q26"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="pKx-1N-qGH"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="cityButton" destination="6rq-ZF-4Wr" id="d63-1z-bp0"/>
+                        <outlet property="countryButton" destination="4Qh-yC-Yy8" id="Kn5-MV-HOP"/>
                         <segue destination="aP8-JP-SKy" kind="showDetail" identifier="TableViewControllerForCountry" id="7V2-Sh-EdE"/>
+                        <segue destination="p3L-hc-d7j" kind="show" identifier="TableViewControllerForCity" id="KEh-Ng-vs5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OFt-5F-Zmh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -190,11 +196,37 @@
         <!--Country-->
         <scene sceneID="gic-FP-VTN">
             <objects>
-                <tableViewController storyboardIdentifier="TableViewControllerForCountry" id="jwN-Vj-qL7" customClass="TableViewControllerForCountry" customModule="bloodAssitant" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="TableViewControllerForCountry" id="jwN-Vj-qL7" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="I4i-NM-PD0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="simpleCell" rowHeight="52" id="jbV-o4-fYg" customClass="SimpleTableViewCell" customModule="bloodAssitant" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="52"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jbV-o4-fYg" id="dMN-mJ-o34">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="51.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7RP-44-SPE">
+                                            <rect key="frame" x="21" y="15" width="333" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="7RP-44-SPE" firstAttribute="leading" secondItem="dMN-mJ-o34" secondAttribute="leadingMargin" constant="5" id="IGZ-Ie-zZj"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="7RP-44-SPE" secondAttribute="trailing" constant="5" id="Mby-6a-VKP"/>
+                                        <constraint firstItem="7RP-44-SPE" firstAttribute="top" secondItem="dMN-mJ-o34" secondAttribute="topMargin" constant="4" id="tkz-hc-Myh"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="itemLabel" destination="7RP-44-SPE" id="psw-85-gIq"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="jwN-Vj-qL7" id="1Li-bo-lsX"/>
                             <outlet property="delegate" destination="jwN-Vj-qL7" id="RTn-0P-7fS"/>
@@ -210,7 +242,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wU8-Uk-NL5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4964" y="-636"/>
+            <point key="canvasLocation" x="4964" y="-636.4317841079461"/>
         </scene>
         <!--City-->
         <scene sceneID="lXG-Hu-als">
@@ -220,6 +252,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="55" id="ePq-0l-p6Q" customClass="SimpleTableViewCell" customModule="bloodAssitant" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="55"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ePq-0l-p6Q" id="Caf-aS-M0v">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eit-4o-pw0">
+                                            <rect key="frame" x="21" y="15" width="333" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Eit-4o-pw0" secondAttribute="trailing" constant="5" id="F5M-cB-ZWm"/>
+                                        <constraint firstItem="Eit-4o-pw0" firstAttribute="leading" secondItem="Caf-aS-M0v" secondAttribute="leadingMargin" constant="5" id="GAN-Jl-7Hx"/>
+                                        <constraint firstItem="Eit-4o-pw0" firstAttribute="top" secondItem="Caf-aS-M0v" secondAttribute="topMargin" constant="4" id="KA1-Vh-1hC"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="kq1-Kz-1zK" id="k6F-B4-v7Y"/>
                             <outlet property="delegate" destination="kq1-Kz-1zK" id="AKr-mZ-8qJ"/>
@@ -235,7 +290,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YVA-s2-tj9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3945" y="180"/>
+            <point key="canvasLocation" x="3973.5999999999999" y="115.59220389805098"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Xo8-Y7-6pw">
@@ -289,7 +344,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hKB-mK-hLY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3073" y="181"/>
+            <point key="canvasLocation" x="3073" y="116"/>
         </scene>
     </scenes>
 </document>

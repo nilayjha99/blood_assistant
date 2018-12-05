@@ -34,6 +34,6 @@ class SignUpViewController: UIViewController {
     */
 
     @IBAction func signUpWithEmail(_ sender: Any) {
-//        userEditProfile
+        
     }
 }

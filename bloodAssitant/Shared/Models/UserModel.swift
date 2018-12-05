@@ -25,6 +25,8 @@ class UserModel: NSObject, NSCoding {
     var lng: Double?
     var gender: String?
     var address: String?
+    var country_id: Int?
+    var city_id: Int?
     
     //MARK: - Archiving Paths -
     // lookup the curent application's documents directory and create the file URL by appending meals to the end of the documents URL.
@@ -45,6 +47,8 @@ class UserModel: NSObject, NSCoding {
         static let lng = "lng"
         static let gender = "gender"
         static let address = "address"
+        static let country_id = "country_id"
+        static let city_id = "city_id"
     }
     
     func encode(with aCoder: NSCoder) {
@@ -61,6 +65,8 @@ class UserModel: NSObject, NSCoding {
         aCoder.encode(lng, forKey: PropertyKey.lng)
         aCoder.encode(gender, forKey: PropertyKey.gender)
         aCoder.encode(address, forKey: PropertyKey.address)
+        aCoder.encode(country_id, forKey: PropertyKey.country_id)
+        aCoder.encode(city_id, forKey: PropertyKey.city_id)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
@@ -77,11 +83,13 @@ class UserModel: NSObject, NSCoding {
         let Long = aDecoder.decodeObject(forKey: PropertyKey.lng) as? Double
         let Gender = aDecoder.decodeObject(forKey: PropertyKey.gender) as? String
         let Address = aDecoder.decodeObject(forKey: PropertyKey.address) as? String
-     
+        let Country_id = aDecoder.decodeObject(forKey: PropertyKey.country_id) as? Int
+        let City_id = aDecoder.decodeObject(forKey: PropertyKey.city_id) as? Int
+        
         self.init(email: Email, name: Name, user_id: User_id, user_token: User_token,
                   fb_user_id: Fb_user_id, user_role_id: User_role_id, blood_group_id: Blood_group_id,
                   profile_id: Profile_id, phone_number: Phone_number, lat: Lat, lng: Long,
-                  gender: Gender, address: Address)
+                  gender: Gender, address: Address, country_id: Country_id, city_id: City_id)
     }
     
     init(email: String?,
@@ -96,7 +104,10 @@ class UserModel: NSObject, NSCoding {
      lat: Double?,
      lng: Double?,
      gender: String?,
-     address: String?) {
+     address: String?,
+     country_id: Int?,
+     city_id: Int?
+     ) {
         self.email = email
         self.name = name
         self.user_id = user_id
@@ -110,6 +121,8 @@ class UserModel: NSObject, NSCoding {
         self.lng = lng
         self.address = address
         self.gender = gender
+        self.country_id = country_id
+        self.city_id = city_id
     }
     
     func getIntegerValue(input: String) -> Int {

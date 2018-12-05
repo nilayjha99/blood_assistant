@@ -19,12 +19,15 @@ class LogInViewController: UIViewController {
         super.viewDidLoad()
         if let savedUser = UserModel.loadUser() {
             // The name must not be empty
+            SharedValues.loadCountries(handler: nil)
             if savedUser.user_token != nil {
                 let role = savedUser.getIntegerValue(input: savedUser.user_role_id!)
                 if role == Constants.DOCTOR_ROLE_ID {
                     performSegue(withIdentifier: "doctorProfile", sender: self)
                 } else {
                     performSegue(withIdentifier: "volunteerProfile", sender: self)
+                    let userCountry = SharedValues.getItemName(id: savedUser.country_id!, collection: SharedValues.countries)
+                    SharedValues.loadCities(country: userCountry, handler: nil)
                 }
             }
             }
@@ -58,7 +61,10 @@ class LogInViewController: UIViewController {
                 lat: data["address_geo"]["lat"].doubleValue,
                 lng: data["address_geo"]["long"].doubleValue,
                 gender: nil,
-                address: data["address"].stringValue)
+                address: data["address"].stringValue,
+                country_id: data["country_id"].intValue,
+                city_id: data["city_id"].intValue
+                )
     //        print(data["id"].intValue)
             UserModel.saveUser(user: doctor)
             HttpHandler.user_id = data["profile_id"].intValue
@@ -83,7 +89,10 @@ class LogInViewController: UIViewController {
                 lat: data["address_geo"]["lat"].doubleValue,
                 lng: data["address_geo"]["long"].doubleValue,
                 gender: data["gender"].stringValue,
-                address: data["address"].stringValue)
+                address: data["address"].stringValue,
+                country_id: data["country_id"].intValue,
+                city_id: data["city_id"].intValue
+                )
             UserModel.saveUser(user: volunteer)
             HttpHandler.user_id = data["profile_id"].intValue
             HttpHandler.user_role_id = Constants.DOCTOR_ROLE_ID

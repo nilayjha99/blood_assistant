@@ -41,23 +41,23 @@ class HttpHandler {
             }
         }
     }
-    static func get(url: String, queryParams: Parameters, responseHandler: @escaping ((JSON) -> Void)) {
+    static func get(url: String, queryParams: Parameters?, responseHandler: @escaping ((JSON, Bool) -> Void)) {
        sessionManager.request(url, method: .get, parameters: queryParams, encoding: URLEncoding.default).responseJSON { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                responseHandler(json["payload"])
+                responseHandler(json["payload"], json["success"].boolValue)
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
     }
-    static func put(url: String, data: Parameters, responseHandler: @escaping ((JSON) -> Void)) {
+    static func put(url: String, data: Parameters, responseHandler: @escaping ((JSON, Bool) -> Void)) {
         sessionManager.request(url, method: .put, parameters: data, encoding: JSONEncoding.default).responseJSON { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                responseHandler(json["payload"])
+                responseHandler(json["payload"], json["success"].boolValue)
             case .failure(let error):
                 print(error.localizedDescription)
             }

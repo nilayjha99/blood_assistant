@@ -15,6 +15,7 @@
 		BF4E144E21B72D37004EE660 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4E144D21B72D37004EE660 /* Constants.swift */; };
 		BF4E145021B73384004EE660 /* SharedValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4E144F21B73384004EE660 /* SharedValues.swift */; };
 		BF4E145221B79742004EE660 /* VolunteerProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4E145121B79742004EE660 /* VolunteerProfileViewController.swift */; };
+		BF4E145421B7D32B004EE660 /* SimpleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4E145321B7D32B004EE660 /* SimpleTableViewCell.swift */; };
 		BF9D3BAE21B5DF4D006101A2 /* Doctor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF9D3BAD21B5DF4D006101A2 /* Doctor.storyboard */; };
 		BF9D3BB921B5DFD2006101A2 /* HospitalAppointmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D3BB121B5DFD1006101A2 /* HospitalAppointmentsViewController.swift */; };
 		BF9D3BBA21B5DFD2006101A2 /* BloodRequestVewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D3BB221B5DFD1006101A2 /* BloodRequestVewCell.swift */; };
@@ -51,6 +52,7 @@
 		BF4E144D21B72D37004EE660 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BF4E144F21B73384004EE660 /* SharedValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedValues.swift; sourceTree = "<group>"; };
 		BF4E145121B79742004EE660 /* VolunteerProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerProfileViewController.swift; sourceTree = "<group>"; };
+		BF4E145321B7D32B004EE660 /* SimpleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTableViewCell.swift; sourceTree = "<group>"; };
 		BF9D3BAD21B5DF4D006101A2 /* Doctor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Doctor.storyboard; sourceTree = "<group>"; };
 		BF9D3BB121B5DFD1006101A2 /* HospitalAppointmentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HospitalAppointmentsViewController.swift; sourceTree = "<group>"; };
 		BF9D3BB221B5DFD1006101A2 /* BloodRequestVewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodRequestVewCell.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				BF9D3BDA21B62608006101A2 /* UserAppointmentsTableViewCell.swift */,
 				BF9D3BDC21B627A8006101A2 /* UserAppointmentsViewController.swift */,
 				BF4E145121B79742004EE660 /* VolunteerProfileViewController.swift */,
+				BF4E145321B7D32B004EE660 /* SimpleTableViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				BF4E144421B72B9F004EE660 /* LogInViewController.swift in Sources */,
 				BF9D3BB921B5DFD2006101A2 /* HospitalAppointmentsViewController.swift in Sources */,
 				BF9D3BBC21B5DFD2006101A2 /* GeneralUtils.swift in Sources */,
+				BF4E145421B7D32B004EE660 /* SimpleTableViewCell.swift in Sources */,
 				BF9D3BC221B5DFE1006101A2 /* HospitalDashbordViewontroller.swift in Sources */,
 				BF9D3BBA21B5DFD2006101A2 /* BloodRequestVewCell.swift in Sources */,
 			);
