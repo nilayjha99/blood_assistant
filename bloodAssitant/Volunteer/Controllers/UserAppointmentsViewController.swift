@@ -11,15 +11,20 @@ import Alamofire
 
 class UserAppointmentsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-
+    @IBOutlet weak var addAppointmentButton: UIBarButtonItem!
+    
     var userAppointments: [VolunteerAppointments] = []
     var user: UserModel?
     @IBOutlet weak var appointmentsTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.addAppointmentButton.isEnabled = false
         self.appointmentsTableView.delegate = self
         self.appointmentsTableView.dataSource = self
         user = UserModel.loadUser()
+        SharedValues.lodHospitals(country_id: (self.user?.country_id)!, city_id: (self.user?.city_id)!, handler: {() in
+            self.addAppointmentButton.isEnabled = true
+        })
         // Do any additional setup after loading the view.
     }
     
@@ -41,6 +46,14 @@ class UserAppointmentsViewController: UIViewController, UITableViewDelegate, UIT
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdntifier, for: indexPath) as? UserAppointmentsTableViewCell else {
             fatalError("The dequeued cell is not an instance of MealTableViewCell.")
         }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+        
+        let date = dateFormatter.date(from: self.userAppointments[indexPath.row].date!)
+        self.userAppointments[indexPath.row].date = dateFormatter.string(from: date!)
+        
         cell.appointmentDate.text = self.userAppointments[indexPath.row].date
         cell.hospitalName.text = self.userAppointments[indexPath.row].hospital_name
         return cell
@@ -84,10 +97,14 @@ class UserAppointmentsViewController: UIViewController, UITableViewDelegate, UIT
 //                // Add a new meal.i
                 // this code computes the location of newer cell where new meal is to be inserted
     
+//            let dateFormatter = DateFormatter()
+//            dateFormatter.dateFormat = "%Y-%m-%dT%H:%M:%S"
+//            let date = dateFormatter.date(from: appointment.date!)
+//            appointment.date = dateFormatter.string(from: date!)
             
             let data: Parameters = [
                 "hospital_id": appointment.hospital_id!,
-                "date": appointment.date!
+                "appointment_date": appointment.date!
             ]
             // Save the meals.
             HttpHandler.post(url: Constants.BASE_URL + "appointments/", data: data, responseHandler: {(_, success: Bool) in

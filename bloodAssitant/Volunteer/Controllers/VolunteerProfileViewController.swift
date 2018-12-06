@@ -23,6 +23,8 @@ class VolunteerProfileViewController: UIViewController {
         self.userName.text = self.user?.name
         self.userAddress.text = self.user?.address
         self.emailField.text = self.user?.email
+        HttpHandler.user_id = Int((user?.user_id)!)!
+        HttpHandler.user_role_id = Constants.VOLUNTEER_ROLE_ID
         print(self.user?.getIntegerValue(input: ((self.user?.blood_group_id)!)) ?? "aa")
         
         let initial = Constants.BLOOD_GROUPS[(self.user?.getIntegerValue(input: (self.user?.blood_group_id)!))! - 1 ]

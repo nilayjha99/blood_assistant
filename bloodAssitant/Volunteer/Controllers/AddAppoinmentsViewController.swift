@@ -22,6 +22,9 @@ class AddAppointmentViewController: UIViewController, UIPickerViewDataSource, UI
         super.viewDidLoad()
         self.initDatePicker()
         self.initPriorityPicker()
+        if self.appointment == nil {
+            self.appointment = VolunteerAppointments()
+        }
     }
 
     
@@ -86,7 +89,7 @@ class AddAppointmentViewController: UIViewController, UIPickerViewDataSource, UI
     
     @objc private func priorityPickerDoneTapped() {
         self.hospitalpickerField.text = self.appointment?.hospital_name!
-        self.appointment?.hospital_id = SharedValues.getItemId(name: self.hospitalpickerField.text!, collection: nil)
+        self.appointment?.hospital_id = SharedValues.getItemId(name: self.hospitalpickerField.text!, collection: SharedValues.hospitals)
         
         view.endEditing(true)
     }

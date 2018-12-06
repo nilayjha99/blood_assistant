@@ -51,7 +51,7 @@
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="name"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Confirm Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUw-em-WKx">
                                                 <rect key="frame" x="0.0" y="184.5" width="343" height="26.5"/>
@@ -66,7 +66,7 @@
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="name"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ug-Qq-qgf" customClass="BlackButton" customModule="bloodAssitant" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="286.5" width="343" height="50"/>
@@ -176,7 +176,7 @@
                         <outlet property="userPassword" destination="vV0-tr-1lx" id="OVC-Nx-3rU"/>
                         <outlet property="withEmailButton" destination="0ug-Qq-qgf" id="geX-LL-vAd"/>
                         <outlet property="withFacebookButon" destination="MzJ-ac-hdW" id="UhF-uR-1Tz"/>
-                        <segue destination="5TM-DE-iRA" kind="presentation" identifier="userEditProfile" id="s6v-nW-Loo"/>
+                        <segue destination="5TM-DE-iRA" kind="showDetail" identifier="userSignup" id="s6v-nW-Loo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HjO-8e-EVh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -419,6 +419,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addAppointmentButton" destination="vWj-mB-IzO" id="pcN-7V-fgL"/>
                         <outlet property="appointmentsTableView" destination="w1d-lR-PiS" id="8Sh-cs-yqh"/>
                     </connections>
                 </viewController>

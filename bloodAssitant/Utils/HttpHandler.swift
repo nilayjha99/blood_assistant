@@ -30,8 +30,11 @@ class HttpHandler {
 //    "https://3344f8bb.ngrok.io/api/v1/login/with/email/"
     
     static func post(url: String, data: Parameters, responseHandler: @escaping ((JSON, Bool) -> Void)) {
-        print(data)
-        sessionManager.request(url, method: .post, parameters: data, encoding: JSONEncoding.default).responseJSON { response in
+        var reqData = data
+        if user_id ?? nil != nil {
+            reqData["u_id"] = self.user_id
+        }
+        sessionManager.request(url, method: .post, parameters: reqData, encoding: JSONEncoding.default).responseJSON { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
@@ -42,7 +45,17 @@ class HttpHandler {
         }
     }
     static func get(url: String, queryParams: Parameters?, responseHandler: @escaping ((JSON, Bool) -> Void)) {
-       sessionManager.request(url, method: .get, parameters: queryParams, encoding: URLEncoding.default).responseJSON { response in
+        var reqPar: Parameters? = queryParams
+         if user_id ?? nil != nil {
+            if reqPar ?? nil != nil {
+            reqPar!["u_id"] = HttpHandler.user_id
+            } else {
+                reqPar = [
+                    "u_id": HttpHandler.user_id!
+                ]
+            }
+        }
+        sessionManager.request(url, method: .get, parameters: reqPar, encoding: URLEncoding.default).responseJSON { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
@@ -53,7 +66,11 @@ class HttpHandler {
         }
     }
     static func put(url: String, data: Parameters, responseHandler: @escaping ((JSON, Bool) -> Void)) {
-        sessionManager.request(url, method: .put, parameters: data, encoding: JSONEncoding.default).responseJSON { response in
+        var reqData = data
+        if user_id ?? nil != nil {
+            reqData["u_id"] = self.user_id
+        }
+        sessionManager.request(url, method: .put, parameters: reqData, encoding: JSONEncoding.default).responseJSON { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)

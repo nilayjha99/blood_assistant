@@ -9,8 +9,9 @@
 class Constants {
     static let VOLUNTEER_ROLE_ID = 1
     static let DOCTOR_ROLE_ID = 2
-    static let BASE_URL = "https://f0190169.ngrok.io/api/v1/"
+    static let BASE_URL = "https://9c159d6b.ngrok.io/api/v1/"
     static let BLOOD_GROUPS = [
         "A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"
     ]
+    static let GENDERS = ["male", "female", "other"]
 }

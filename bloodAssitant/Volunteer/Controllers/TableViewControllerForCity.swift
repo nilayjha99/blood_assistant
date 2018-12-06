@@ -23,7 +23,7 @@ class TableViewControllerForCity: UITableViewController , UISearchResultsUpdatin
     
     var user: UserModel?
     override func viewDidLoad() {
-        super.viewDidLoad()
+         
         searchController = UISearchController(searchResultsController: resultsController)
         tableView.tableHeaderView = searchController.searchBar
         searchController.searchResultsUpdater = self

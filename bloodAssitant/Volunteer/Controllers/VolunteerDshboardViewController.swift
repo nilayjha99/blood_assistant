@@ -14,7 +14,7 @@ class VolunteerDashboardViewController: UIViewController, UICollectionViewDelega
     
     @IBOutlet weak var completeDonationButton: BlackButton!
     @IBOutlet weak var collectionView: UICollectionView!
-    let BLOOD_REQUESTS_URL = Constants.BASE_URL + "user/dontions/"
+    let BLOOD_REQUESTS_URL = Constants.BASE_URL + "user/donations/"
     var blodRequests = [BloodRequestsModel]()
     override func viewDidLoad() {
         HttpHandler.get(url: BLOOD_REQUESTS_URL, queryParams: nil, responseHandler: {(json: JSON, success: Bool) in

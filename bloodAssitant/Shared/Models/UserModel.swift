@@ -27,6 +27,7 @@ class UserModel: NSObject, NSCoding {
     var address: String?
     var country_id: Int?
     var city_id: Int?
+    var password: String?
     
     //MARK: - Archiving Paths -
     // lookup the curent application's documents directory and create the file URL by appending meals to the end of the documents URL.

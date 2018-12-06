@@ -101,12 +101,15 @@ class LogInViewController: UIViewController {
             HttpHandler.user_id = data["profile_id"].intValue
             HttpHandler.user_role_id = Constants.DOCTOR_ROLE_ID
             HttpHandler.user_token = data["auth_token"].stringValue
-            SharedValues.loadCountries(handler: nil)
-            let userCountry = SharedValues.getItemName(id: volunteer.country_id!, collection: SharedValues.countries)
-            SharedValues.loadCities(country: userCountry, handler: {() in
-                HttpHandler.initAdapter()
-                self.performSegue(withIdentifier: "volunteerProfile", sender: self)
+            HttpHandler.initAdapter()
+            SharedValues.loadCountries(handler: { () in
+                let userCountry = SharedValues.getItemName(id: volunteer.country_id!, collection: SharedValues.countries)
+                SharedValues.loadCities(country: userCountry, handler: {() in
+                    HttpHandler.initAdapter()
+                    self.performSegue(withIdentifier: "volunteerProfile", sender: self)
+                })
             })
+           
         }
     }
     

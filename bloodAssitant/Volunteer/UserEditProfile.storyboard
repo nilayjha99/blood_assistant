@@ -56,6 +56,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="countrySelectButton:" destination="4vs-5f-WYF" eventType="touchUpInside" id="im6-q7-V3G"/>
+                                                    <segue destination="aP8-JP-SKy" kind="show" identifier="TableViewControllerForCountry" id="Gta-Fu-OKi"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="choose gender" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l5c-cb-xKT" customClass="BorderedTextField" customModule="bloodAssitant" customModuleProvider="target">
@@ -79,6 +80,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="citySelectButton:" destination="4vs-5f-WYF" eventType="touchUpInside" id="rGU-bq-s2q"/>
+                                                    <segue destination="p3L-hc-d7j" kind="show" identifier="TableViewControllerForCity" id="BRp-Jl-bDS"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eSj-4u-qbY">
@@ -187,10 +189,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="bloodGroupField" destination="RvO-nf-Tbb" id="aFV-No-X6G"/>
                         <outlet property="cityButton" destination="6rq-ZF-4Wr" id="d63-1z-bp0"/>
                         <outlet property="countryButton" destination="4Qh-yC-Yy8" id="Kn5-MV-HOP"/>
-                        <segue destination="aP8-JP-SKy" kind="showDetail" identifier="TableViewControllerForCountry" id="7V2-Sh-EdE"/>
-                        <segue destination="p3L-hc-d7j" kind="show" identifier="TableViewControllerForCity" id="KEh-Ng-vs5"/>
+                        <outlet property="genderField" destination="l5c-cb-xKT" id="IY7-SJ-ST5"/>
+                        <outlet property="userAddresField" destination="afV-W2-Izb" id="wxa-Na-2sL"/>
+                        <outlet property="userNameField" destination="kX1-Sb-tqL" id="dvt-yR-2db"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OFt-5F-Zmh" userLabel="First Responder" sceneMemberID="firstResponder"/>

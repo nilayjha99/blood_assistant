@@ -33,7 +33,43 @@ class SignUpViewController: UIViewController {
     }
     */
 
-    @IBAction func signUpWithEmail(_ sender: Any) {
-        
+    func validateInputs() -> Bool {
+        if !(self.userEmail.text?.isEmpty)! && !(self.userPassword.text?.isEmpty)! &&
+            !(self.confirmPassword.text?.isEmpty)! {
+            if self.userPassword.text == self.confirmPassword.text {
+                self.user = UserModel(email: self.userEmail.text, name: nil, user_id: nil, user_token: nil, fb_user_id: nil, user_role_id: String(Constants.VOLUNTEER_ROLE_ID), blood_group_id: nil, profile_id: nil, phone_number: nil, lat: nil, lng: nil, gender: nil, address: nil, country_id: nil, city_id: nil)
+                return true
+            } else {
+                return false
+            }
+        } else {
+            return false
+        }
     }
+    @IBAction func signUpWithEmail(_ sender: Any) {
+        if !self.validateInputs() {
+            return
+        } else {
+            performSegue(withIdentifier: "userSignup", sender: self)
+        }
+    }
+    
+    //MARK: - Navigation -
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        switch(segue.identifier ?? "") {
+        case "userSignup":
+            // check the segue's destination
+//            guard let profileViewController = segue.destination as? UserProfileViewController else {
+//                fatalError("unexpected destination: \(segue.destination)")
+//            }
+            UserProfileViewController.passedUser = self.user
+        default:
+            fatalError("Unexpected Segue Identifier: \(String(describing: segue.identifier))")
+        }
+    }
+
+
 }
