@@ -97,10 +97,11 @@ class UserAppointmentsViewController: UIViewController, UITableViewDelegate, UIT
 //                // Add a new meal.i
                 // this code computes the location of newer cell where new meal is to be inserted
     
-//            let dateFormatter = DateFormatter()
-//            dateFormatter.dateFormat = "%Y-%m-%dT%H:%M:%S"
-//            let date = dateFormatter.date(from: appointment.date!)
-//            appointment.date = dateFormatter.string(from: date!)
+            let dateFormatter = DateFormatter()
+            dateFormatter.timeStyle = .short
+            dateFormatter.dateStyle = .short
+            let date = dateFormatter.date(from: appointment.date!)
+            appointment.date = dateFormatter.string(from: date!)
             
             let data: Parameters = [
                 "hospital_id": appointment.hospital_id!,

@@ -125,7 +125,7 @@ class UserModel: NSObject, NSCoding {
         self.country_id = country_id
         self.city_id = city_id
     }
-    
+
     func getIntegerValue(input: String) -> Int {
         return Int(input)!
     }

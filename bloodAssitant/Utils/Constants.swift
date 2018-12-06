@@ -7,6 +7,10 @@
 //
 
 class Constants {
+    static let COUNTRY_ID = 1
+    static let CITY_ID = 1
+    static let COUNTRY_NAME = "Canada"
+    static let CITY_NAME = "Regina"
     static let VOLUNTEER_ROLE_ID = 1
     static let DOCTOR_ROLE_ID = 2
     static let BASE_URL = "https://9c159d6b.ngrok.io/api/v1/"

@@ -39,7 +39,7 @@ class UserProfileViewController: UIViewController  {
         super.viewDidLoad()
         self.initBloodPicker()
         self.initGenderPicker()
-        self.manageCityCountrySeletors()
+
 //        self.loadData()
         // Do any additional setup after loading the view, typically from a nib.
        // dateForAppointment ()
@@ -48,33 +48,10 @@ class UserProfileViewController: UIViewController  {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.manageCityCountrySeletors()
+
     }
     
-    func manageCityCountrySeletors() {
-        if let userDetails = user {
-            if isEdit{
-                let user_country = SharedValues.getItemName(id: userDetails.country_id!,
-                                                            collection: SharedValues.countries)
-                self.countryButton.setTitle(user_country, for: UIControl.State.normal)
-                if SharedValues.cities != nil {
-                    let user_city = SharedValues.getItemName(id: userDetails.city_id!, collection: SharedValues.cities)
-                    self.cityButton.setTitle(user_city, for: UIControl.State.normal)
-                    self.cityButton.isEnabled = true
-                } else {
-                    print("error in setting user city")
-                }
-                
-            } else {
-                self.cityButton.isEnabled = false
-                if isSso {
-                    self.bloodGroupField.text = self.selectedBloodGroup!
-                    self.genderField.text = self.selectedGender!
-                }
-            }
-            
-        }
-    }
+  
     @IBAction func countrySelectButton(_ sender: Any) {
         
 //        self.performSegue(withIdentifier: "TableViewControllerForCountry", sender: self)
@@ -90,37 +67,6 @@ class UserProfileViewController: UIViewController  {
         dismiss(animated: true, completion: nil)
     }
     
-    
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        super.prepare(for: segue, sender: sender)
-        switch(segue.identifier ?? "") {
-        case "TableViewControllerForCountry":
-            // check the segue's destination
-            guard let countryViewController1 = segue.destination as? TableViewControllerForCountry else {
-                fatalError("unexpected destination: \(segue.destination)")
-                }
-            countryViewController1.Countryarray = SharedValues.countryNames
-            countryViewController1.user = self.user
-            
-        case "TableViewControllerForCity":
-            
-            // cast sender of segue to MealTableView and if sender has error rise xception
-            guard let cityViewController = sender as? TableViewControllerForCity else {
-                fatalError("Unexpected sender: \(String(describing: sender))")
-            }
-            
-            cityViewController.Cityarray = SharedValues.cityNames
-            cityViewController.user = self.user
-            
-        default:
-            fatalError("Unexpected Segue Identifier: \(String(describing: segue.identifier))")
-        }
-    }
-
     @IBAction func saveUserProfile(_ sender: UIBarButtonItem) {
         user?.lat = 15.222
         user?.lng = -15.585

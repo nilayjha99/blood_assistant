@@ -18,20 +18,16 @@ class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if let savedUser = UserModel.loadUser() {
-            // The name must not be empty
-            SharedValues.loadCountries(handler: {() in
-                if savedUser.user_token != nil {
-                    let role = savedUser.getIntegerValue(input: savedUser.user_role_id!)
-                    if role == Constants.DOCTOR_ROLE_ID {
-                        self.performSegue(withIdentifier: "doctorProfile", sender: self)
-                    } else {
-                        let userCountry = SharedValues.getItemName(id: savedUser.country_id!, collection: SharedValues.countries)
-                        SharedValues.loadCities(country: userCountry, handler: {() in
-                            self.performSegue(withIdentifier: "volunteerProfile", sender: self)
-                        })
-                    }
+        
+            if savedUser.user_token != nil {
+                let role = savedUser.getIntegerValue(input: savedUser.user_role_id!)
+                if role == Constants.DOCTOR_ROLE_ID {
+                    self.performSegue(withIdentifier: "doctorProfile", sender: self)
+                } else {
+                    self.performSegue(withIdentifier: "volunteerProfile", sender: self)
                 }
-            })
+            }
+        
            
             }
 
@@ -101,14 +97,7 @@ class LogInViewController: UIViewController {
             HttpHandler.user_id = data["profile_id"].intValue
             HttpHandler.user_role_id = Constants.DOCTOR_ROLE_ID
             HttpHandler.user_token = data["auth_token"].stringValue
-            HttpHandler.initAdapter()
-            SharedValues.loadCountries(handler: { () in
-                let userCountry = SharedValues.getItemName(id: volunteer.country_id!, collection: SharedValues.countries)
-                SharedValues.loadCities(country: userCountry, handler: {() in
-                    HttpHandler.initAdapter()
-                    self.performSegue(withIdentifier: "volunteerProfile", sender: self)
-                })
-            })
+            self.performSegue(withIdentifier: "volunteerProfile", sender: self)
            
         }
     }

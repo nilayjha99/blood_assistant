@@ -10,36 +10,9 @@ import SwiftyJSON
 import Alamofire
 
 class SharedValues {
-    static var countries: JSON?
-    static var countryNames = [String]()
-    static var cities: JSON?
-    static var cityNames = [String]()
     static var hospitals: JSON?
     static var hospitalNames = [String]()
     
-    static func loadCountries(handler: (() -> Void)?) {
-        HttpHandler.get(url: Constants.BASE_URL + "list/countries/", queryParams: nil) { (json: JSON, success: Bool) in
-            self.countries = json
-            self.countryNames = self.getNames(collection: self.countries)
-            if handler != nil {
-                handler!()
-            }
-        }
-    }
-    
-    static func loadCities(country: String, handler: (() -> Void)?) {
-        let queryParams: Parameters = [
-            "country": "\(country)"
-        ]
-        HttpHandler.get(url: Constants.BASE_URL + "list/country/cities/", queryParams: queryParams) { (json: JSON, success: Bool) in
-            self.cities = json
-            self.cityNames = self.getNames(collection: self.cities)
-            if handler != nil {
-                handler!()
-            }
-        }
-    }
-  
     static func lodHospitals(country_id: Int, city_id: Int, handler: (() -> Void)?) {
         let requestParams: Parameters = [
             "country_id": country_id,

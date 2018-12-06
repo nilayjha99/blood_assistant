@@ -22,6 +22,18 @@ class UserDonationHistoryViewController: UIViewController,UITableViewDelegate, U
     
     var userHistory: JSON?
     override func viewDidLoad() {
+      
+        super.viewDidLoad()
+     
+          tableViewForSegmented.delegate = self
+          tableViewForSegmented.dataSource = self
+        
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         HttpHandler.get(url: Constants.BASE_URL + "user/history/", queryParams: nil, responseHandler: { (json: JSON, success: Bool) in
             if success {
                 let donated = json["donated"]
@@ -32,18 +44,10 @@ class UserDonationHistoryViewController: UIViewController,UITableViewDelegate, U
                 for (_,subJson):(String, JSON) in received {
                     self.receivedFrom.append("\(subJson["name"])\t\(subJson["date"])")
                 }
+                self.tableViewForSegmented.reloadData()
             }
         })
-        super.viewDidLoad()
-     
-          tableViewForSegmented.delegate = self
-          tableViewForSegmented.dataSource = self
-        
-        
-        // Do any additional setup after loading the view.
     }
-    
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         switch segmentedForHistory.selectedSegmentIndex{

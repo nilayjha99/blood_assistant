@@ -38,13 +38,13 @@ class CompleteDonationViewController: UIViewController {
     }
     
     @IBAction func completeDonationButton(_ sender: Any) {
-         let BLOOD_REQUESTS_URL = Constants.BASE_URL + "user/dontions/"
+         let BLOOD_REQUESTS_URL = Constants.BASE_URL + "user/donations/"
         if let dontion_id = Int(self.donationReferenceNumber.text!), let donation_code = Int(self.donationCode.text!) {
             let parameters: Parameters = [
                 "code": donation_code,
                 "ref_no": dontion_id,
-                "donaion_id": dontion_id,
-                "operatio": 3
+                "donation_id": dontion_id,
+                "operation": 3
             ]
             HttpHandler.put(url: BLOOD_REQUESTS_URL, data: parameters, responseHandler: {
                 (_, success: Bool) in

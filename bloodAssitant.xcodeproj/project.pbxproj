@@ -31,20 +31,23 @@
 		BF9D3BD521B60184006101A2 /* BlackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D3BD421B60184006101A2 /* BlackButton.swift */; };
 		BF9D3BD721B6068F006101A2 /* BorderedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D3BD621B6068F006101A2 /* BorderedTextField.swift */; };
 		BF9D3BD921B61EC5006101A2 /* AddAppoinmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D3BD821B61EC5006101A2 /* AddAppoinmentsViewController.swift */; };
-		BF9D3BDB21B62608006101A2 /* UserAppointmentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D3BDA21B62608006101A2 /* UserAppointmentsTableViewCell.swift */; };
 		BF9D3BDD21B627A8006101A2 /* UserAppointmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D3BDC21B627A8006101A2 /* UserAppointmentsViewController.swift */; };
 		BF9D3BDF21B634A9006101A2 /* UserEditProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF9D3BDE21B634A9006101A2 /* UserEditProfile.storyboard */; };
 		BFAC699721B8857C00B8D112 /* BloodRequestsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC699621B8857C00B8D112 /* BloodRequestsModel.swift */; };
 		BFAC699921B88FA200B8D112 /* CompleteDonation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFAC699821B88FA200B8D112 /* CompleteDonation.storyboard */; };
 		BFAC699B21B8956400B8D112 /* CompleteDonationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC699A21B8956400B8D112 /* CompleteDonationViewController.swift */; };
-		CE2453C9219BE68B00F7D79E /* TableViewControllerForCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2453C8219BE68B00F7D79E /* TableViewControllerForCity.swift */; };
+		BFAC699D21B8EC3A00B8D112 /* UserAppointmentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC699C21B8EC3A00B8D112 /* UserAppointmentsTableViewCell.swift */; };
+		BFAC69A121B8EDCF00B8D112 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC69A021B8EDCF00B8D112 /* SearchViewController.swift */; };
+		BFAC69A321B9075E00B8D112 /* SearchReasultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC69A221B9075E00B8D112 /* SearchReasultsViewController.swift */; };
+		BFAC69A521B90D8E00B8D112 /* SearchReasultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC69A421B90D8E00B8D112 /* SearchReasultTableViewCell.swift */; };
+		BFAC69A721B90EDF00B8D112 /* SearchResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC69A621B90EDF00B8D112 /* SearchResultModel.swift */; };
+		BFAC69A921B9331C00B8D112 /* DonationRequestsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC69A821B9331C00B8D112 /* DonationRequestsTableViewCell.swift */; };
 		CE2453CF21B0D80600F7D79E /* UserDonationHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2453CE21B0D80600F7D79E /* UserDonationHistoryViewController.swift */; };
 		CEEEADF621961E6C00BD847C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEADF521961E6C00BD847C /* AppDelegate.swift */; };
 		CEEEADF821961E6C00BD847C /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEADF721961E6C00BD847C /* UserProfileViewController.swift */; };
 		CEEEADFB21961E6C00BD847C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEEEADF921961E6C00BD847C /* Main.storyboard */; };
 		CEEEADFE21961E6C00BD847C /* bloodAssitant.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CEEEADFC21961E6C00BD847C /* bloodAssitant.xcdatamodeld */; };
 		CEEEAE0021961EBA00BD847C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEEEADFF21961EBA00BD847C /* Assets.xcassets */; };
-		CEEEAE11219A503100BD847C /* TableViewControllerForCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEAE10219A503100BD847C /* TableViewControllerForCountry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,13 +75,17 @@
 		BF9D3BD421B60184006101A2 /* BlackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackButton.swift; sourceTree = "<group>"; };
 		BF9D3BD621B6068F006101A2 /* BorderedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedTextField.swift; sourceTree = "<group>"; };
 		BF9D3BD821B61EC5006101A2 /* AddAppoinmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAppoinmentsViewController.swift; sourceTree = "<group>"; };
-		BF9D3BDA21B62608006101A2 /* UserAppointmentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAppointmentsTableViewCell.swift; sourceTree = "<group>"; };
 		BF9D3BDC21B627A8006101A2 /* UserAppointmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAppointmentsViewController.swift; sourceTree = "<group>"; };
 		BF9D3BDE21B634A9006101A2 /* UserEditProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserEditProfile.storyboard; sourceTree = "<group>"; };
 		BFAC699621B8857C00B8D112 /* BloodRequestsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodRequestsModel.swift; sourceTree = "<group>"; };
 		BFAC699821B88FA200B8D112 /* CompleteDonation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CompleteDonation.storyboard; sourceTree = "<group>"; };
 		BFAC699A21B8956400B8D112 /* CompleteDonationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteDonationViewController.swift; sourceTree = "<group>"; };
-		CE2453C8219BE68B00F7D79E /* TableViewControllerForCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerForCity.swift; sourceTree = "<group>"; };
+		BFAC699C21B8EC3A00B8D112 /* UserAppointmentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAppointmentsTableViewCell.swift; sourceTree = "<group>"; };
+		BFAC69A021B8EDCF00B8D112 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		BFAC69A221B9075E00B8D112 /* SearchReasultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchReasultsViewController.swift; sourceTree = "<group>"; };
+		BFAC69A421B90D8E00B8D112 /* SearchReasultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchReasultTableViewCell.swift; sourceTree = "<group>"; };
+		BFAC69A621B90EDF00B8D112 /* SearchResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultModel.swift; sourceTree = "<group>"; };
+		BFAC69A821B9331C00B8D112 /* DonationRequestsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationRequestsTableViewCell.swift; sourceTree = "<group>"; };
 		CE2453CE21B0D80600F7D79E /* UserDonationHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDonationHistoryViewController.swift; sourceTree = "<group>"; };
 		CEEEADF221961E6C00BD847C /* bloodAssitant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bloodAssitant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEEEADF521961E6C00BD847C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,7 +94,6 @@
 		CEEEADFD21961E6C00BD847C /* bloodAssitant.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = bloodAssitant.xcdatamodel; sourceTree = "<group>"; };
 		CEEEADFF21961EBA00BD847C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEEEAE0421961EBA00BD847C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CEEEAE10219A503100BD847C /* TableViewControllerForCountry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerForCountry.swift; sourceTree = "<group>"; };
 		F8BD2164183B2988DF66DC19 /* Pods_bloodAssitant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bloodAssitant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB593B8C8DD657ED38582DBB /* Pods-bloodAssitant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bloodAssitant.release.xcconfig"; path = "Pods/Target Support Files/Pods-bloodAssitant/Pods-bloodAssitant.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -186,15 +192,17 @@
 		BF9D3BD021B5FB85006101A2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BFAC699C21B8EC3A00B8D112 /* UserAppointmentsTableViewCell.swift */,
 				BF9D3BC121B5DFE1006101A2 /* VolunteerDshboardViewController.swift */,
-				CE2453C8219BE68B00F7D79E /* TableViewControllerForCity.swift */,
-				CEEEAE10219A503100BD847C /* TableViewControllerForCountry.swift */,
 				CE2453CE21B0D80600F7D79E /* UserDonationHistoryViewController.swift */,
 				BF9D3BD821B61EC5006101A2 /* AddAppoinmentsViewController.swift */,
-				BF9D3BDA21B62608006101A2 /* UserAppointmentsTableViewCell.swift */,
 				BF9D3BDC21B627A8006101A2 /* UserAppointmentsViewController.swift */,
 				BF4E145121B79742004EE660 /* VolunteerProfileViewController.swift */,
 				BF4E145321B7D32B004EE660 /* SimpleTableViewCell.swift */,
+				BFAC69A021B8EDCF00B8D112 /* SearchViewController.swift */,
+				BFAC69A221B9075E00B8D112 /* SearchReasultsViewController.swift */,
+				BFAC69A421B90D8E00B8D112 /* SearchReasultTableViewCell.swift */,
+				BFAC69A821B9331C00B8D112 /* DonationRequestsTableViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -203,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				BF4E145521B7DDC0004EE660 /* VolunteerAppointments.swift */,
+				BFAC69A621B90EDF00B8D112 /* SearchResultModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -389,25 +398,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFAC69A121B8EDCF00B8D112 /* SearchViewController.swift in Sources */,
+				BFAC69A921B9331C00B8D112 /* DonationRequestsTableViewCell.swift in Sources */,
 				BF4E144E21B72D37004EE660 /* Constants.swift in Sources */,
+				BFAC69A721B90EDF00B8D112 /* SearchResultModel.swift in Sources */,
+				BFAC69A321B9075E00B8D112 /* SearchReasultsViewController.swift in Sources */,
 				BF4E144221B72B89004EE660 /* SignUpViewController.swift in Sources */,
-				CEEEAE11219A503100BD847C /* TableViewControllerForCountry.swift in Sources */,
 				BF4E144021B721E7004EE660 /* HttpHandler.swift in Sources */,
-				BF9D3BDB21B62608006101A2 /* UserAppointmentsTableViewCell.swift in Sources */,
 				BF9D3BD921B61EC5006101A2 /* AddAppoinmentsViewController.swift in Sources */,
 				BF9D3BDD21B627A8006101A2 /* UserAppointmentsViewController.swift in Sources */,
 				BF4E145221B79742004EE660 /* VolunteerProfileViewController.swift in Sources */,
+				BFAC69A521B90D8E00B8D112 /* SearchReasultTableViewCell.swift in Sources */,
 				BFAC699B21B8956400B8D112 /* CompleteDonationViewController.swift in Sources */,
 				CE2453CF21B0D80600F7D79E /* UserDonationHistoryViewController.swift in Sources */,
 				BF9D3BBE21B5DFD2006101A2 /* BorderedButton.swift in Sources */,
 				BF9D3BD721B6068F006101A2 /* BorderedTextField.swift in Sources */,
+				BFAC699D21B8EC3A00B8D112 /* UserAppointmentsTableViewCell.swift in Sources */,
 				CEEEADF821961E6C00BD847C /* UserProfileViewController.swift in Sources */,
 				BF4E145621B7DDC0004EE660 /* VolunteerAppointments.swift in Sources */,
 				BF4E144C21B72C27004EE660 /* UserModel.swift in Sources */,
 				BF9D3BC021B5DFD2006101A2 /* HospitalDashboardController.swift in Sources */,
 				BF9D3BD521B60184006101A2 /* BlackButton.swift in Sources */,
 				BF9D3BBB21B5DFD2006101A2 /* HospitalProfileViewController.swift in Sources */,
-				CE2453C9219BE68B00F7D79E /* TableViewControllerForCity.swift in Sources */,
 				BF4E145021B73384004EE660 /* SharedValues.swift in Sources */,
 				CEEEADF621961E6C00BD847C /* AppDelegate.swift in Sources */,
 				BF9D3BBD21B5DFD2006101A2 /* RepositoryTableViewCell.swift in Sources */,

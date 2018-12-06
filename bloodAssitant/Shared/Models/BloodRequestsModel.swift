@@ -20,5 +20,6 @@ class BloodRequestsModel {
         self.blood_group_name = blood_group_name
         self.bood_group_id = blood_group_id
         self.to_user_id = to_user_id
+        self.to_user_name = to_user_name
     }
 }
