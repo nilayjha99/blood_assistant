@@ -40,7 +40,7 @@ class SearchReasultsViewController: UIViewController, UITableViewDelegate, UITab
         return 0
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let alert = UIAlertController(title: "Ask for blod!", message: "Enter the number of units you want.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Ask for blood!", message: "Enter the number of units you want.", preferredStyle: .alert)
         alert.addTextField(configurationHandler: {(textfield) in
             textfield.placeholder = "1 unit is 300 ml"
             textfield.textAlignment = .center

@@ -36,14 +36,19 @@ class UserDonationHistoryViewController: UIViewController,UITableViewDelegate, U
         super.viewWillAppear(animated)
         HttpHandler.get(url: Constants.BASE_URL + "user/history/", queryParams: nil, responseHandler: { (json: JSON, success: Bool) in
             if success {
+                var donated1 = [String]()
+                var received1 = [String]()
+                
                 let donated = json["donated"]
                 for (_,subJson):(String, JSON) in donated {
-                    self.donatedTo.append("\(subJson["name"])\t\(subJson["date"])")
+                    donated1.append("\(subJson["name"])\t\(subJson["date"])")
                 }
                 let received = json["received"]
                 for (_,subJson):(String, JSON) in received {
-                    self.receivedFrom.append("\(subJson["name"])\t\(subJson["date"])")
+                    received1.append("\(subJson["name"])\t\(subJson["date"])")
                 }
+                self.donatedTo = donated1
+                self.receivedFrom = received1
                 self.tableViewForSegmented.reloadData()
             }
         })

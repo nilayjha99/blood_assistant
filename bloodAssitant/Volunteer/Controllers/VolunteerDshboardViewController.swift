@@ -31,6 +31,7 @@ class VolunteerDashboardViewController: UIViewController, UITableViewDelegate, U
         HttpHandler.get(url: BLOOD_REQUESTS_URL, queryParams: nil, responseHandler: {(json: JSON, success: Bool) in
             
             if success {
+                var blodRequests1 = [BloodRequestsModel]()
                 for (_, subJson):(String, JSON) in json {
                     print(subJson["units"].intValue)
                     let blood_request = BloodRequestsModel(
@@ -42,12 +43,12 @@ class VolunteerDashboardViewController: UIViewController, UITableViewDelegate, U
                         to_user_name: subJson["to_user_name"].stringValue
                     )
                     blood_request.units = subJson["units"].intValue
-                    self.blodRequests.append(blood_request)
-                    print(self.blodRequests.count)
+                    blodRequests1.append(blood_request)
+                    
                 }
-                print(self.blodRequests.count)
+                self.blodRequests = blodRequests1
                 self.tableView.reloadData()
-                print(self.blodRequests.count)
+               
             }
         })
     }
