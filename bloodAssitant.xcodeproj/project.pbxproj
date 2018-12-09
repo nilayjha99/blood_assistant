@@ -152,6 +152,7 @@
 		BF9D3BCB21B5FB45006101A2 /* Volunteer */ = {
 			isa = PBXGroup;
 			children = (
+				BF9D3BB121B5DFD1006101A2 /* HospitalAppointmentsViewController.swift */,
 				CEEEADF921961E6C00BD847C /* Main.storyboard */,
 				BF9D3BDE21B634A9006101A2 /* UserEditProfile.storyboard */,
 				BF9D3BD221B5FB98006101A2 /* Models */,
@@ -173,7 +174,6 @@
 		BF9D3BCE21B5FB6D006101A2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BF9D3BB121B5DFD1006101A2 /* HospitalAppointmentsViewController.swift */,
 				BF9D3BB721B5DFD2006101A2 /* HospitalAppointMentViewCell.swift */,
 				BF9D3BB821B5DFD2006101A2 /* HospitalDashboardController.swift */,
 				BF9D3BB321B5DFD1006101A2 /* HospitalProfileViewController.swift */,

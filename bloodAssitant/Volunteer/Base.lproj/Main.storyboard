@@ -822,7 +822,7 @@
                     <navigationItem key="navigationItem" title="Profile" id="LvO-aM-a3W">
                         <barButtonItem key="leftBarButtonItem" title="Edit" id="gXF-0G-nVG">
                             <connections>
-                                <segue destination="5TM-DE-iRA" kind="show" id="JPs-lr-n32"/>
+                                <segue destination="5TM-DE-iRA" kind="show" identifier="editProfile" id="JPs-lr-n32"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="h0R-dT-JbE">
@@ -842,10 +842,10 @@
             </objects>
             <point key="canvasLocation" x="4144.8000000000002" y="-1370.4647676161919"/>
         </scene>
-        <!--UserEditProfile-->
+        <!--ProfileEditScreen-->
         <scene sceneID="vbZ-0g-cHu">
             <objects>
-                <viewControllerPlaceholder storyboardName="UserEditProfile" id="5TM-DE-iRA" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="UserEditProfile" referencedIdentifier="ProfileEditScreen" id="5TM-DE-iRA" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="orY-Z3-KdF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3672" y="-654"/>

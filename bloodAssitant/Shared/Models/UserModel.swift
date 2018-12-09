@@ -14,12 +14,12 @@ class UserModel: NSObject, NSCoding {
     //properties
     var email: String?
     var name: String?
-    var user_id: String?
+    var user_id: Int?
     var user_token: String?
     var fb_user_id: String?
-    var user_role_id: String?
-    var blood_group_id: String?
-    var profile_id: String?
+    var user_role_id: Int?
+    var blood_group_id: Int?
+    var profile_id: Int?
     var phone_number: String?
     var lat: Double?
     var lng: Double?
@@ -28,6 +28,7 @@ class UserModel: NSObject, NSCoding {
     var country_id: Int?
     var city_id: Int?
     var password: String?
+    var fb_access_token: String?
     
     //MARK: - Archiving Paths -
     // lookup the curent application's documents directory and create the file URL by appending meals to the end of the documents URL.
@@ -73,12 +74,12 @@ class UserModel: NSObject, NSCoding {
     required convenience init?(coder aDecoder: NSCoder) {
         let Name = aDecoder.decodeObject(forKey: PropertyKey.name) as? String
         let Email = aDecoder.decodeObject(forKey: PropertyKey.email) as? String
-        let User_id = aDecoder.decodeObject(forKey: PropertyKey.user_id) as? String
+        let User_id = aDecoder.decodeObject(forKey: PropertyKey.user_id) as? Int
         let Fb_user_id = aDecoder.decodeObject(forKey: PropertyKey.fb_user_id) as? String
         let User_token = aDecoder.decodeObject(forKey: PropertyKey.user_token) as? String
-        let User_role_id = aDecoder.decodeObject(forKey: PropertyKey.user_role_id) as? String
-        let Blood_group_id = aDecoder.decodeObject(forKey: PropertyKey.blood_group_id) as? String
-        let Profile_id = aDecoder.decodeObject(forKey: PropertyKey.profile_id) as? String
+        let User_role_id = aDecoder.decodeObject(forKey: PropertyKey.user_role_id) as? Int
+        let Blood_group_id = aDecoder.decodeObject(forKey: PropertyKey.blood_group_id) as? Int
+        let Profile_id = aDecoder.decodeObject(forKey: PropertyKey.profile_id) as? Int
         let Phone_number = aDecoder.decodeObject(forKey: PropertyKey.phone_number) as? String
         let Lat = aDecoder.decodeObject(forKey: PropertyKey.lat) as? Double
         let Long = aDecoder.decodeObject(forKey: PropertyKey.lng) as? Double
@@ -95,12 +96,12 @@ class UserModel: NSObject, NSCoding {
     
     init(email: String?,
      name: String?,
-     user_id: String?,
+     user_id: Int?,
      user_token: String?,
      fb_user_id: String?,
-     user_role_id: String?,
-     blood_group_id: String?,
-     profile_id: String?,
+     user_role_id: Int?,
+     blood_group_id: Int?,
+     profile_id: Int?,
      phone_number: String?,
      lat: Double?,
      lng: Double?,

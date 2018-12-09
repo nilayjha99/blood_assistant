@@ -21,10 +21,10 @@ class UserProfileViewController: UIViewController  {
   
     static var passedUser: UserModel?
     var user: UserModel?
-    var isEdit = false
-    var isSso = false
-    var selectedBloodGroup: String?
-    var selectedGender: String?
+    static var isEdit = false
+    static var isSso = false
+    var selectedBloodGroup: String = "O+"
+    var selectedGender: String = "male"
     
    // @IBOutlet weak var datePickerTF: UITextField!
     
@@ -35,6 +35,7 @@ class UserProfileViewController: UIViewController  {
     override func viewDidLoad() {
         if UserProfileViewController.passedUser != nil {
             self.user = UserProfileViewController.passedUser
+            self.loadData()
         }
         super.viewDidLoad()
         self.initBloodPicker()
@@ -66,50 +67,91 @@ class UserProfileViewController: UIViewController  {
             self.userAddresField.text = self.user?.address
         }
         if self.user?.blood_group_id != nil {
-            self.userNameField.text = Constants.BLOOD_GROUPSs[self.user?.blood_group_id + 1]
+            self.bloodGroupField.text = Constants.BLOOD_GROUPS[(self.user?.blood_group_id)! - 1]
         }
+        if self.user?.gender != nil {
+            self.genderField.text = self.user?.gender
+        }
+    }
+    
+    private func handleSignUpResponse(json: JSON, parameters: Parameters?) {
+        if !UserProfileViewController.isEdit {
+            self.user?.user_id = json["id"].intValue
+            self.user?.country_id = json["country_id"].intValue
+            self.user?.city_id = json["city_id"].intValue
+            self.user?.user_token = json["auth_token"].stringValue
+            self.user?.name = json["name"].stringValue
+            self.user?.address = json["address"].stringValue
+            HttpHandler.user_role_id = Constants.VOLUNTEER_ROLE_ID
+            HttpHandler.user_id = json["id"].intValue
+            HttpHandler.user_token = json["auth_token"].stringValue
+            HttpHandler.initAdapter()
+        } else {
+            self.user?.name = (parameters!["name"] as! String)
+            self.user?.blood_group_id = (parameters!["blood_group_id"] as! Int)
+            self.user?.gender = (parameters!["gender"] as! String)
+            self.user?.address = (parameters!["address"] as! String)
+            self.user?.email = (parameters!["email"] as! String)
+        }
+        UserModel.saveUser(user: self.user!)
+        self.performSegue(withIdentifier: "newUserSignup", sender: self)
+    }
+    
+    private func signUpWithEmail(parameters: Parameters) {
+        HttpHandler.post(url: Constants.BASE_URL + "signup/with/email/", data: parameters, responseHandler: {
+            (json: JSON, success: Bool) in
+            if success {
+                self.handleSignUpResponse(json: json, parameters: nil)
+            }
+        })
+    }
+    
+    private func signUpWithFacebook(parameters: Parameters) {
+        HttpHandler.post(url: Constants.BASE_URL + "login/with/fb/", data: parameters, responseHandler: {
+            (json: JSON, success: Bool) in
+            if success {
+                self.handleSignUpResponse(json: json, parameters: nil)
+            }
+        })
+    }
+    
+    private func updateUserProfile(parameters: Parameters) {
+        HttpHandler.put(url: Constants.BASE_URL + "user/update/profile/", data: parameters, responseHandler: {
+            (json: JSON, success: Bool) in
+            if success {
+                self.handleSignUpResponse(json: json, parameters: parameters)
+            }
+        })
     }
     
     @IBAction func saveUserProfile(_ sender: UIBarButtonItem) {
         user?.lat = 50.41902
         user?.lng = -104.59144
-        let parameters: Parameters = [
+        var parameters: Parameters = [
             "name": (self.userNameField.text)!,
             "gender": (self.genderField.text)!,
-            "email": (user?.email)!,
+            "email": (self.emailField.text)!,
             "address": (self.userAddresField.text)!,
             "country": Constants.COUNTRY_NAME,
             "city": Constants.CITY_NAME,
-            "blood_group_id": Int((user?.blood_group_id)!)!,
+            "blood_group_id": Int((user?.blood_group_id)!),
             "user_role_id" : Constants.VOLUNTEER_ROLE_ID,
-            "password": (user?.password)!,
             "address_geo": [
                 "lat": (user?.lat)!,
                 "long": (user?.lng)!
             ]
         ]
-        if !isEdit {
-            if !isSso {
-                HttpHandler.post(url: Constants.BASE_URL + "signup/with/email/", data: parameters, responseHandler: {
-                    (json: JSON, success: Bool) in
-                    if success {
-                        self.user?.user_id = String(json["id"].intValue)
-                        self.user?.country_id = json["country_id"].intValue
-                        self.user?.city_id = json["city_id"].intValue
-                        self.user?.user_token = json["auth_token"].stringValue
-                        self.user?.name = json["name"].stringValue
-                        self.user?.address = json["address"].stringValue
-                        HttpHandler.user_role_id = Constants.VOLUNTEER_ROLE_ID
-                        HttpHandler.user_id = json["id"].intValue
-                        HttpHandler.user_token = json["auth_token"].stringValue
-                        HttpHandler.initAdapter()
-                        UserModel.saveUser(user: self.user!)
-                        self.performSegue(withIdentifier: "newUserSignup", sender: self)
-                    }
-                })
+        if !UserProfileViewController.isEdit {
+             parameters["password"] = (user?.password)!
+            if !UserProfileViewController.isSso {
+              self.signUpWithEmail(parameters: parameters)
+            } else {
+              parameters["fb_user_id"] = self.user?.fb_user_id
+              parameters["fb_access_token"] = self.user?.fb_access_token
+              self.signUpWithFacebook(parameters: parameters)
             }
         } else {
-            
+            self.updateUserProfile(parameters: parameters)
         }
     }
 }
@@ -137,7 +179,7 @@ extension UserProfileViewController: UIPickerViewDataSource, UIPickerViewDelegat
     
     @objc private func bloodPickerDoneTapped() {
         self.bloodGroupField.text = self.selectedBloodGroup
-        user?.blood_group_id = String(Constants.BLOOD_GROUPS.firstIndex(of: self.selectedBloodGroup!)! + 1)
+        user?.blood_group_id = Constants.BLOOD_GROUPS.firstIndex(of: self.selectedBloodGroup)! + 1
         view.endEditing(true)
     }
     // code for priority picker

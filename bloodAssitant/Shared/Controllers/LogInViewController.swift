@@ -23,7 +23,7 @@ class LogInViewController: UIViewController {
         if let savedUser = UserModel.loadUser() {
             
             if savedUser.user_token != nil {
-                let role = savedUser.getIntegerValue(input: savedUser.user_role_id!)
+                let role = savedUser.user_role_id!
                 if role == Constants.DOCTOR_ROLE_ID {
                     self.performSegue(withIdentifier: "doctorProfile", sender: self)
                 } else {
@@ -56,10 +56,10 @@ class LogInViewController: UIViewController {
             let doctor = UserModel(
                 email: data["email"].stringValue,
                 name: data["name"].stringValue,
-                user_id: String(data["id"].intValue),
+                user_id: data["id"].intValue,
                 user_token: data["auth_token"].stringValue,
                 fb_user_id: nil,
-                user_role_id: String(Constants.DOCTOR_ROLE_ID),
+                user_role_id: Constants.DOCTOR_ROLE_ID,
                 blood_group_id: nil,
                 profile_id: nil,
                 phone_number: data["phone_number"].stringValue,
@@ -85,11 +85,11 @@ class LogInViewController: UIViewController {
             let volunteer = UserModel(
                 email: data["email"].stringValue,
                 name: data["name"].stringValue,
-                user_id: String(data["id"].intValue),
+                user_id: data["id"].intValue,
                 user_token: data["auth_token"].stringValue,
                 fb_user_id: nil,
-                user_role_id: String(Constants.VOLUNTEER_ROLE_ID),
-                blood_group_id: String(data["blood_group"].intValue),
+                user_role_id: Constants.VOLUNTEER_ROLE_ID,
+                blood_group_id: data["blood_group"].intValue,
                 profile_id: nil,
                 phone_number: nil,
                 lat: data["address_geo"]["lat"].doubleValue,

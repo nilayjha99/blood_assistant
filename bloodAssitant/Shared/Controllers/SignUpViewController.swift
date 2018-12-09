@@ -37,7 +37,7 @@ class SignUpViewController: UIViewController {
         if !(self.userEmail.text?.isEmpty)! && !(self.userPassword.text?.isEmpty)! &&
             !(self.confirmPassword.text?.isEmpty)! {
             if self.userPassword.text == self.confirmPassword.text {
-                self.user = UserModel(email: self.userEmail.text, name: nil, user_id: nil, user_token: nil, fb_user_id: nil, user_role_id: String(Constants.VOLUNTEER_ROLE_ID), blood_group_id: nil, profile_id: nil, phone_number: nil, lat: nil, lng: nil, gender: nil, address: nil, country_id: nil, city_id: nil)
+                self.user = UserModel(email: self.userEmail.text, name: nil, user_id: nil, user_token: nil, fb_user_id: nil, user_role_id: Constants.VOLUNTEER_ROLE_ID, blood_group_id: nil, profile_id: nil, phone_number: nil, lat: nil, lng: nil, gender: nil, address: nil, country_id: nil, city_id: nil)
                 self.user?.password = self.userPassword.text
                 return true
             } else {
@@ -62,10 +62,6 @@ class SignUpViewController: UIViewController {
         super.prepare(for: segue, sender: sender)
         switch(segue.identifier ?? "") {
         case "userSignup":
-            // check the segue's destination
-//            guard let profileViewController = segue.destination as? UserProfileViewController else {
-//                fatalError("unexpected destination: \(segue.destination)")
-//            }
             UserProfileViewController.passedUser = self.user
         default:
             fatalError("Unexpected Segue Identifier: \(String(describing: segue.identifier))")
