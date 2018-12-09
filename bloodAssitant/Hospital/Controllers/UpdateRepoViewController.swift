@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import Alamofire
 
 class UpdateRepoViewController: UIViewController {
 
+    var bloodRepo : [BloodRepositoryModel]?
+    
+    @IBOutlet weak var unitsField: BorderedTextField!
+    @IBOutlet weak var bloodGroupField: BorderedTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,5 +31,19 @@ class UpdateRepoViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    func getRepoId(blood_group_name: String) -> Int {
+        let blood_group_id = Constants.BLOOD_GROUPS.firstIndex(of: self.bloodGroupField.text!)
+        let blood_repo_id = self.bloodRepo!.filter {$0.blood_group_id == blood_group_id}
+        return blood_repo_id
+    }
+    @IBAction func updateRepo(_ sender: Any) {
+        let parameters: Parameters = [
+            "units": Int(self.unitsField.text)
+        ]
+        HttpHandler.put(url: <#T##String#>, data: <#T##Parameters#>, responseHandler: <#T##((JSON, Bool) -> Void)##((JSON, Bool) -> Void)##(JSON, Bool) -> Void#>)
+    }
+    
+    @IBAction func cancelButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 }

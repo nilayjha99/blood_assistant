@@ -762,6 +762,9 @@ ABCD - 454 898,</string>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <state key="normal" title="Update"/>
+                                        <connections>
+                                            <action selector="updateRepo:" destination="DH8-1c-9su" eventType="touchUpInside" id="hog-Fi-bwk"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhb-ug-ipe" customClass="BlackButton" customModule="bloodAssitant" customModuleProvider="target">
                                         <rect key="frame" x="2" y="236" width="359" height="50"/>
@@ -770,6 +773,9 @@ ABCD - 454 898,</string>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancelButton:" destination="DH8-1c-9su" eventType="touchUpInside" id="NaX-IW-nGj"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -803,6 +809,10 @@ ABCD - 454 898,</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kIM-NV-Xe5"/>
                     </view>
+                    <connections>
+                        <outlet property="bloodGroupField" destination="oSJ-ef-6ZL" id="qgi-dB-RMc"/>
+                        <outlet property="unitsField" destination="kde-EX-VAR" id="dzA-1V-kku"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uLj-r4-6hm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
