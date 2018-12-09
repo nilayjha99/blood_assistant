@@ -17,21 +17,27 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var passwordField: BorderedTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         if let savedUser = UserModel.loadUser() {
-        
+            
             if savedUser.user_token != nil {
                 let role = savedUser.getIntegerValue(input: savedUser.user_role_id!)
                 if role == Constants.DOCTOR_ROLE_ID {
                     self.performSegue(withIdentifier: "doctorProfile", sender: self)
                 } else {
-                    self.performSegue(withIdentifier: "volunteerProfile", sender: self)
+                    print("is main thread")
+                    print(Thread.isMainThread)
+                    DispatchQueue.main.async() {
+                        self.performSegue(withIdentifier: "volunteerProfile", sender: self)
+                    }
                 }
             }
-        
-           
-            }
-
+            
+            
         }
+    }
 
         // Do any additional setup after loading the view.
     
@@ -98,7 +104,6 @@ class LogInViewController: UIViewController {
             HttpHandler.user_role_id = Constants.DOCTOR_ROLE_ID
             HttpHandler.user_token = data["auth_token"].stringValue
             self.performSegue(withIdentifier: "volunteerProfile", sender: self)
-           
         }
     }
     

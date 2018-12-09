@@ -13,12 +13,12 @@ import Alamofire
 class UserProfileViewController: UIViewController  {
 
     
+    @IBOutlet weak var emailField: BorderedTextField!
     @IBOutlet weak var userAddresField: BorderedTextField!
     @IBOutlet weak var userNameField: BorderedTextField!
     @IBOutlet weak var genderField: BorderedTextField!
     @IBOutlet weak var bloodGroupField: BorderedTextField!
-    @IBOutlet weak var cityButton: BlackButton!
-    @IBOutlet weak var countryButton: BlackButton!
+  
     static var passedUser: UserModel?
     var user: UserModel?
     var isEdit = false
@@ -51,33 +51,36 @@ class UserProfileViewController: UIViewController  {
 
     }
     
-  
-    @IBAction func countrySelectButton(_ sender: Any) {
-        
-//        self.performSegue(withIdentifier: "TableViewControllerForCountry", sender: self)
-    }
-    
-    
-    @IBAction func citySelectButton(_ sender: Any) {
-//        self.performSegue(withIdentifier: "TableViewControllerForCity", sender: self)
-    }
     
     
     @IBAction func cancelButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
+    private func loadData() {
+        self.emailField.text = self.user?.email
+        if self.user?.name != nil {
+            self.userNameField.text = self.user?.name
+        }
+        if self.user?.address != nil {
+            self.userAddresField.text = self.user?.address
+        }
+        if self.user?.blood_group_id != nil {
+            self.userNameField.text = Constants.BLOOD_GROUPSs[self.user?.blood_group_id + 1]
+        }
+    }
+    
     @IBAction func saveUserProfile(_ sender: UIBarButtonItem) {
-        user?.lat = 15.222
-        user?.lng = -15.585
+        user?.lat = 50.41902
+        user?.lng = -104.59144
         let parameters: Parameters = [
             "name": (self.userNameField.text)!,
             "gender": (self.genderField.text)!,
             "email": (user?.email)!,
             "address": (self.userAddresField.text)!,
-            "country": (self.countryButton.currentTitle)!,
-            "city": (self.cityButton.currentTitle)!,
-            "blood_group": Int((user?.blood_group_id)!)!,
+            "country": Constants.COUNTRY_NAME,
+            "city": Constants.CITY_NAME,
+            "blood_group_id": Int((user?.blood_group_id)!)!,
             "user_role_id" : Constants.VOLUNTEER_ROLE_ID,
             "password": (user?.password)!,
             "address_geo": [
@@ -94,11 +97,14 @@ class UserProfileViewController: UIViewController  {
                         self.user?.country_id = json["country_id"].intValue
                         self.user?.city_id = json["city_id"].intValue
                         self.user?.user_token = json["auth_token"].stringValue
+                        self.user?.name = json["name"].stringValue
+                        self.user?.address = json["address"].stringValue
                         HttpHandler.user_role_id = Constants.VOLUNTEER_ROLE_ID
                         HttpHandler.user_id = json["id"].intValue
                         HttpHandler.user_token = json["auth_token"].stringValue
                         HttpHandler.initAdapter()
                         UserModel.saveUser(user: self.user!)
+                        self.performSegue(withIdentifier: "newUserSignup", sender: self)
                     }
                 })
             }
