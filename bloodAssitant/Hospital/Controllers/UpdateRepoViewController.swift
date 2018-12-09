@@ -11,7 +11,7 @@ import Alamofire
 
 class UpdateRepoViewController: UIViewController {
 
-    var bloodRepo : [BloodRepositoryModel]?
+    var bloodRepo = [BloodRepositoryModel]()
     
     @IBOutlet weak var unitsField: BorderedTextField!
     @IBOutlet weak var bloodGroupField: BorderedTextField!
@@ -32,15 +32,19 @@ class UpdateRepoViewController: UIViewController {
     }
     */
     func getRepoId(blood_group_name: String) -> Int {
-        let blood_group_id = Constants.BLOOD_GROUPS.firstIndex(of: self.bloodGroupField.text!)
-        let blood_repo_id = self.bloodRepo!.filter {$0.blood_group_id == blood_group_id}
-        return blood_repo_id
+        let blood_group_id = Constants.BLOOD_GROUPS.firstIndex(of: self.bloodGroupField.text!)! + 1
+        let blood_repo_id = self.bloodRepo.filter {$0.blood_group_id == blood_group_id}
+        return blood_repo_id[0].blood_repo_id!
     }
     @IBAction func updateRepo(_ sender: Any) {
         let parameters: Parameters = [
-            "units": Int(self.unitsField.text)
+            "units": Int(self.unitsField.text!)!
         ]
-        HttpHandler.put(url: <#T##String#>, data: <#T##Parameters#>, responseHandler: <#T##((JSON, Bool) -> Void)##((JSON, Bool) -> Void)##(JSON, Bool) -> Void#>)
+        HttpHandler.put(url: Constants.BASE_URL + "repository/\(self.getRepoId(blood_group_name: self.bloodGroupField.text!))/", data: parameters, responseHandler: {(_, success: Bool) in
+            if success {
+                self.dismiss(animated: true, completion: nil)
+            }
+        })
     }
     
     @IBAction func cancelButton(_ sender: Any) {

@@ -446,7 +446,7 @@ ABCD - 454 898,</string>
                                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="DH8-1c-9su" kind="presentation" id="YIq-3f-M4w"/>
+                                                    <segue destination="DH8-1c-9su" kind="presentation" identifier="updateRepoSeague" id="YIq-3f-M4w"/>
                                                 </connections>
                                             </button>
                                         </subviews>
