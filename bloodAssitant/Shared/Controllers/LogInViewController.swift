@@ -24,21 +24,24 @@ class LogInViewController: UIViewController {
             
             if savedUser.user_token != nil {
                 let role = savedUser.user_role_id!
+                HttpHandler.user_id = savedUser.user_id
+                HttpHandler.user_token = savedUser.user_token
+                HttpHandler.user_role_id = savedUser.user_role_id
                 if role == Constants.DOCTOR_ROLE_ID {
-                    self.performSegue(withIdentifier: "doctorProfile", sender: self)
+                    self.performSeagueWith(id: "doctorProfile")
                 } else {
-                    print("is main thread")
-                    print(Thread.isMainThread)
-                    DispatchQueue.main.async() {
-                        self.performSegue(withIdentifier: "volunteerProfile", sender: self)
-                    }
-                }
+                    self.performSeagueWith(id: "volunteerProfile")                }
             }
             
             
         }
     }
 
+    func performSeagueWith(id: String) {
+        DispatchQueue.main.async() {
+            self.performSegue(withIdentifier: id, sender: self)
+        }
+    }
         // Do any additional setup after loading the view.
     
 
@@ -72,7 +75,7 @@ class LogInViewController: UIViewController {
                 )
     //        print(data["id"].intValue)
             UserModel.saveUser(user: doctor)
-            HttpHandler.user_id = data["profile_id"].intValue
+            HttpHandler.user_id = data["id"].intValue
             HttpHandler.user_role_id = Constants.DOCTOR_ROLE_ID
             HttpHandler.user_token = data["auth_token"].stringValue
             HttpHandler.initAdapter()

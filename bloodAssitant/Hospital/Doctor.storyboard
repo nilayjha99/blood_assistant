@@ -300,12 +300,32 @@ ABCD - 454 898,</string>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gGk-m1-eGa">
                                 <rect key="frame" x="6" y="79" width="363" height="513.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blood Requests(4)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3u-Nm-2Ew">
-                                        <rect key="frame" x="0.0" y="0.0" width="142.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dYm-2J-4aI">
+                                        <rect key="frame" x="0.0" y="0.0" width="363" height="20.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ru-qd-HdM">
+                                                <rect key="frame" x="196" y="0.0" width="159" height="30"/>
+                                                <state key="normal" title="Complete a donation"/>
+                                                <connections>
+                                                    <segue destination="Tkj-mF-6aA" kind="presentation" id="5ad-3R-CBX"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blood Requests" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3u-Nm-2Ew">
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="0ru-qd-HdM" secondAttribute="trailing" constant="8" id="0RB-7t-g0X"/>
+                                            <constraint firstItem="0ru-qd-HdM" firstAttribute="leading" secondItem="M3u-Nm-2Ew" secondAttribute="trailing" constant="76" id="DIk-pa-HzP"/>
+                                            <constraint firstItem="0ru-qd-HdM" firstAttribute="top" secondItem="dYm-2J-4aI" secondAttribute="top" id="IL6-Vg-vfi"/>
+                                            <constraint firstItem="M3u-Nm-2Ew" firstAttribute="leading" secondItem="dYm-2J-4aI" secondAttribute="leading" id="iGy-sU-fNc"/>
+                                            <constraint firstItem="M3u-Nm-2Ew" firstAttribute="top" secondItem="dYm-2J-4aI" secondAttribute="top" id="lhQ-LY-cjj"/>
+                                        </constraints>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PM0-BI-s2K">
                                         <rect key="frame" x="0.0" y="40.5" width="363" height="142"/>
                                         <subviews>
@@ -645,12 +665,10 @@ ABCD - 454 898,</string>
                                     <constraint firstAttribute="trailing" secondItem="PM0-BI-s2K" secondAttribute="trailing" id="LVt-N6-VJ9"/>
                                     <constraint firstItem="PM0-BI-s2K" firstAttribute="leading" secondItem="gGk-m1-eGa" secondAttribute="leading" id="MTp-cu-zxS"/>
                                     <constraint firstItem="FTe-HV-0Xp" firstAttribute="leading" secondItem="gGk-m1-eGa" secondAttribute="leading" id="NXi-6I-hh1"/>
-                                    <constraint firstItem="M3u-Nm-2Ew" firstAttribute="top" secondItem="gGk-m1-eGa" secondAttribute="top" id="Tp6-9D-qaY"/>
                                     <constraint firstAttribute="height" constant="513.5" id="W6f-ex-G75"/>
                                     <constraint firstAttribute="trailing" secondItem="FTe-HV-0Xp" secondAttribute="trailing" id="X8z-Xg-arR"/>
                                     <constraint firstItem="xvU-Gm-fZx" firstAttribute="top" secondItem="PM0-BI-s2K" secondAttribute="bottom" constant="20" id="Xkk-Uz-mr3"/>
-                                    <constraint firstItem="PM0-BI-s2K" firstAttribute="top" secondItem="M3u-Nm-2Ew" secondAttribute="bottom" constant="20" id="e6x-Ii-agU"/>
-                                    <constraint firstItem="M3u-Nm-2Ew" firstAttribute="leading" secondItem="gGk-m1-eGa" secondAttribute="leading" id="f8y-bl-UMD"/>
+                                    <constraint firstAttribute="trailing" secondItem="dYm-2J-4aI" secondAttribute="trailing" id="cLs-Ef-WR4"/>
                                     <constraint firstItem="FTe-HV-0Xp" firstAttribute="top" secondItem="xvU-Gm-fZx" secondAttribute="bottom" constant="20" id="qs5-yK-SSO"/>
                                     <constraint firstItem="xvU-Gm-fZx" firstAttribute="leading" secondItem="gGk-m1-eGa" secondAttribute="leading" id="sRX-Zp-gap"/>
                                 </constraints>
@@ -669,12 +687,21 @@ ABCD - 454 898,</string>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Pgp-VE-oP6" id="1ZJ-Ez-Hi1"/>
+                        <outlet property="completeDonationButton" destination="0ru-qd-HdM" id="ypX-Rv-5Va"/>
                         <outlet property="updateReositoryButton" destination="L7r-Lz-lp4" id="Wgj-HK-ReW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ynf-S9-Ik4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1856.8" y="284.70764617691157"/>
+        </scene>
+        <!--CompleteDonation-->
+        <scene sceneID="2hJ-eC-7El">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CompleteDonation" id="Tkj-mF-6aA" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PsP-Jr-DSc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2452" y="203"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="aU3-Gz-hBk">

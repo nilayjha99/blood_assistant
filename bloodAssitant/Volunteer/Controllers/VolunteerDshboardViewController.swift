@@ -28,6 +28,7 @@ class VolunteerDashboardViewController: UIViewController, UITableViewDelegate, U
     }
     
     override func viewWillAppear(_ animated: Bool) {
+       
         HttpHandler.get(url: BLOOD_REQUESTS_URL, queryParams: nil, responseHandler: {(json: JSON, success: Bool) in
             
             if success {
@@ -52,6 +53,7 @@ class VolunteerDashboardViewController: UIViewController, UITableViewDelegate, U
             }
         })
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
          return self.blodRequests.count
     }
