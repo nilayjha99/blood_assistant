@@ -445,6 +445,9 @@ ABCD - 454 898,</string>
                                                 <state key="normal" title="Update">
                                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="DH8-1c-9su" kind="presentation" id="YIq-3f-M4w"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -483,7 +486,7 @@ ABCD - 454 898,</string>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="mve-Gg-iKG"/>
                                                         </constraints>
-                                                        <state key="normal" title="B-"/>
+                                                        <state key="normal" title="O+"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ysm-Xc-F1g" customClass="RepositoryViewCell" customModule="bloodAssitant" customModuleProvider="target">
                                                         <rect key="frame" x="162" y="179" width="163" height="30"/>
@@ -511,7 +514,7 @@ ABCD - 454 898,</string>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="Ln4-5d-Wqb"/>
                                                         </constraints>
-                                                        <state key="normal" title="A+"/>
+                                                        <state key="normal" title="B+"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BaC-DG-bWN" customClass="RepositoryViewCell" customModule="bloodAssitant" customModuleProvider="target">
                                                         <rect key="frame" x="162" y="209" width="163" height="30"/>
@@ -532,7 +535,7 @@ ABCD - 454 898,</string>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="L9u-Ou-uhs"/>
                                                         </constraints>
-                                                        <state key="normal" title="A-"/>
+                                                        <state key="normal" title="AB+"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WJV-OB-nFi" customClass="RepositoryViewCell" customModule="bloodAssitant" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="239" width="163" height="30"/>
@@ -546,21 +549,21 @@ ABCD - 454 898,</string>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="fb6-oe-6SC"/>
                                                         </constraints>
-                                                        <state key="normal" title="O+"/>
+                                                        <state key="normal" title="A-"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qe7-6d-hVa" customClass="RepositoryViewCell" customModule="bloodAssitant" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="30" width="163" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="fzC-RF-xBa"/>
                                                         </constraints>
-                                                        <state key="normal" title="B+"/>
+                                                        <state key="normal" title="A+"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Qb-Ml-aHA" customClass="RepositoryViewCell" customModule="bloodAssitant" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="119" width="163" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="7Tc-JV-fCQ"/>
                                                         </constraints>
-                                                        <state key="normal" title="AB+"/>
+                                                        <state key="normal" title="B-"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uaL-TV-RU0" customClass="RepositoryViewCell" customModule="bloodAssitant" customModuleProvider="target">
                                                         <rect key="frame" x="162" y="149" width="163" height="30"/>
@@ -686,8 +689,16 @@ ABCD - 454 898,</string>
                         <barButtonItem key="rightBarButtonItem" id="8DA-JX-ueZ"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="abnCell" destination="CFB-5a-mT2" id="7Ce-uZ-Prk"/>
+                        <outlet property="abpCell" destination="BaC-DG-bWN" id="9us-Mm-fpN"/>
+                        <outlet property="anCell" destination="shS-DD-TlP" id="LNy-Nn-kW3"/>
+                        <outlet property="apCell" destination="MSn-VH-QWA" id="AJo-bO-Zsx"/>
+                        <outlet property="bnCell" destination="HZo-2N-M69" id="kqX-Dw-j9O"/>
+                        <outlet property="bpCell" destination="g5N-7V-qg8" id="pFW-qZ-RCg"/>
                         <outlet property="collectionView" destination="Pgp-VE-oP6" id="1ZJ-Ez-Hi1"/>
                         <outlet property="completeDonationButton" destination="0ru-qd-HdM" id="ypX-Rv-5Va"/>
+                        <outlet property="onCell" destination="Ysm-Xc-F1g" id="7hd-R0-8rA"/>
+                        <outlet property="opCell" destination="uaL-TV-RU0" id="dF9-Jv-FTa"/>
                         <outlet property="updateReositoryButton" destination="L7r-Lz-lp4" id="Wgj-HK-ReW"/>
                     </connections>
                 </viewController>
@@ -702,6 +713,100 @@ ABCD - 454 898,</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PsP-Jr-DSc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2452" y="203"/>
+        </scene>
+        <!--Update Repo View Controller-->
+        <scene sceneID="e98-9M-hbY">
+            <objects>
+                <viewController id="DH8-1c-9su" customClass="UpdateRepoViewController" customModule="bloodAssitant" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ktZ-0U-xGJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fBt-Bw-I11">
+                                <rect key="frame" x="6" y="28" width="363" height="500"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oSJ-ef-6ZL" customClass="BorderedTextField" customModule="bloodAssitant" customModuleProvider="target">
+                                        <rect key="frame" x="2" y="33" width="359" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="hnY-gj-UlX"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Units:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="coJ-P3-XLR">
+                                        <rect key="frame" x="2" y="90.5" width="56" height="27"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Blood Broup:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBL-VR-is9">
+                                        <rect key="frame" x="2" y="0.0" width="204" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kde-EX-VAR" customClass="BorderedTextField" customModule="bloodAssitant" customModuleProvider="target">
+                                        <rect key="frame" x="2" y="121" width="359" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="vo5-cA-poi"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8kp-Cw-VOC" customClass="BlackButton" customModule="bloodAssitant" customModuleProvider="target">
+                                        <rect key="frame" x="2" y="178.5" width="359" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="ywz-6f-XXL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title="Update"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhb-ug-ipe" customClass="BlackButton" customModule="bloodAssitant" customModuleProvider="target">
+                                        <rect key="frame" x="2" y="236" width="359" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="vxa-HC-aV9"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title="Cancel"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="xhb-ug-ipe" firstAttribute="leading" secondItem="fBt-Bw-I11" secondAttribute="leading" constant="2" id="A2M-N0-vQL"/>
+                                    <constraint firstItem="TBL-VR-is9" firstAttribute="top" secondItem="fBt-Bw-I11" secondAttribute="top" id="Blc-1T-crG"/>
+                                    <constraint firstItem="oSJ-ef-6ZL" firstAttribute="centerX" secondItem="fBt-Bw-I11" secondAttribute="centerX" id="CTg-zP-TBp"/>
+                                    <constraint firstItem="oSJ-ef-6ZL" firstAttribute="leading" secondItem="fBt-Bw-I11" secondAttribute="leading" constant="2" id="Cg0-Dp-1IQ"/>
+                                    <constraint firstItem="kde-EX-VAR" firstAttribute="leading" secondItem="fBt-Bw-I11" secondAttribute="leading" constant="2" id="DUg-v2-kmB"/>
+                                    <constraint firstAttribute="trailing" secondItem="kde-EX-VAR" secondAttribute="trailing" constant="2" id="EtU-I2-xmi"/>
+                                    <constraint firstItem="oSJ-ef-6ZL" firstAttribute="leading" secondItem="8kp-Cw-VOC" secondAttribute="leading" id="PUw-uW-b0U"/>
+                                    <constraint firstItem="8kp-Cw-VOC" firstAttribute="top" secondItem="kde-EX-VAR" secondAttribute="bottom" constant="7.5" id="U7c-W4-Odf"/>
+                                    <constraint firstAttribute="trailing" secondItem="8kp-Cw-VOC" secondAttribute="trailing" constant="2" id="UCd-nB-tYu"/>
+                                    <constraint firstItem="coJ-P3-XLR" firstAttribute="top" secondItem="oSJ-ef-6ZL" secondAttribute="bottom" constant="7.5" id="XJL-uy-z4R"/>
+                                    <constraint firstAttribute="trailing" secondItem="xhb-ug-ipe" secondAttribute="trailing" constant="2" id="aD7-04-LLy"/>
+                                    <constraint firstItem="kde-EX-VAR" firstAttribute="top" secondItem="coJ-P3-XLR" secondAttribute="bottom" constant="3.5" id="bbe-jS-Mok"/>
+                                    <constraint firstItem="xhb-ug-ipe" firstAttribute="top" secondItem="8kp-Cw-VOC" secondAttribute="bottom" constant="7.5" id="bgU-MG-RjV"/>
+                                    <constraint firstItem="TBL-VR-is9" firstAttribute="leading" secondItem="fBt-Bw-I11" secondAttribute="leading" constant="2" id="ghV-dd-nTA"/>
+                                    <constraint firstItem="coJ-P3-XLR" firstAttribute="leading" secondItem="fBt-Bw-I11" secondAttribute="leading" constant="2" id="hyv-7V-Lsw"/>
+                                    <constraint firstItem="8kp-Cw-VOC" firstAttribute="leading" secondItem="fBt-Bw-I11" secondAttribute="leading" constant="2" id="hzM-PN-DmU"/>
+                                    <constraint firstItem="oSJ-ef-6ZL" firstAttribute="top" secondItem="TBL-VR-is9" secondAttribute="bottom" constant="4" id="sU4-NP-wps"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kIM-NV-Xe5" firstAttribute="bottom" secondItem="fBt-Bw-I11" secondAttribute="bottom" constant="139" id="FEL-2g-5ar"/>
+                            <constraint firstItem="fBt-Bw-I11" firstAttribute="top" secondItem="kIM-NV-Xe5" secondAttribute="top" constant="8" id="LAP-fD-PyY"/>
+                            <constraint firstItem="fBt-Bw-I11" firstAttribute="leading" secondItem="kIM-NV-Xe5" secondAttribute="leading" constant="6" id="d78-2p-vVD"/>
+                            <constraint firstItem="fBt-Bw-I11" firstAttribute="centerX" secondItem="ktZ-0U-xGJ" secondAttribute="centerX" id="vaV-fL-0mv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kIM-NV-Xe5"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uLj-r4-6hm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2980" y="309.89505247376314"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="aU3-Gz-hBk">
