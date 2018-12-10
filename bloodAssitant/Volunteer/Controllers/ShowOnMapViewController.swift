@@ -42,8 +42,10 @@ class ShowOnMapViewController: UIViewController, MKMapViewDelegate {
         if ShowOnMapViewController.searchResults.count > 0 {
             self.makeMarkers()
             self.addMarkers()
+            self.mapView.showAnnotations(self.mapView.annotations, animated: true)
         }
     }
+
     func makeMarkers() {
         var pins = [customPin]()
         for searchResult in ShowOnMapViewController.searchResults {
