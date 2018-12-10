@@ -13,7 +13,8 @@ class SearchAddressViewController: UIViewController, UITableViewDelegate, UITabl
    
     
     var matchingItems: [MKMapItem] = []
-
+    var user: UserModel?
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     var inSearchMode = false
@@ -24,6 +25,10 @@ class SearchAddressViewController: UIViewController, UITableViewDelegate, UITabl
         self.tableView.delegate = self
         self.searchBar.delegate = self
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.user = UserProfileViewController.passedUser
     }
     
     func parseAddress(_ selectedItem:MKPlacemark) -> String {
@@ -55,6 +60,20 @@ class SearchAddressViewController: UIViewController, UITableViewDelegate, UITabl
             selectedItem.administrativeArea ?? ""
         )
         return addressLine
+    }
+    
+    func getStreetAddress(_ selectedItem: MKPlacemark) -> String {
+        // put a space between "4" and "Melrose Place"
+        let firstSpace = (selectedItem.subThoroughfare != nil &&
+            selectedItem.thoroughfare != nil) ? " " : ""
+        
+        return String(format: "%@%@%@",
+          // street number
+          selectedItem.subThoroughfare ?? "",
+          firstSpace,
+          // street name
+            selectedItem.thoroughfare ?? ""
+        )
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -93,6 +112,15 @@ class SearchAddressViewController: UIViewController, UITableViewDelegate, UITabl
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedItem = matchingItems[(indexPath as NSIndexPath).row].placemark
+        self.user?.lat = selectedItem.coordinate.latitude
+        self.user?.lng = selectedItem.coordinate.longitude
+        self.user?.address = self.getStreetAddress(selectedItem)
+        UserProfileViewController.passedUser = self.user
+        dismiss(animated: true, completion: nil)
+    }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         if searchBar.text == nil || searchBar.text == "" {
@@ -108,5 +136,8 @@ class SearchAddressViewController: UIViewController, UITableViewDelegate, UITabl
             inSearchMode = true
             loadLocationSuggestions()
         }
+    }
+    @IBAction func dismissView(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

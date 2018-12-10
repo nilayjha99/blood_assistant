@@ -49,11 +49,16 @@ class UserProfileViewController: UIViewController, UITextFieldDelegate  {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        if UserProfileViewController.passedUser != nil {
+            self.user = UserProfileViewController.passedUser
+            self.loadData()
+        }
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        self.performSegue(withIdentifier: "addAddress", sender: self)
+        DispatchQueue.main.async() {
+            self.performSegue(withIdentifier: "addAddress", sender: self)
+        }
         return false
     }
     
@@ -128,8 +133,8 @@ class UserProfileViewController: UIViewController, UITextFieldDelegate  {
     }
     
     @IBAction func saveUserProfile(_ sender: UIBarButtonItem) {
-        user?.lat = 50.41902
-        user?.lng = -104.59144
+//        user?.lat = 50.41902
+//        user?.lng = -104.59144
         var parameters: Parameters = [
             "name": (self.userNameField.text)!,
             "gender": (self.genderField.text)!,
@@ -241,6 +246,22 @@ extension UserProfileViewController: UIPickerViewDataSource, UIPickerViewDelegat
         return Constants.BLOOD_GROUPS[row]
         } else {
            return Constants.GENDERS[row]
+        }
+    }
+    
+    //MARK: - Navigation -
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        switch(segue.identifier ?? "") {
+        case "userSignup":
+            UserProfileViewController.passedUser = self.user
+        case "addAddress":
+            // check the segue's destination
+            UserProfileViewController.passedUser = self.user
+        default:
+            fatalError("Unexpected Segue Identifier: \(String(describing: segue.identifier))")
         }
     }
 }

@@ -170,7 +170,7 @@
                         <outlet property="userAddresField" destination="afV-W2-Izb" id="wxa-Na-2sL"/>
                         <outlet property="userNameField" destination="kX1-Sb-tqL" id="dvt-yR-2db"/>
                         <segue destination="pTh-gH-yW7" kind="showDetail" identifier="newUserSignup" id="Hg8-l8-UHv"/>
-                        <segue destination="fbA-uY-3Wo" kind="show" identifier="addAddress" id="NoD-wE-yAs"/>
+                        <segue destination="9JV-oN-6ka" kind="presentation" identifier="addAddress" id="NoD-wE-yAs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OFt-5F-Zmh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -243,6 +243,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WUi-jt-qQ6"/>
                     </view>
+                    <navigationItem key="navigationItem" id="9Ra-ro-C8S">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="JSy-3c-DPb">
+                            <connections>
+                                <action selector="dismissView:" destination="fbA-uY-3Wo" id="xxN-S1-9l1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="exn-Av-JVq" id="PeS-Kf-mDy"/>
                         <outlet property="searchDisplayController" destination="ozj-SS-Xn1" id="Vv5-v3-b00"/>
@@ -260,7 +267,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="3880.8000000000002" y="-636.4317841079461"/>
+            <point key="canvasLocation" x="4607" y="-636"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Xo8-Y7-6pw">
@@ -279,6 +286,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6fq-in-VQv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2278" y="-636"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jh3-pX-ZRe">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9JV-oN-6ka" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vij-I3-NHJ">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fbA-uY-3Wo" kind="relationship" relationship="rootViewController" id="KnJ-ba-pi8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gnh-WX-vea" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3880.8000000000002" y="-636.4317841079461"/>
         </scene>
     </scenes>
 </document>
