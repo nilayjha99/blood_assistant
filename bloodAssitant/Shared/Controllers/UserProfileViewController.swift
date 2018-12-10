@@ -10,7 +10,7 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 
-class UserProfileViewController: UIViewController  {
+class UserProfileViewController: UIViewController, UITextFieldDelegate  {
 
     
     @IBOutlet weak var emailField: BorderedTextField!
@@ -40,7 +40,7 @@ class UserProfileViewController: UIViewController  {
         super.viewDidLoad()
         self.initBloodPicker()
         self.initGenderPicker()
-
+        self.userAddresField.delegate = self
 //        self.loadData()
         // Do any additional setup after loading the view, typically from a nib.
        // dateForAppointment ()
@@ -52,7 +52,10 @@ class UserProfileViewController: UIViewController  {
 
     }
     
-    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        self.performSegue(withIdentifier: "addAddress", sender: self)
+        return false
+    }
     
     @IBAction func cancelButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
