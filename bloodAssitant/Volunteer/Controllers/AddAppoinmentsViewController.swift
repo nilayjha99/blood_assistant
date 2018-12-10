@@ -17,8 +17,11 @@ class AddAppointmentViewController: UIViewController, UIPickerViewDataSource, UI
         super.init(coder: aDecoder)
     }
     
+    var selectedHospital:String?
+    
     override func viewDidLoad() {
         SharedValues.hospitalNames = SharedValues.getNames(collection: SharedValues.hospitals)
+        self.selectedHospital = SharedValues.hospitalNames[0]
         super.viewDidLoad()
         self.initDatePicker()
         self.initPriorityPicker()
@@ -88,6 +91,7 @@ class AddAppointmentViewController: UIViewController, UIPickerViewDataSource, UI
     }
     
     @objc private func priorityPickerDoneTapped() {
+        self.appointment?.hospital_name = self.selectedHospital
         self.hospitalpickerField.text = self.appointment?.hospital_name!
         self.appointment?.hospital_id = SharedValues.getItemId(name: self.hospitalpickerField.text!, collection: SharedValues.hospitals)
         
@@ -108,7 +112,7 @@ class AddAppointmentViewController: UIViewController, UIPickerViewDataSource, UI
     
     // returns the selected input and sets it into the textfield
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.appointment?.hospital_name =  SharedValues.hospitalNames[row]
+        self.selectedHospital =  SharedValues.hospitalNames[row]
     }
     
     // set the appereance of the "lables" on the picker

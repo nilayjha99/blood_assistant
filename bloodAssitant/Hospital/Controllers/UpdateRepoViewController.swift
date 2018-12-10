@@ -13,11 +13,15 @@ class UpdateRepoViewController: UIViewController {
 
     var bloodRepo = [BloodRepositoryModel]()
     
+    var selectedBloodGroup: String = "A+"
+    
+    private var bloodPicker: UIPickerView?
+    
     @IBOutlet weak var unitsField: BorderedTextField!
     @IBOutlet weak var bloodGroupField: BorderedTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.initBloodPicker()
         // Do any additional setup after loading the view.
     }
     
@@ -51,3 +55,54 @@ class UpdateRepoViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 }
+
+extension UpdateRepoViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+  
+    // code for priority picker
+    private func initBloodPicker() {
+        // code for toolbar
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        // add done button
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(bloodPickerDoneTapped))
+        toolbar.setItems([doneButton], animated: true)
+        
+        
+        // code to handle priority input
+        self.bloodPicker = UIPickerView()
+        self.bloodPicker?.delegate = self
+        self.bloodPicker?.dataSource = self
+        self.bloodGroupField.inputView = self.bloodPicker
+        self.bloodGroupField.inputAccessoryView = toolbar
+    }
+    
+    @objc private func bloodPickerDoneTapped() {
+        self.bloodGroupField.text = self.selectedBloodGroup
+        view.endEditing(true)
+    }
+    
+    // code for custom picker to take input the priority
+    // returns the number of 'columns' to display.
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    
+    // returns the # of rows in each component..
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return Constants.BLOOD_GROUPS.count
+    }
+    
+    // returns the selected input and sets it into the textfield
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.selectedBloodGroup = Constants.BLOOD_GROUPS[row]
+        
+    }
+    
+    // set the appereance of the "lables" on the picker
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return Constants.BLOOD_GROUPS[row]
+    }
+}
+
