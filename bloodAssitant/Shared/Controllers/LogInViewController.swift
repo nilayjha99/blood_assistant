@@ -9,6 +9,8 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import FacebookCore
+import FacebookLogin
 
 class LogInViewController: UIViewController {
 
@@ -84,6 +86,7 @@ class LogInViewController: UIViewController {
     }
     
     func performVolunteerLogin(data: JSON, isSucess: Bool) {
+        
         if isSucess {
             let volunteer = UserModel(
                 email: data["email"].stringValue,
@@ -102,6 +105,11 @@ class LogInViewController: UIViewController {
                 country_id: data["country_id"].intValue,
                 city_id: data["city_id"].intValue
                 )
+            
+            if let fb_user_id = data["fb_user_id"].string {
+                    volunteer.fb_user_id = fb_user_id
+            }
+
             UserModel.saveUser(user: volunteer)
             HttpHandler.user_id = data["profile_id"].intValue
             HttpHandler.user_role_id = Constants.DOCTOR_ROLE_ID
@@ -126,6 +134,54 @@ class LogInViewController: UIViewController {
         } else {
             requestParameters["user_role_id"] = Constants.VOLUNTEER_ROLE_ID
             HttpHandler.post(url: Constants.BASE_URL + "login/with/email/", data: requestParameters, responseHandler: performVolunteerLogin)
+        }
+    }
+    
+    func performFacebookSso(fb_user_id: String, fb_access_token: String, email: String) {
+        let parameters: Parameters = [
+            "email": email,
+            "fb_user_id": fb_user_id,
+            "fb_access_token": fb_access_token,
+            "user_role_id": Constants.VOLUNTEER_ROLE_ID
+        ]
+        HttpHandler.post(url: Constants.BASE_URL + "login/with/fb/", data: parameters, responseHandler: performVolunteerLogin)
+    }
+    
+    func getUserProfile() {
+        let connection = GraphRequestConnection()
+        connection.add(
+            GraphRequest(
+                graphPath: "/me",
+                parameters: ["fields":"id, name, email"],
+                accessToken: AccessToken.current,
+                httpMethod: .GET, apiVersion: GraphAPIVersion.defaultVersion)) {
+                    response, result in
+                    switch result {
+                    case .success(let response):
+                        self.performFacebookSso(fb_user_id: response.dictionaryValue!["id"] as! String,
+                                           fb_access_token: (AccessToken.current?.authenticationToken)!,
+                                           email: response.dictionaryValue!["email"] as! String)
+                        break
+                    case .failed(_):
+                        print("failed")
+                    }
+        }
+        connection.start()
+    }
+    
+    @IBAction func loginWithFacebook(_ sender: Any) {
+        let manager = LoginManager()
+        manager.logIn(readPermissions: [.publicProfile, .email], viewController: self) {
+            (result) in
+            switch result {
+            case .cancelled:
+                print("user cancelled login")
+            case .failed(let error):
+                print("login failed with error = \(error.localizedDescription)")
+            case .success( _, _, let accessToken):
+                print("access token = \(accessToken)")
+                self.getUserProfile()
+            }
         }
     }
 }

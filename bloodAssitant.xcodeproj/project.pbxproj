@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9D2F469F803543BE95DCABEB /* Pods_bloodAssitant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8BD2164183B2988DF66DC19 /* Pods_bloodAssitant.framework */; };
 		BF4E144021B721E7004EE660 /* HttpHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4E143F21B721E7004EE660 /* HttpHandler.swift */; };
 		BF4E144221B72B89004EE660 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4E144121B72B89004EE660 /* SignUpViewController.swift */; };
 		BF4E144421B72B9F004EE660 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4E144321B72B9F004EE660 /* LogInViewController.swift */; };
@@ -47,6 +46,7 @@
 		BFAC69A521B90D8E00B8D112 /* SearchReasultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC69A421B90D8E00B8D112 /* SearchReasultTableViewCell.swift */; };
 		BFAC69A721B90EDF00B8D112 /* SearchResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC69A621B90EDF00B8D112 /* SearchResultModel.swift */; };
 		BFAC69A921B9331C00B8D112 /* DonationRequestsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC69A821B9331C00B8D112 /* DonationRequestsTableViewCell.swift */; };
+		C5AE4E358082BAB75AF9F12F /* Pods_bloodAssitant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97991F0C02001A80CEDC43FF /* Pods_bloodAssitant.framework */; };
 		CE2453CF21B0D80600F7D79E /* UserDonationHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2453CE21B0D80600F7D79E /* UserDonationHistoryViewController.swift */; };
 		CEEEADF621961E6C00BD847C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEADF521961E6C00BD847C /* AppDelegate.swift */; };
 		CEEEADF821961E6C00BD847C /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEADF721961E6C00BD847C /* UserProfileViewController.swift */; };
@@ -56,7 +56,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		841A33C064BA205E69630234 /* Pods-bloodAssitant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bloodAssitant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bloodAssitant/Pods-bloodAssitant.debug.xcconfig"; sourceTree = "<group>"; };
+		3426E31C20D0F8EE9E32E5F2 /* Pods-bloodAssitant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bloodAssitant.release.xcconfig"; path = "Pods/Target Support Files/Pods-bloodAssitant/Pods-bloodAssitant.release.xcconfig"; sourceTree = "<group>"; };
+		40466721E1E2C5E342ECD34E /* Pods-bloodAssitant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bloodAssitant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bloodAssitant/Pods-bloodAssitant.debug.xcconfig"; sourceTree = "<group>"; };
+		97991F0C02001A80CEDC43FF /* Pods_bloodAssitant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bloodAssitant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4E143F21B721E7004EE660 /* HttpHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpHandler.swift; sourceTree = "<group>"; };
 		BF4E144121B72B89004EE660 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		BF4E144321B72B9F004EE660 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -104,8 +106,6 @@
 		CEEEADFD21961E6C00BD847C /* bloodAssitant.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = bloodAssitant.xcdatamodel; sourceTree = "<group>"; };
 		CEEEADFF21961EBA00BD847C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEEEAE0421961EBA00BD847C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F8BD2164183B2988DF66DC19 /* Pods_bloodAssitant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bloodAssitant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB593B8C8DD657ED38582DBB /* Pods-bloodAssitant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bloodAssitant.release.xcconfig"; path = "Pods/Target Support Files/Pods-bloodAssitant/Pods-bloodAssitant.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,19 +113,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D2F469F803543BE95DCABEB /* Pods_bloodAssitant.framework in Frameworks */,
+				C5AE4E358082BAB75AF9F12F /* Pods_bloodAssitant.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9E54F40CF052BF38063882AA /* Frameworks */ = {
+		19643BCC422C7162C24C9410 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F8BD2164183B2988DF66DC19 /* Pods_bloodAssitant.framework */,
+				97991F0C02001A80CEDC43FF /* Pods_bloodAssitant.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1A6FE209457DE96B6B7E453C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				40466721E1E2C5E342ECD34E /* Pods-bloodAssitant.debug.xcconfig */,
+				3426E31C20D0F8EE9E32E5F2 /* Pods-bloodAssitant.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		BF4E144521B72BC9004EE660 /* Shared */ = {
@@ -250,8 +259,8 @@
 			children = (
 				CEEEADF421961E6C00BD847C /* bloodAssitant */,
 				CEEEADF321961E6C00BD847C /* Products */,
-				F4F1C33D8F124ECE46010F85 /* Pods */,
-				9E54F40CF052BF38063882AA /* Frameworks */,
+				1A6FE209457DE96B6B7E453C /* Pods */,
+				19643BCC422C7162C24C9410 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -279,15 +288,6 @@
 			path = bloodAssitant;
 			sourceTree = "<group>";
 		};
-		F4F1C33D8F124ECE46010F85 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				841A33C064BA205E69630234 /* Pods-bloodAssitant.debug.xcconfig */,
-				FB593B8C8DD657ED38582DBB /* Pods-bloodAssitant.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -295,11 +295,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CEEEAE0721961EBA00BD847C /* Build configuration list for PBXNativeTarget "bloodAssitant" */;
 			buildPhases = (
-				0FBD717F36A725A0B36B38CB /* [CP] Check Pods Manifest.lock */,
+				4BD8B05AE738B1545F43941D /* [CP] Check Pods Manifest.lock */,
 				CEEEADEE21961E6B00BD847C /* Sources */,
 				CEEEADEF21961E6B00BD847C /* Frameworks */,
 				CEEEADF021961E6B00BD847C /* Resources */,
-				2BB6D21E838EF4870F0B88CD /* [CP] Embed Pods Frameworks */,
+				74A62BFBBC7FDE810B7A96D8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -360,7 +360,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0FBD717F36A725A0B36B38CB /* [CP] Check Pods Manifest.lock */ = {
+		4BD8B05AE738B1545F43941D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -382,7 +382,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2BB6D21E838EF4870F0B88CD /* [CP] Embed Pods Frameworks */ = {
+		74A62BFBBC7FDE810B7A96D8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -392,6 +392,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-bloodAssitant/Pods-bloodAssitant-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -399,6 +406,13 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -587,7 +601,7 @@
 		};
 		CEEEAE0821961EBA00BD847C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 841A33C064BA205E69630234 /* Pods-bloodAssitant.debug.xcconfig */;
+			baseConfigurationReference = 40466721E1E2C5E342ECD34E /* Pods-bloodAssitant.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -596,6 +610,22 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"Bolts\"",
+					"-framework",
+					"\"FBSDKCoreKit\"",
+					"-framework",
+					"\"FBSDKLoginKit\"",
+					"-framework",
+					"\"FBSDKShareKit\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-Objc",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = israni.bloodAssitant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -606,7 +636,7 @@
 		};
 		CEEEAE0921961EBA00BD847C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FB593B8C8DD657ED38582DBB /* Pods-bloodAssitant.release.xcconfig */;
+			baseConfigurationReference = 3426E31C20D0F8EE9E32E5F2 /* Pods-bloodAssitant.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -615,6 +645,22 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"Bolts\"",
+					"-framework",
+					"\"FBSDKCoreKit\"",
+					"-framework",
+					"\"FBSDKLoginKit\"",
+					"-framework",
+					"\"FBSDKShareKit\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-Objc",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = israni.bloodAssitant;
 				PRODUCT_NAME = "$(TARGET_NAME)";

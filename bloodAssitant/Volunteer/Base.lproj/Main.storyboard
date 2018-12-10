@@ -91,6 +91,9 @@
                                                 <state key="normal" title="Sign Up With Facebook">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="signUpWithFacebook:" destination="POg-fG-Nhr" eventType="touchUpInside" id="97T-wW-iYX"/>
+                                                </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y2L-zC-4ZT">
                                                 <rect key="frame" x="0.0" y="412" width="343" height="47"/>
@@ -204,9 +207,12 @@
                                                     <constraint firstAttribute="height" constant="50" id="BJN-Be-uhy"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                <state key="normal" title="Sign Up With Facebook">
+                                                <state key="normal" title="Sign In With Facebook">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="loginWithFacebook:" destination="3do-Yc-nZZ" eventType="touchUpInside" id="esp-JO-fSE"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xyM-iA-D2G">
                                                 <rect key="frame" x="0.0" y="311.5" width="345" height="4"/>
@@ -1232,6 +1238,6 @@
         <image name="search" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="JPs-lr-n32"/>
+        <segue reference="s6v-nW-Loo"/>
     </inferredMetricsTieBreakers>
 </document>
