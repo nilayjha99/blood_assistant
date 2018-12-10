@@ -41,7 +41,7 @@ class UserDonationHistoryViewController: UIViewController,UITableViewDelegate, U
                 
                 let donated = json["donated"]
                 for (_,subJson):(String, JSON) in donated {
-                    donated1.append("\(subJson["name"])\t\(subJson["date"])")
+                   donated1.append("\(subJson["name"])\t\(subJson["date"])")
                 }
                 let received = json["received"]
                 for (_,subJson):(String, JSON) in received {
@@ -72,7 +72,7 @@ class UserDonationHistoryViewController: UIViewController,UITableViewDelegate, U
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  tableViewForSegmented.dequeueReusableCell(withIdentifier: "cell" , for: indexPath)
         
-        
+        cell.textLabel?.textAlignment = .center
         switch segmentedForHistory.selectedSegmentIndex{
             
         case 0 :

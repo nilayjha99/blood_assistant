@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 class UserAppointmentsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -22,10 +23,37 @@ class UserAppointmentsViewController: UIViewController, UITableViewDelegate, UIT
         self.appointmentsTableView.delegate = self
         self.appointmentsTableView.dataSource = self
         user = UserModel.loadUser()
-        SharedValues.lodHospitals(country_id: (self.user?.country_id)!, city_id: (self.user?.city_id)!, handler: {() in
+       
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.addAppointmentButton.isEnabled = false
+        SharedValues.lodHospitals(country_id: Constants.COUNTRY_ID, city_id: Constants.CITY_ID, handler: {() in
             self.addAppointmentButton.isEnabled = true
         })
-        // Do any additional setup after loading the view.
+        self.loadUserAppointments()
+    }
+    
+    func loadUserAppointments() {
+        HttpHandler.get(url: Constants.BASE_URL + "user/appointments/", queryParams: nil, responseHandler: {(json: JSON, sucess: Bool) in
+            var appointments = [VolunteerAppointments]()
+            for (_, subJson):(String, JSON) in json {
+                let appointment = VolunteerAppointments()
+                appointment.id = subJson["id"].intValue
+                appointment.hospital_id = subJson["hospital"]["id"].intValue
+                appointment.hospital_name = subJson["hospital"]["name"].stringValue
+                appointment.date = subJson["date"].stringValue
+                appointment.lat = subJson["address_geo"]["lat"].doubleValue
+                appointment.lng = subJson["address_geo"]["long"].doubleValue
+                appointment.city_id = Constants.CITY_ID
+                appointment.country_id = Constants.COUNTRY_ID
+                appointment.city_name = Constants.CITY_NAME
+                appointment.country_name = Constants.COUNTRY_NAME
+                appointments.append(appointment)
+            }
+            self.userAppointments = appointments
+        })
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -96,12 +124,6 @@ class UserAppointmentsViewController: UIViewController, UITableViewDelegate, UIT
 //            } else {
 //                // Add a new meal.i
                 // this code computes the location of newer cell where new meal is to be inserted
-    
-            let dateFormatter = DateFormatter()
-            dateFormatter.timeStyle = .short
-            dateFormatter.dateStyle = .short
-            let date = dateFormatter.date(from: appointment.date!)
-            appointment.date = dateFormatter.string(from: date!)
             
             let data: Parameters = [
                 "hospital_id": appointment.hospital_id!,
