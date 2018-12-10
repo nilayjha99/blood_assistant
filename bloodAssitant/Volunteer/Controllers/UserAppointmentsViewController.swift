@@ -36,7 +36,7 @@ class UserAppointmentsViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func loadUserAppointments() {
-        HttpHandler.get(url: Constants.BASE_URL + "user/appointments/", queryParams: nil, responseHandler: {(json: JSON, sucess: Bool) in
+        HttpHandler.get(url: Constants.BASE_URL + "appointments/", queryParams: nil, responseHandler: {(json: JSON, sucess: Bool) in
             var appointments = [VolunteerAppointments]()
             for (_, subJson):(String, JSON) in json {
                 let appointment = VolunteerAppointments()
@@ -53,6 +53,7 @@ class UserAppointmentsViewController: UIViewController, UITableViewDelegate, UIT
                 appointments.append(appointment)
             }
             self.userAppointments = appointments
+            self.appointmentsTableView.reloadData()
         })
     }
     
@@ -94,6 +95,7 @@ class UserAppointmentsViewController: UIViewController, UITableViewDelegate, UIT
             let appointment_id = self.userAppointments[indexPath.row].id
             HttpHandler.get(url: Constants.BASE_URL + "appointments/" + String(appointment_id!) + "/update/?op=1", queryParams: nil, responseHandler: {(_, success: Bool) in
                 if success {
+                    self.userAppointments.remove(at: indexPath.row)
                     tableView.deleteRows(at: [indexPath as IndexPath], with: .fade)
                 }
             })
