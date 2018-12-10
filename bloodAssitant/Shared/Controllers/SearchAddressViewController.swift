@@ -91,12 +91,9 @@ class SearchAddressViewController: UIViewController, UITableViewDelegate, UITabl
     func loadLocationSuggestions() {
         let searchBarText = self.searchBar.text!
         
-        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
-        let pLat = 50.445210
-        let pLong = -104.618896
 
-        let centre = CLLocationCoordinate2D(latitude: pLat, longitude: pLong)
-        let region = MKCoordinateRegion(center: centre, span: span)
+        let centre = CLLocationCoordinate2D(latitude: Constants.pLat, longitude: Constants.pLong)
+        let region = MKCoordinateRegion(center: centre, span: Constants.span)
         
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = searchBarText

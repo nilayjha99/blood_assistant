@@ -94,15 +94,18 @@ class UserProfileViewController: UIViewController, UITextFieldDelegate  {
             HttpHandler.user_id = json["id"].intValue
             HttpHandler.user_token = json["auth_token"].stringValue
             HttpHandler.initAdapter()
+            UserModel.saveUser(user: self.user!)
+            self.performSegue(withIdentifier: "newUserSignup", sender: self)
         } else {
             self.user?.name = (parameters!["name"] as! String)
             self.user?.blood_group_id = (parameters!["blood_group_id"] as! Int)
             self.user?.gender = (parameters!["gender"] as! String)
             self.user?.address = (parameters!["address"] as! String)
             self.user?.email = (parameters!["email"] as! String)
+            UserModel.saveUser(user: self.user!)
+            self.dismiss(animated: true, completion: nil)
         }
-        UserModel.saveUser(user: self.user!)
-        self.performSegue(withIdentifier: "newUserSignup", sender: self)
+       
     }
     
     private func signUpWithEmail(parameters: Parameters) {
@@ -255,7 +258,7 @@ extension UserProfileViewController: UIPickerViewDataSource, UIPickerViewDelegat
         // Pass the selected object to the new view controller.
         super.prepare(for: segue, sender: sender)
         switch(segue.identifier ?? "") {
-        case "userSignup":
+        case "newUserSignup":
             UserProfileViewController.passedUser = self.user
         case "addAddress":
             // check the segue's destination

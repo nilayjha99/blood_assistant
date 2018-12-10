@@ -21,9 +21,11 @@ class SearchReasultsViewController: UIViewController, UITableViewDelegate, UITab
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        ShowOnMapViewController.searchResults = SearchReasultsViewController.searchResultsDonors
         // Do any additional setup after loading the view.
     }
 
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         switch segmentedControl.selectedSegmentIndex{
@@ -83,6 +85,16 @@ class SearchReasultsViewController: UIViewController, UITableViewDelegate, UITab
     }
     @IBAction func onSegmentChange(_ sender: Any) {
         self.tableView.reloadData()
+        switch self.segmentedControl.selectedSegmentIndex{
+            
+        case 0 :
+            ShowOnMapViewController.searchResults = SearchReasultsViewController.searchResultsDonors
+        case 1:
+            ShowOnMapViewController.searchResults = SearchReasultsViewController.searchResultHospitals
+        default:
+            break
+            
+        }
     }
     
 }

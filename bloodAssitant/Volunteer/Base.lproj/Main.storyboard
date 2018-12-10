@@ -975,6 +975,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Show all on maps"/>
+                                <connections>
+                                    <segue destination="hbi-Rx-jPf" kind="presentation" id="Ad4-qD-KXF"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eSz-HX-6Gq">
                                 <rect key="frame" x="0.0" y="64" width="375" height="496"/>
@@ -1042,6 +1045,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x8Q-ks-9bB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6602" y="-2722"/>
+        </scene>
+        <!--Show On Map View Controller-->
+        <scene sceneID="AJr-IN-DQe">
+            <objects>
+                <viewController id="hbi-Rx-jPf" customClass="ShowOnMapViewController" customModule="bloodAssitant" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bzY-Cm-iEG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WDC-AZ-Inr">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem id="7Wx-hJ-mwE">
+                                        <barButtonItem key="rightBarButtonItem" title="Close" id="PMw-A7-833">
+                                            <connections>
+                                                <action selector="closeMapView:" destination="hbi-Rx-jPf" id="JrR-Z8-2C2"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LNd-A8-vaO">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="WDC-AZ-Inr" firstAttribute="top" secondItem="3cZ-UX-cED" secondAttribute="top" id="SBv-QG-zRr"/>
+                            <constraint firstItem="LNd-A8-vaO" firstAttribute="trailing" secondItem="3cZ-UX-cED" secondAttribute="trailing" id="c6v-uF-Nzv"/>
+                            <constraint firstItem="WDC-AZ-Inr" firstAttribute="leading" secondItem="3cZ-UX-cED" secondAttribute="leading" id="d51-c0-gzK"/>
+                            <constraint firstItem="LNd-A8-vaO" firstAttribute="leading" secondItem="3cZ-UX-cED" secondAttribute="leading" id="eyY-Rw-9JG"/>
+                            <constraint firstItem="WDC-AZ-Inr" firstAttribute="trailing" secondItem="3cZ-UX-cED" secondAttribute="trailing" id="f8W-N1-V4e"/>
+                            <constraint firstItem="LNd-A8-vaO" firstAttribute="bottom" secondItem="3cZ-UX-cED" secondAttribute="bottom" id="k3o-jv-HcL"/>
+                            <constraint firstItem="LNd-A8-vaO" firstAttribute="top" secondItem="WDC-AZ-Inr" secondAttribute="bottom" id="zD4-Xh-0Vk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3cZ-UX-cED"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="LNd-A8-vaO" id="oid-DI-a15"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a4W-RH-i7Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7477.6000000000004" y="-2722.4887556221893"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="u3R-M3-djP">

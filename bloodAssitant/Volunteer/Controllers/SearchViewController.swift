@@ -39,6 +39,9 @@ class SearchViewController: UIViewController {
                     let result = SearchResultModel()
                     result.to_user_id = subJson["user_id"].intValue
                     result.name = subJson["name"].stringValue
+                    result.addres = subJson["address"].stringValue
+                    result.lat = subJson["address_geo"]["lat"].doubleValue
+                    result.lng = subJson["address_geo"]["long"].doubleValue
                     searchResultsDonors.append(result)
                 }
                 SearchReasultsViewController.searchResultsDonors = searchResultsDonors
@@ -48,6 +51,11 @@ class SearchViewController: UIViewController {
                     let result = SearchResultModel()
                     result.to_user_id = subJson["user_id"].intValue
                     result.name = subJson["name"].stringValue
+                    result.addres = subJson["address"].stringValue
+                    result.lat = subJson["address_geo"]["lat"].doubleValue
+                    result.lng = subJson["address_geo"]["long"].doubleValue
+                    result.email = subJson["email"].stringValue
+                    result.phone = subJson["phone"].stringValue
                     searchResultsHospitals.append(result)
                 }
                 SearchReasultsViewController.searchResultHospitals = searchResultsHospitals

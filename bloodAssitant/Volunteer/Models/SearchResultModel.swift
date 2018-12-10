@@ -12,4 +12,9 @@ class SearchResultModel {
     var to_user_id: Int?
     var name: String?
     var units: Int?
+    var addres: String?
+    var lat: Double?
+    var lng: Double?
+    var email: String?
+    var phone: String?
 }
