@@ -12,10 +12,7 @@ import Alamofire
 class MashapeHeadersAdapter: RequestAdapter {
     func adapt(_ urlRequest: URLRequest) throws -> URLRequest {
         var urlRequest = urlRequest
-//        if HttpHandler.user_token != nil {
         urlRequest.setValue(HttpHandler.user_token!, forHTTPHeaderField: "Authorization")
-//        urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
-//        }
         return urlRequest
     }
 }
@@ -27,7 +24,6 @@ class HttpHandler {
     static func initAdapter(){
      self.sessionManager.adapter = MashapeHeadersAdapter()
     }
-//    "https://3344f8bb.ngrok.io/api/v1/login/with/email/"
     
     static func post(url: String, data: Parameters, responseHandler: @escaping ((JSON, Bool) -> Void)) {
         var reqData = data

@@ -52,6 +52,7 @@ class HospitalDashboardController: UIViewController, UICollectionViewDelegate, U
             borderColor: self.updateReositoryButton!.tintColor.cgColor,
            borderWidth: 1)
         GeneralUtils.makeRoundCorners(viewObject: self.updateReositoryButton, radius: 10)
+        self.updateReositoryButton.isEnabled = false
         GeneralUtils.setBorder(
             viewObject: self.completeDonationButton,
             borderColor: self.completeDonationButton!.tintColor.cgColor,
@@ -60,8 +61,10 @@ class HospitalDashboardController: UIViewController, UICollectionViewDelegate, U
     }
     
     override func viewWillAppear(_ animated: Bool) {
+      self.updateReositoryButton.isEnabled = false
       self.loadDonationRequests()
       self.loadBloodRepository()
+      self.updateReositoryButton.isEnabled = true
     }
     
     // MARK: - Functions -
