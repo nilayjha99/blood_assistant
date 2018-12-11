@@ -189,7 +189,7 @@ class HospitalDashboardController: UIViewController, UICollectionViewDelegate, U
             }
             updateRepoViewController.bloodRepo = self.bloodRepositoryDetails
         default:
-            fatalError("Unexpected Segue Identifier: \(String(describing: segue.identifier))")
+            print("Unexpected Segue Identifier: \(String(describing: segue.identifier))")
         }
     }
 

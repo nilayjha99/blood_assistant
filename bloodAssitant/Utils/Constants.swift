@@ -14,7 +14,7 @@ class Constants {
     static let CITY_NAME = "Regina"
     static let VOLUNTEER_ROLE_ID = 1
     static let DOCTOR_ROLE_ID = 2
-    static let BASE_URL = "https://76be3416.ngrok.io/api/v1/"
+    static let BASE_URL = "http://ec2-18-221-249-137.us-east-2.compute.amazonaws.com/api/v1/"
     static let BLOOD_GROUPS = [
         "A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"
     ]
