@@ -11,12 +11,14 @@ import Alamofire
 
 class SearchReasultsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    // MARK: - Variables -
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     static var searchResultsDonors = [SearchResultModel]()
     static var searchResultHospitals = [SearchResultModel]()
     static var bloodGroupId: Int?
     
+    // MARK: - Overriden Methods -
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
@@ -25,7 +27,7 @@ class SearchReasultsViewController: UIViewController, UITableViewDelegate, UITab
         // Do any additional setup after loading the view.
     }
 
-    
+    // MARK: - Delegate Methods -
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         switch segmentedControl.selectedSegmentIndex{
@@ -41,6 +43,7 @@ class SearchReasultsViewController: UIViewController, UITableViewDelegate, UITab
         }
         return 0
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let alert = UIAlertController(title: "Ask for blood!", message: "Enter the number of units you want.", preferredStyle: .alert)
         alert.addTextField(configurationHandler: {(textfield) in
@@ -83,6 +86,8 @@ class SearchReasultsViewController: UIViewController, UITableViewDelegate, UITab
         }
         return cell
     }
+    
+    // MARK: - Action -
     @IBAction func onSegmentChange(_ sender: Any) {
         self.tableView.reloadData()
         switch self.segmentedControl.selectedSegmentIndex{

@@ -10,12 +10,14 @@ import UIKit
 
 class VolunteerProfileViewController: UIViewController {
 
+     // MARK: - Variables -
     @IBOutlet weak var emailField: UILabel!
     @IBOutlet weak var userAddress: UILabel!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var bloodGroupButton: UIButton!
     var user: UserModel?
     
+    // MARK: - Overriden Methods -
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -40,8 +42,6 @@ class VolunteerProfileViewController: UIViewController {
     
     //MARK: - Navigation -
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
         super.prepare(for: segue, sender: sender)
         switch(segue.identifier ?? "") {
         case "editProfile":

@@ -11,15 +11,23 @@ import MessageUI
 
 class HospitalProfileViewController: UIViewController, MFMailComposeViewControllerDelegate {
 
+    // MARK: - Variables -
+    // view reference to "email to support" button
     @IBOutlet weak var emailToSUpportTeam: UIButton!
+    // view reference to hospital profile thumbnail
     @IBOutlet weak var hospitalProfileThumb: UIButton!
+    // view reference to hospital name label
     @IBOutlet weak var hospitalName: UILabel!
+    // view reference to hospital address label
     @IBOutlet weak var hospitalAddress: UITextView!
+    // view reference to hospital phone number label
     @IBOutlet weak var hospitalPhone: UILabel!
+    // view reference to hospital email label
     @IBOutlet weak var hospitalEmail: UILabel!
     
     var user: UserModel?
     
+    // MARK: - Overriden Methods -
     override func viewDidLoad() {
         super.viewDidLoad()
         GeneralUtils.makeItCircle(viewObject: self.hospitalProfileThumb)
@@ -32,14 +40,14 @@ class HospitalProfileViewController: UIViewController, MFMailComposeViewControll
         self.hospitalProfileThumb.setTitle(initial, for: UIControl.State.normal)
     }
 
+    // MARK: - Delegate Methods -
     func configureMailController() -> MFMailComposeViewController {
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self
         
-        mailComposerVC.setToRecipients(["andrew@seemuapps.com"])
-        mailComposerVC.setSubject("Hello")
-        mailComposerVC.setMessageBody("How are you doing?", isHTML: false)
-//        mailComposerVC.setPreferredSendingEmailAddress(<#T##emailAddress: String##String#>)
+        mailComposerVC.setToRecipients(["nilayjha99@gmail.com"])
+        mailComposerVC.setSubject("Help required!")
+        mailComposerVC.setMessageBody("I need help regarding ...", isHTML: false)
         return mailComposerVC
     }
 
@@ -54,6 +62,7 @@ class HospitalProfileViewController: UIViewController, MFMailComposeViewControll
         controller.dismiss(animated: true, completion: nil)
     }
     
+    // MARK: - Action -
     @IBAction func openEmailApp(_ sender: UIButton) {
         let mailComposeViewController = configureMailController()
         if MFMailComposeViewController.canSendMail() {
@@ -62,12 +71,11 @@ class HospitalProfileViewController: UIViewController, MFMailComposeViewControll
             showMailError()
         }
     }
+    
     // MARK: - Navigation -
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         self.user?.user_token = nil
         UserModel.saveUser(user: self.user!)
-//        self.navigationController?.popViewController(animated:true)
     }
 
 }

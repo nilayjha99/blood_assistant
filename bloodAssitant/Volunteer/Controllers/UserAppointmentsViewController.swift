@@ -12,11 +12,14 @@ import SwiftyJSON
 
 class UserAppointmentsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    // MARK: - Variables -
     @IBOutlet weak var addAppointmentButton: UIBarButtonItem!
-    
     var userAppointments: [VolunteerAppointments] = []
     var user: UserModel?
+    
     @IBOutlet weak var appointmentsTableView: UITableView!
+    
+    // MARK: - Overriden Methods -
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addAppointmentButton.isEnabled = false
@@ -35,6 +38,7 @@ class UserAppointmentsViewController: UIViewController, UITableViewDelegate, UIT
         self.loadUserAppointments()
     }
     
+     // MARK: - Functions -
     func loadUserAppointments() {
         HttpHandler.get(url: Constants.BASE_URL + "appointments/", queryParams: nil, responseHandler: {(json: JSON, sucess: Bool) in
             var appointments = [VolunteerAppointments]()
@@ -57,6 +61,7 @@ class UserAppointmentsViewController: UIViewController, UITableViewDelegate, UIT
         })
     }
     
+     // MARK: - Delegate Methods -
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
@@ -102,6 +107,7 @@ class UserAppointmentsViewController: UIViewController, UITableViewDelegate, UIT
         }
     }
     
+     // MARK: - Navigation -
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
@@ -115,17 +121,8 @@ class UserAppointmentsViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     // MARK: - Actions -
-    /// It is a reverse seague handler which edits existing meal details or adds a new cell to tale view for a new meal.
     @IBAction func unwindToMealList(_ sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? AddAppointmentViewController, let appointment = sourceViewController.appointment {
-            
-//            if let selectedIndexPath = .indexPathForSelectedRow {
-//                // Update an existing meal.
-//                meals[selectedIndexPath.row] = meal
-//                tableView.reloadRows(at: [selectedIndexPath], with: .none)
-//            } else {
-//                // Add a new meal.i
-                // this code computes the location of newer cell where new meal is to be inserted
             
             let data: Parameters = [
                 "hospital_id": appointment.hospital_id!,

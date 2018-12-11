@@ -11,7 +11,7 @@ import MapKit
 
 class SearchAddressViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
    
-    
+    // MARK: - Variables -
     var matchingItems: [MKMapItem] = []
     var user: UserModel?
     
@@ -19,6 +19,7 @@ class SearchAddressViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var searchBar: UISearchBar!
     var inSearchMode = false
     
+    // MARK: - Overriden Methods -
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
@@ -31,6 +32,7 @@ class SearchAddressViewController: UIViewController, UITableViewDelegate, UITabl
         self.user = UserProfileViewController.passedUser
     }
     
+    // MARK: - Functions -
     func parseAddress(_ selectedItem:MKPlacemark) -> String {
         
         // put a space between "4" and "Melrose Place"
@@ -76,22 +78,10 @@ class SearchAddressViewController: UIViewController, UITableViewDelegate, UITabl
         )
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return matchingItems.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
-        let selectedItem = matchingItems[(indexPath as NSIndexPath).row].placemark
-        cell.textLabel?.text = selectedItem.name
-        cell.detailTextLabel?.text = parseAddress(selectedItem)
-        return cell
-    }
-    
     func loadLocationSuggestions() {
         let searchBarText = self.searchBar.text!
         
-
+        
         let centre = CLLocationCoordinate2D(latitude: Constants.pLat, longitude: Constants.pLong)
         let region = MKCoordinateRegion(center: centre, span: Constants.span)
         
@@ -109,6 +99,19 @@ class SearchAddressViewController: UIViewController, UITableViewDelegate, UITabl
         }
     }
     
+    // MARK: - Delegate Methods -
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return matchingItems.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
+        let selectedItem = matchingItems[(indexPath as NSIndexPath).row].placemark
+        cell.textLabel?.text = selectedItem.name
+        cell.detailTextLabel?.text = parseAddress(selectedItem)
+        return cell
+    }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedItem = matchingItems[(indexPath as NSIndexPath).row].placemark
         self.user?.lat = selectedItem.coordinate.latitude
@@ -121,19 +124,16 @@ class SearchAddressViewController: UIViewController, UITableViewDelegate, UITabl
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         if searchBar.text == nil || searchBar.text == "" {
-            
             inSearchMode = false
-            
             view.endEditing(true)
-            
             tableView.reloadData()
-            
         } else {
-            
             inSearchMode = true
             loadLocationSuggestions()
         }
     }
+    
+    // MARK: - Action -
     @IBAction func dismissView(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }

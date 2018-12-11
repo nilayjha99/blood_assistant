@@ -22,11 +22,13 @@ class customPin: NSObject, MKAnnotation {
 }
 
 class ShowOnMapViewController: UIViewController, MKMapViewDelegate {
+    // MARK: - Variables -
     @IBOutlet weak var mapView: MKMapView!
 
     static var searchResults = [SearchResultModel]()
     var mapPins = [customPin]()
     
+    // MARK: - Overriden Methods -
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,6 +48,7 @@ class ShowOnMapViewController: UIViewController, MKMapViewDelegate {
         }
     }
 
+    // MARK: - Functions -
     func makeMarkers() {
         var pins = [customPin]()
         for searchResult in ShowOnMapViewController.searchResults {
@@ -67,17 +70,9 @@ class ShowOnMapViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
+    // MARK: - Action -
     @IBAction func closeMapView(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

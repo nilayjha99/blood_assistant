@@ -12,19 +12,19 @@ import SwiftyJSON
 
 class SearchViewController: UIViewController {
 
- 
+     // MARK: - Variables -
     @IBOutlet weak var bloodGroupField: BorderedTextField!
     var bloodPicker: UIPickerView?
     var selectedBloodGroup: String?
 
-
+    // MARK: - Overriden Methods -
     override func viewDidLoad() {
         super.viewDidLoad()
         self.selectedBloodGroup = "A+"
         self.initBloodPicker()
-        // Do any additional setup after loading the view.
     }
     
+     // MARK: - Action -
     @IBAction func searchButonAction(_ sender: Any) {
         let params: Parameters = [
             "country_id": Constants.COUNTRY_ID,
@@ -64,21 +64,11 @@ class SearchViewController: UIViewController {
             }
         })
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
 extension SearchViewController: UIPickerViewDataSource, UIPickerViewDelegate {
-    // code for priority picker
+    // code for blood group picker
     private func initBloodPicker() {
         // code for toolbar
         let toolbar = UIToolbar()
@@ -89,7 +79,7 @@ extension SearchViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         toolbar.setItems([doneButton], animated: true)
         
         
-        // code to handle priority input
+        // code to handle blood group input
         self.bloodPicker = UIPickerView()
         self.bloodPicker?.delegate = self
         self.bloodPicker?.dataSource = self
@@ -102,7 +92,6 @@ extension SearchViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         view.endEditing(true)
     }
    
-    // code for custom picker to take input the priority
     // returns the number of 'columns' to display.
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

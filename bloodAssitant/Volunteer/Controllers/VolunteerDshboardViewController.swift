@@ -10,16 +10,16 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 
-//bloodRequestCellIdentifier
 class VolunteerDashboardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
    
     
-    
+    // MARK: - Variables -
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var completeDonationButton: BlackButton!
     let BLOOD_REQUESTS_URL = Constants.BASE_URL + "user/donations/"
     var blodRequests = [BloodRequestsModel]()
    
+    // MARK: - Overriden Methods -
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
@@ -54,6 +54,7 @@ class VolunteerDashboardViewController: UIViewController, UITableViewDelegate, U
         })
     }
     
+    // MARK: - Delegate Methods -
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
          return self.blodRequests.count
     }
@@ -70,10 +71,11 @@ class VolunteerDashboardViewController: UIViewController, UITableViewDelegate, U
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       self.showAlert(indexPath: indexPath)
+       self.showBloodRequestActionsAlert(indexPath: indexPath)
     }
     
-    func showAlert(indexPath: IndexPath) {
+    // MARK: - Functions -
+    func showBloodRequestActionsAlert(indexPath: IndexPath) {
         let blood_request = self.blodRequests[indexPath.row]
         let alert = UIAlertController(title: "Give Blood",
                                       message: "Would like to give blood to \(blood_request.to_user_name!)",
@@ -106,24 +108,3 @@ class VolunteerDashboardViewController: UIViewController, UITableViewDelegate, U
     }
     
 }
-//func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//
-//    return self.blodRequests.count
-//}
-//
-//func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//
-//    let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "reauestCard", for: indexPath) as! BloodRequestViewCell
-//    let blood_request = self.blodRequests[indexPath.row]
-//    cell.userThumbnail.setTitle(String((blood_request.to_user_name?.first)!), for: .normal)
-//    GeneralUtils.makeItCircle(viewObject: cell.userThumbnail)
-//    cell.userName.text = blood_request.to_user_name
-//    cell.userBloodGroup.text = blood_request.blood_group_name
-//    cell.requestedUnits.text = String(blood_request.units!)
-//    GeneralUtils.makeRoundCorners(viewObject: cell, radius: 10)
-//    return cell
-//}
-//
-//func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//    self.showAlert(indexPath: indexPath)
-//}

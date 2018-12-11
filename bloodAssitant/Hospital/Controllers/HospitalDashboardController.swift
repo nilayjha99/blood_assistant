@@ -11,20 +11,29 @@ import Alamofire
 import SwiftyJSON
 
 class HospitalDashboardController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-//    
-//    @IBOutlet weak var button1: UIButton!
-//    @IBOutlet weak var button: UIButton!
+
+    // MARK: - Variables -
+    // view reference for the blood request cards
     @IBOutlet weak var collectionView: UICollectionView!
-    
+    // view reference for AB- repo cell
     @IBOutlet weak var abnCell: RepositoryViewCell!
+    // view reference for AB+ repo cell
     @IBOutlet weak var abpCell: RepositoryViewCell!
+    // view reference for O_ repo cell
     @IBOutlet weak var onCell: RepositoryViewCell!
+    // view reference for O+ repo cell
     @IBOutlet weak var opCell: RepositoryViewCell!
+    // view reference for B- repo cell
     @IBOutlet weak var bnCell: RepositoryViewCell!
+    // view reference for B+ repo cell
     @IBOutlet weak var bpCell: RepositoryViewCell!
+    // view reference for A- repo cell
     @IBOutlet weak var anCell: RepositoryViewCell!
+    // view reference for A+ repo cell
     @IBOutlet weak var apCell: RepositoryViewCell!
+    // view reference for complete donation button
     @IBOutlet weak var completeDonationButton: UIButton!
+    // view reference for update repository button
     @IBOutlet weak var updateReositoryButton: UIButton!
     
     let BLOOD_REQUESTS_URL = Constants.BASE_URL + "user/donations/"
@@ -32,6 +41,7 @@ class HospitalDashboardController: UIViewController, UICollectionViewDelegate, U
     var blodRequests = [BloodRequestsModel]()
     var bloodRepositoryDetails = [BloodRepositoryModel]()
     
+    // MARK: - Overriden Methods -
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.delegate = self
@@ -54,6 +64,7 @@ class HospitalDashboardController: UIViewController, UICollectionViewDelegate, U
       self.loadBloodRepository()
     }
     
+    // MARK: - Functions -
     func setCellValue(cell: UIButton, units: Int) {
         cell.setTitle(String(units), for: UIControl.State.normal)
     }
@@ -101,9 +112,9 @@ class HospitalDashboardController: UIViewController, UICollectionViewDelegate, U
         HttpHandler.get(url: BLOOD_REQUESTS_URL, queryParams: nil, responseHandler: {(json: JSON, success: Bool) in
             
             if success {
-                var blodRequests1 = [BloodRequestsModel]()
+                var local_blodRequests = [BloodRequestsModel]()
                 for (_, subJson):(String, JSON) in json {
-                    print(subJson["units"].intValue)
+                   
                     let blood_request = BloodRequestsModel(
                         id: subJson["id"].intValue,
                         to_user_id: subJson["to_user_id"].intValue,
@@ -113,37 +124,16 @@ class HospitalDashboardController: UIViewController, UICollectionViewDelegate, U
                         to_user_name: subJson["to_user_name"].stringValue
                     )
                     blood_request.units = subJson["units"].intValue
-                    blodRequests1.append(blood_request)
+                    local_blodRequests.append(blood_request)
                     
                 }
-                self.blodRequests = blodRequests1
+                self.blodRequests = local_blodRequests
                 self.collectionView.reloadData()
             }
         })
     }
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return blodRequests.count
-    }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-       
-        let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "reauestCard", for: indexPath) as! BloodRequestViewCell
-        let currentRequest = self.blodRequests[indexPath.row]
-        cell.userThumbnail.setTitle("B", for: .normal)
-        GeneralUtils.makeItCircle(viewObject: cell.userThumbnail)
-        cell.userName.text = currentRequest.to_user_name
-        cell.userBloodGroup.text = currentRequest.blood_group_name
-        cell.requestedUnits.text = String(currentRequest.units!)
-        
-        GeneralUtils.makeRoundCorners(viewObject: cell, radius: 10)
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.showAlert(indexPath: indexPath)
-    }
-    
-    func showAlert(indexPath: IndexPath) {
+    func showBloodRequestActionsAlert(indexPath: IndexPath) {
         let blood_request = self.blodRequests[indexPath.row]
         let alert = UIAlertController(title: "Give Blood",
                                       message: "Would like to give blood to \(blood_request.to_user_name!)",
@@ -175,15 +165,36 @@ class HospitalDashboardController: UIViewController, UICollectionViewDelegate, U
         present(alert, animated: true)
     }
     
+    // MARK: - Delegate Methods -
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return blodRequests.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+       
+        let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "reauestCard", for: indexPath) as! BloodRequestViewCell
+        let currentRequest = self.blodRequests[indexPath.row]
+        cell.userThumbnail.setTitle(currentRequest.blood_group_name, for: .normal)
+        GeneralUtils.makeItCircle(viewObject: cell.userThumbnail)
+        cell.userName.text = currentRequest.to_user_name
+        cell.userBloodGroup.text = currentRequest.blood_group_name
+        cell.requestedUnits.text = String(currentRequest.units!)
+        
+        GeneralUtils.makeRoundCorners(viewObject: cell, radius: 10)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.showBloodRequestActionsAlert(indexPath: indexPath)
+    }
+    
+  
+    
     // MARK: - Navigation -
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
         super.prepare(for: segue, sender: sender)
         switch(segue.identifier ?? "") {
         case "updateRepoSeague":
-            // check the segue's destination
             guard let updateRepoViewController = segue.destination as? UpdateRepoViewController else {
                 fatalError("unexpected destination: \(segue.destination)")
             }

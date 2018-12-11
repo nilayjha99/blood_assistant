@@ -10,26 +10,20 @@ import UIKit
 import SwiftyJSON
 
 class UserDonationHistoryViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
-    
-    
-    
-    
+
+    // MARK: - Variables -
     @IBOutlet weak var segmentedForHistory: UISegmentedControl!
     @IBOutlet weak var tableViewForSegmented: UITableView!
     
     var donatedTo = [String]()
     var receivedFrom = [String]()
-    
     var userHistory: JSON?
+    
+    // MARK: - Overriden Methods -
     override func viewDidLoad() {
-      
         super.viewDidLoad()
-     
-          tableViewForSegmented.delegate = self
-          tableViewForSegmented.dataSource = self
-        
-        
-        // Do any additional setup after loading the view.
+        tableViewForSegmented.delegate = self
+        tableViewForSegmented.dataSource = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,6 +47,8 @@ class UserDonationHistoryViewController: UIViewController,UITableViewDelegate, U
             }
         })
     }
+    
+    // MARK: - Delegate Methods -
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         switch segmentedForHistory.selectedSegmentIndex{
@@ -87,21 +83,10 @@ class UserDonationHistoryViewController: UIViewController,UITableViewDelegate, U
         return cell
     }
     
-    
-    
+    // MARK: - Action -
     @IBAction func sementedActionOnTouch(_ sender: Any) {
         
         tableViewForSegmented.reloadData()
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

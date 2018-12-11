@@ -11,12 +11,14 @@ import Alamofire
 import SwiftyJSON
 
 class HospitalAppointmentsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+   
+    // MARK: - Variables -
     @IBOutlet weak var appointsTableView: UITableView!
     @IBOutlet weak var refreshAppointments: UIBarButtonItem!
     
     var hospitalAppointments = [HospitalAppointments]()
 
-    
+    // MARK: - Overriden Methods -
     override func viewDidLoad() {
         super.viewDidLoad()
         self.appointsTableView.delegate = self
@@ -42,7 +44,8 @@ class HospitalAppointmentsViewController: UIViewController, UITableViewDelegate,
             }
         })
     }
-    // Table
+ 
+    // MARK: - Delegate Methods -
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.hospitalAppointments.count
     }
@@ -52,6 +55,8 @@ class HospitalAppointmentsViewController: UIViewController, UITableViewDelegate,
             fatalError("unable to type cast")
         }
         let appointment = self.hospitalAppointments[indexPath.row]
+        let blood_group_name = Constants.BLOOD_GROUPS[appointment.blood_group_id! - 1]
+        cell.bloodGroupThumb.setTitle(blood_group_name, for: .normal)
         cell.appointmentDate.text = appointment.date
         cell.userName.text = appointment.donor_name
         GeneralUtils.makeItCircle(viewObject: cell.bloodGroupThumb)
@@ -78,6 +83,7 @@ class HospitalAppointmentsViewController: UIViewController, UITableViewDelegate,
         return [doneAction, deleteAction]
     }
 
+     // MARK: - Functions -
     func getAppointmentId(indexPath: IndexPath) -> Int{
         let appointment = self.hospitalAppointments[indexPath.row]
         return appointment.id!

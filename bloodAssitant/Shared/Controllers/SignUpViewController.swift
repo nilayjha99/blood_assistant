@@ -12,20 +12,29 @@ import FacebookLogin
 import MessageUI
 
 class SignUpViewController: UIViewController, MFMailComposeViewControllerDelegate {
-
+    
+     //MARK: - Variables -
+    // reference to "sign up with facebook" button
     @IBOutlet weak var withFacebookButon: UIButton!
+    // reference to submit button
     @IBOutlet weak var withEmailButton: BlackButton!
+    // reference to confirm password field
     @IBOutlet weak var confirmPassword: BorderedTextField!
+    // reference to password field
     @IBOutlet weak var userPassword: BorderedTextField!
+    // reference to email field
     @IBOutlet weak var userEmail: BorderedTextField!
+    // reference variable for userModel object
     var user: UserModel?
+    
+     // MARK: - Overriden Methods -
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-
+     //MARK: - Functions -
+    
+    // validate input fields
     func validateInputs() -> Bool {
         if !(self.userEmail.text?.isEmpty)! && !(self.userPassword.text?.isEmpty)! &&
             !(self.confirmPassword.text?.isEmpty)! {
@@ -42,15 +51,9 @@ class SignUpViewController: UIViewController, MFMailComposeViewControllerDelegat
             return false
         }
     }
-    @IBAction func signUpWithEmail(_ sender: Any) {
-        if !self.validateInputs() {
-            return
-        } else {
-            performSegue(withIdentifier: "userSignup", sender: self)
-        }
-    }
     
-    func getUserProfile() {
+    // query facebook to get user details
+    func getUserProfileFromFacebook() {
         let connection = GraphRequestConnection()
         connection.add(
             GraphRequest(
@@ -61,7 +64,15 @@ class SignUpViewController: UIViewController, MFMailComposeViewControllerDelegat
                     response, result in
                     switch result {
                     case .success(let response):
-                        self.user = UserModel(email: (response.dictionaryValue!["email"] as! String), name: (response.dictionaryValue!["name"] as! String), user_id: nil, user_token: nil, fb_user_id: (response.dictionaryValue!["id"] as! String), user_role_id: Constants.VOLUNTEER_ROLE_ID, blood_group_id: nil, profile_id: nil, phone_number: nil, lat: nil, lng: nil, gender: nil, address: nil, country_id: nil, city_id: nil)
+                        self.user = UserModel(
+                            email: (response.dictionaryValue!["email"] as! String),
+                            name: (response.dictionaryValue!["name"] as! String),
+                            user_id: nil,
+                            user_token: nil,
+                            fb_user_id: (response.dictionaryValue!["id"] as! String),
+                            user_role_id: Constants.VOLUNTEER_ROLE_ID, blood_group_id: nil,
+                            profile_id: nil, phone_number: nil, lat: nil, lng: nil,
+                            gender: nil, address: nil, country_id: nil, city_id: nil)
                         self.user?.fb_access_token = (AccessToken.current?.authenticationToken)!
                         self.userEmail.text = self.user?.email
                         break
@@ -72,6 +83,7 @@ class SignUpViewController: UIViewController, MFMailComposeViewControllerDelegat
         connection.start()
     }
     
+    // MARK: - Email related functions -
     func configureMailController() -> MFMailComposeViewController {
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self
@@ -92,6 +104,17 @@ class SignUpViewController: UIViewController, MFMailComposeViewControllerDelegat
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
     }
+    
+     //MARK: - Actions -
+    @IBAction func signUpWithEmail(_ sender: Any) {
+        if !self.validateInputs() {
+            return
+        } else {
+            performSegue(withIdentifier: "userSignup", sender: self)
+        }
+    }
+    
+   
     @IBAction func signUpWithFacebook(_ sender: Any) {
         let manager = LoginManager()
         manager.logIn(readPermissions: [.publicProfile, .email], viewController: self) {
@@ -101,9 +124,15 @@ class SignUpViewController: UIViewController, MFMailComposeViewControllerDelegat
                 print("user cancelled login")
             case .failed(let error):
                 print("login failed with error = \(error.localizedDescription)")
-            case .success( _, _, let accessToken):
+            case .success( _, let declinedPermissions, let accessToken):
                 print("access token = \(accessToken)")
-                self.getUserProfile()
+                print("declined permissions = \(declinedPermissions)")
+                if declinedPermissions.count == 0 {
+                    self.getUserProfileFromFacebook()
+                } else {
+                    let alertBox = SharedValues.getErrorAlert(message: "Email permissio is required")
+                    self.present(alertBox, animated: true, completion: nil)
+                }
             }
         }
     }
@@ -118,6 +147,7 @@ class SignUpViewController: UIViewController, MFMailComposeViewControllerDelegat
             showMailError()
         }
     }
+    
     //MARK: - Navigation -
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
@@ -130,7 +160,7 @@ class SignUpViewController: UIViewController, MFMailComposeViewControllerDelegat
                 UserProfileViewController.isSso = true
             }
         default:
-            fatalError("Unexpected Segue Identifier: \(String(describing: segue.identifier))")
+            print("Unexpected Segue Identifier: \(String(describing: segue.identifier))")
         }
     }
 

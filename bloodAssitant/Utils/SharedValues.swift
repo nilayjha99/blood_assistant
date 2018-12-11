@@ -8,6 +8,7 @@
 
 import SwiftyJSON
 import Alamofire
+import UIKit
 
 class SharedValues {
     static var hospitals: JSON?
@@ -56,4 +57,10 @@ class SharedValues {
         return itemName!
     }
     
+    static func getErrorAlert(message: String)  -> UIAlertController {
+        let alert = UIAlertController(title: "error", message: message, preferredStyle: .alert);
+        let action = UIAlertAction(title: "ok", style: .default, handler: nil);
+        alert.addAction(action);
+        return alert;
+    }
 }

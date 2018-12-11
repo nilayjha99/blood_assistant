@@ -69,7 +69,7 @@
 		BF4E145321B7D32B004EE660 /* SimpleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTableViewCell.swift; sourceTree = "<group>"; };
 		BF4E145521B7DDC0004EE660 /* VolunteerAppointments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerAppointments.swift; sourceTree = "<group>"; };
 		BF79098121BDDD77009C9215 /* HospitalAppointments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalAppointments.swift; sourceTree = "<group>"; };
-		BF79098321BE1B93009C9215 /* SearchAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchAddressViewController.swift; path = bloodAssitant/Shared/Controllers/SearchAddressViewController.swift; sourceTree = SOURCE_ROOT; };
+		BF79098321BE1B93009C9215 /* SearchAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchAddressViewController.swift; path = bloodAssitant/Volunteer/Controllers/SearchAddressViewController.swift; sourceTree = SOURCE_ROOT; };
 		BF79098521BE47FB009C9215 /* ShowOnMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowOnMapViewController.swift; sourceTree = "<group>"; };
 		BF81F69721BCDD720070B266 /* BloodRepositoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodRepositoryModel.swift; sourceTree = "<group>"; };
 		BF81F69921BCE9510070B266 /* UpdateRepoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateRepoViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +143,7 @@
 				BFAC699821B88FA200B8D112 /* CompleteDonation.storyboard */,
 				BF4E144821B72BF2004EE660 /* Controllers */,
 				BF4E144621B72BD2004EE660 /* Models */,
+				BFD36EB721BF6DCE002F2C12 /* TableViewCells */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -162,7 +163,6 @@
 				BF4E144121B72B89004EE660 /* SignUpViewController.swift */,
 				BF4E144321B72B9F004EE660 /* LogInViewController.swift */,
 				CEEEADF721961E6C00BD847C /* UserProfileViewController.swift */,
-				BF9D3BB221B5DFD1006101A2 /* BloodRequestVewCell.swift */,
 				BFAC699A21B8956400B8D112 /* CompleteDonationViewController.swift */,
 			);
 			path = Controllers;
@@ -173,7 +173,7 @@
 			children = (
 				CEEEADF921961E6C00BD847C /* Main.storyboard */,
 				BF9D3BDE21B634A9006101A2 /* UserEditProfile.storyboard */,
-				BF79098321BE1B93009C9215 /* SearchAddressViewController.swift */,
+				BFD36EB421BF676A002F2C12 /* TableViewCells */,
 				BF9D3BD221B5FB98006101A2 /* Models */,
 				BF9D3BD021B5FB85006101A2 /* Controllers */,
 			);
@@ -183,6 +183,7 @@
 		BF9D3BCD21B5FB64006101A2 /* Hospital */ = {
 			isa = PBXGroup;
 			children = (
+				BFD36EB521BF67C2002F2C12 /* TableViewCells */,
 				BF9D3BAD21B5DF4D006101A2 /* Doctor.storyboard */,
 				BF9D3BCF21B5FB78006101A2 /* Models */,
 				BF9D3BCE21B5FB6D006101A2 /* Controllers */,
@@ -193,11 +194,9 @@
 		BF9D3BCE21B5FB6D006101A2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BF9D3BB721B5DFD2006101A2 /* HospitalAppointMentViewCell.swift */,
 				BF9D3BB821B5DFD2006101A2 /* HospitalDashboardController.swift */,
 				BF9D3BB321B5DFD1006101A2 /* HospitalProfileViewController.swift */,
 				BF9D3BB121B5DFD1006101A2 /* HospitalAppointmentsViewController.swift */,
-				BF9D3BB521B5DFD2006101A2 /* RepositoryTableViewCell.swift */,
 				BF81F69921BCE9510070B266 /* UpdateRepoViewController.swift */,
 			);
 			path = Controllers;
@@ -215,17 +214,14 @@
 		BF9D3BD021B5FB85006101A2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BFAC699C21B8EC3A00B8D112 /* UserAppointmentsTableViewCell.swift */,
+				BF79098321BE1B93009C9215 /* SearchAddressViewController.swift */,
 				BF9D3BC121B5DFE1006101A2 /* VolunteerDshboardViewController.swift */,
 				CE2453CE21B0D80600F7D79E /* UserDonationHistoryViewController.swift */,
 				BF9D3BD821B61EC5006101A2 /* AddAppoinmentsViewController.swift */,
 				BF9D3BDC21B627A8006101A2 /* UserAppointmentsViewController.swift */,
 				BF4E145121B79742004EE660 /* VolunteerProfileViewController.swift */,
-				BF4E145321B7D32B004EE660 /* SimpleTableViewCell.swift */,
 				BFAC69A021B8EDCF00B8D112 /* SearchViewController.swift */,
 				BFAC69A221B9075E00B8D112 /* SearchReasultsViewController.swift */,
-				BFAC69A421B90D8E00B8D112 /* SearchReasultTableViewCell.swift */,
-				BFAC69A821B9331C00B8D112 /* DonationRequestsTableViewCell.swift */,
 				BF79098521BE47FB009C9215 /* ShowOnMapViewController.swift */,
 			);
 			path = Controllers;
@@ -243,15 +239,51 @@
 		BF9D3BD321B5FBF6006101A2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				BF9D3BB621B5DFD2006101A2 /* BorderedButton.swift */,
+				BFD36EB321BF61B8002F2C12 /* Views */,
 				BF9D3BB421B5DFD2006101A2 /* GeneralUtils.swift */,
-				BF9D3BD421B60184006101A2 /* BlackButton.swift */,
-				BF9D3BD621B6068F006101A2 /* BorderedTextField.swift */,
 				BF4E143F21B721E7004EE660 /* HttpHandler.swift */,
-				BF4E144D21B72D37004EE660 /* Constants.swift */,
 				BF4E144F21B73384004EE660 /* SharedValues.swift */,
+				BF4E144D21B72D37004EE660 /* Constants.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		BFD36EB321BF61B8002F2C12 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BF9D3BD621B6068F006101A2 /* BorderedTextField.swift */,
+				BF9D3BD421B60184006101A2 /* BlackButton.swift */,
+				BF9D3BB621B5DFD2006101A2 /* BorderedButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BFD36EB421BF676A002F2C12 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				BFAC699C21B8EC3A00B8D112 /* UserAppointmentsTableViewCell.swift */,
+				BF4E145321B7D32B004EE660 /* SimpleTableViewCell.swift */,
+				BFAC69A421B90D8E00B8D112 /* SearchReasultTableViewCell.swift */,
+				BFAC69A821B9331C00B8D112 /* DonationRequestsTableViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		BFD36EB521BF67C2002F2C12 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				BF9D3BB521B5DFD2006101A2 /* RepositoryTableViewCell.swift */,
+				BF9D3BB721B5DFD2006101A2 /* HospitalAppointMentViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		BFD36EB721BF6DCE002F2C12 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				BF9D3BB221B5DFD1006101A2 /* BloodRequestVewCell.swift */,
+			);
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 		CEEEADE921961E6B00BD847C = {

@@ -12,26 +12,33 @@ import Alamofire
 
 class UserProfileViewController: UIViewController, UITextFieldDelegate  {
 
-    
+    //MARK: - Variables -
+    // view reference for user email field
     @IBOutlet weak var emailField: BorderedTextField!
+    // view reference for user address field
     @IBOutlet weak var userAddresField: BorderedTextField!
+    // view reference for user name field
     @IBOutlet weak var userNameField: BorderedTextField!
+    // view reference for user gender field
     @IBOutlet weak var genderField: BorderedTextField!
+    // view reference for blood group field
     @IBOutlet weak var bloodGroupField: BorderedTextField!
   
+    // variable to input user object to the class
     static var passedUser: UserModel?
     var user: UserModel?
+    // indicates whether the view is loaded for update profile or not
     static var isEdit = false
+    // indicates whether the view is loaded for facebook based login
     static var isSso = false
+
     var selectedBloodGroup: String = "A+"
     var selectedGender: String = "male"
-    
-   // @IBOutlet weak var datePickerTF: UITextField!
-    
-   // let datePicker = UIDatePicker()
+ 
     private var bloodPicker: UIPickerView?
     private var genderPicker: UIPickerView?
     
+    // MARK: - Overriden Methods -
     override func viewDidLoad() {
         if UserProfileViewController.passedUser != nil {
             self.user = UserProfileViewController.passedUser
@@ -41,12 +48,8 @@ class UserProfileViewController: UIViewController, UITextFieldDelegate  {
         self.initBloodPicker()
         self.initGenderPicker()
         self.userAddresField.delegate = self
-//        self.loadData()
-        // Do any additional setup after loading the view, typically from a nib.
-       // dateForAppointment ()
-        
-      //Use of unresolved identifier 'Cityarray'
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if UserProfileViewController.passedUser != nil {
@@ -55,6 +58,7 @@ class UserProfileViewController: UIViewController, UITextFieldDelegate  {
         }
     }
     
+    //MARK: - Delegate Methods -
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         DispatchQueue.main.async() {
             self.performSegue(withIdentifier: "addAddress", sender: self)
@@ -62,10 +66,7 @@ class UserProfileViewController: UIViewController, UITextFieldDelegate  {
         return false
     }
     
-    @IBAction func cancelButton(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    
+    //MARK: - Functions -
     private func loadData() {
         self.emailField.text = self.user?.email
         if self.user?.name != nil {
@@ -105,7 +106,7 @@ class UserProfileViewController: UIViewController, UITextFieldDelegate  {
             UserModel.saveUser(user: self.user!)
             self.dismiss(animated: true, completion: nil)
         }
-       
+        
     }
     
     private func signUpWithEmail(parameters: Parameters) {
@@ -135,9 +136,13 @@ class UserProfileViewController: UIViewController, UITextFieldDelegate  {
         })
     }
     
+    //MARK: - Actions -
+    @IBAction func cancelButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func saveUserProfile(_ sender: UIBarButtonItem) {
-//        user?.lat = 50.41902
-//        user?.lng = -104.59144
+
         var parameters: Parameters = [
             "name": (self.userNameField.text)!,
             "gender": (self.genderField.text)!,
@@ -168,7 +173,7 @@ class UserProfileViewController: UIViewController, UITextFieldDelegate  {
 }
 
 extension UserProfileViewController: UIPickerViewDataSource, UIPickerViewDelegate {
-    // code for priority picker
+    // code for blood group picker
     private func initBloodPicker() {
         // code for toolbar
         let toolbar = UIToolbar()
@@ -193,7 +198,8 @@ extension UserProfileViewController: UIPickerViewDataSource, UIPickerViewDelegat
         user?.blood_group_id = Constants.BLOOD_GROUPS.firstIndex(of: self.selectedBloodGroup)! + 1
         view.endEditing(true)
     }
-    // code for priority picker
+    
+    // code for gender picker
     private func initGenderPicker() {
         // code for toolbar
         let toolbar = UIToolbar()
@@ -212,6 +218,7 @@ extension UserProfileViewController: UIPickerViewDataSource, UIPickerViewDelegat
         self.genderField.inputView = self.genderPicker
         self.genderField.inputAccessoryView = toolbar
     }
+    
     @objc private func genderPickerDoneTapped() {
         self.genderField.text = self.selectedGender
         user?.gender = self.selectedGender

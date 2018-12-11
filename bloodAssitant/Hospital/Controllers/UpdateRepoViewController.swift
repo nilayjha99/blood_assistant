@@ -11,35 +11,28 @@ import Alamofire
 
 class UpdateRepoViewController: UIViewController {
 
+    // MARK: - Variables -
     var bloodRepo = [BloodRepositoryModel]()
-    
     var selectedBloodGroup: String = "A+"
-    
     private var bloodPicker: UIPickerView?
     
     @IBOutlet weak var unitsField: BorderedTextField!
     @IBOutlet weak var bloodGroupField: BorderedTextField!
+    
+    // MARK: - Overriden Methods -
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initBloodPicker()
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    // MARK: - Functions -
     func getRepoId(blood_group_name: String) -> Int {
         let blood_group_id = Constants.BLOOD_GROUPS.firstIndex(of: self.bloodGroupField.text!)! + 1
         let blood_repo_id = self.bloodRepo.filter {$0.blood_group_id == blood_group_id}
         return blood_repo_id[0].blood_repo_id!
     }
+    
+    // MARK: - Action -
     @IBAction func updateRepo(_ sender: Any) {
         let parameters: Parameters = [
             "units": Int(self.unitsField.text!)!
@@ -56,9 +49,10 @@ class UpdateRepoViewController: UIViewController {
     }
 }
 
+// MARK: - Extension -
 extension UpdateRepoViewController: UIPickerViewDataSource, UIPickerViewDelegate {
   
-    // code for priority picker
+    // code for blood group picker
     private func initBloodPicker() {
         // code for toolbar
         let toolbar = UIToolbar()
@@ -69,7 +63,7 @@ extension UpdateRepoViewController: UIPickerViewDataSource, UIPickerViewDelegate
         toolbar.setItems([doneButton], animated: true)
         
         
-        // code to handle priority input
+        // code to handle blood group input
         self.bloodPicker = UIPickerView()
         self.bloodPicker?.delegate = self
         self.bloodPicker?.dataSource = self
@@ -82,7 +76,6 @@ extension UpdateRepoViewController: UIPickerViewDataSource, UIPickerViewDelegate
         view.endEditing(true)
     }
     
-    // code for custom picker to take input the priority
     // returns the number of 'columns' to display.
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

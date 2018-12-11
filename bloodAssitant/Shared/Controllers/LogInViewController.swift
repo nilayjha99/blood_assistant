@@ -13,10 +13,16 @@ import FacebookCore
 import FacebookLogin
 
 class LogInViewController: UIViewController {
-
+    
+    //MARK: - Variables -
+    // view reference to switch for switching account
     @IBOutlet weak var accountSwitch: UISwitch!
+    // view reference to email field
     @IBOutlet weak var emailField: BorderedTextField!
+    // view reference to pasword field
     @IBOutlet weak var passwordField: BorderedTextField!
+    
+    // MARK: - Overriden Methods -
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -39,23 +45,13 @@ class LogInViewController: UIViewController {
         }
     }
 
+    //MARK: - Functions -
     func performSeagueWith(id: String) {
         DispatchQueue.main.async() {
             self.performSegue(withIdentifier: id, sender: self)
         }
     }
-        // Do any additional setup after loading the view.
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+  
     func performDocorLogin(data: JSON, isSucess: Bool) {
         if isSucess {
             let doctor = UserModel(
@@ -75,14 +71,14 @@ class LogInViewController: UIViewController {
                 country_id: data["country_id"].intValue,
                 city_id: data["city_id"].intValue
                 )
-    //        print(data["id"].intValue)
             UserModel.saveUser(user: doctor)
             HttpHandler.user_id = data["id"].intValue
             HttpHandler.user_role_id = Constants.DOCTOR_ROLE_ID
             HttpHandler.user_token = data["auth_token"].stringValue
             HttpHandler.initAdapter()
             performSegue(withIdentifier: "doctorProfile", sender: self)
-        }
+        } 
+        
     }
     
     func performVolunteerLogin(data: JSON, isSucess: Bool) {
@@ -118,6 +114,39 @@ class LogInViewController: UIViewController {
         }
     }
     
+    func performFacebookSso(fb_user_id: String, fb_access_token: String, email: String) {
+        let parameters: Parameters = [
+            "email": email,
+            "fb_user_id": fb_user_id,
+            "fb_access_token": fb_access_token,
+            "user_role_id": Constants.VOLUNTEER_ROLE_ID
+        ]
+        HttpHandler.post(url: Constants.BASE_URL + "login/with/fb/", data: parameters, responseHandler: performVolunteerLogin)
+    }
+    
+    func getUserProfileFromFacebook() {
+        let connection = GraphRequestConnection()
+        connection.add(
+            GraphRequest(
+                graphPath: "/me",
+                parameters: ["fields":"id, name, email"],
+                accessToken: AccessToken.current,
+                httpMethod: .GET, apiVersion: GraphAPIVersion.defaultVersion)) {
+                    response, result in
+                    switch result {
+                    case .success(let response):
+                        self.performFacebookSso(fb_user_id: response.dictionaryValue!["id"] as! String,
+                                                fb_access_token: (AccessToken.current?.authenticationToken)!,
+                                                email: response.dictionaryValue!["email"] as! String)
+                        break
+                    case .failed(_):
+                        print("failed")
+                    }
+        }
+        connection.start()
+    }
+    
+    //MARK: - Actions -
     @IBAction func loginWithEmail(_ sender: UIButton) {
         let email = self.emailField.text
         let password = self.passwordField.text
@@ -137,37 +166,7 @@ class LogInViewController: UIViewController {
         }
     }
     
-    func performFacebookSso(fb_user_id: String, fb_access_token: String, email: String) {
-        let parameters: Parameters = [
-            "email": email,
-            "fb_user_id": fb_user_id,
-            "fb_access_token": fb_access_token,
-            "user_role_id": Constants.VOLUNTEER_ROLE_ID
-        ]
-        HttpHandler.post(url: Constants.BASE_URL + "login/with/fb/", data: parameters, responseHandler: performVolunteerLogin)
-    }
     
-    func getUserProfile() {
-        let connection = GraphRequestConnection()
-        connection.add(
-            GraphRequest(
-                graphPath: "/me",
-                parameters: ["fields":"id, name, email"],
-                accessToken: AccessToken.current,
-                httpMethod: .GET, apiVersion: GraphAPIVersion.defaultVersion)) {
-                    response, result in
-                    switch result {
-                    case .success(let response):
-                        self.performFacebookSso(fb_user_id: response.dictionaryValue!["id"] as! String,
-                                           fb_access_token: (AccessToken.current?.authenticationToken)!,
-                                           email: response.dictionaryValue!["email"] as! String)
-                        break
-                    case .failed(_):
-                        print("failed")
-                    }
-        }
-        connection.start()
-    }
     
     @IBAction func loginWithFacebook(_ sender: Any) {
         let manager = LoginManager()
@@ -178,9 +177,14 @@ class LogInViewController: UIViewController {
                 print("user cancelled login")
             case .failed(let error):
                 print("login failed with error = \(error.localizedDescription)")
-            case .success( _, _, let accessToken):
+            case .success( _,let declinedPermissions, let accessToken):
                 print("access token = \(accessToken)")
-                self.getUserProfile()
+                if declinedPermissions.count == 0 {
+                    self.getUserProfileFromFacebook()
+                } else {
+                    let alertBox = SharedValues.getErrorAlert(message: "Email permissio is required")
+                    self.present(alertBox, animated: true, completion: nil)
+                }
             }
         }
     }

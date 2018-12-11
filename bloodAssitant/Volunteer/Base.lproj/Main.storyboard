@@ -108,6 +108,9 @@
                                                         <rect key="frame" x="257" y="0.0" width="69" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <state key="normal" title="support."/>
+                                                        <connections>
+                                                            <action selector="openEmailApp:" destination="POg-fG-Nhr" eventType="touchUpInside" id="hMI-kX-H1g"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -511,7 +514,6 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="DvV-4h-jyL">
                             <connections>
-                                <action selector="saveClicked:" destination="QTI-dU-jyC" id="Xag-rk-j3B"/>
                                 <segue destination="kK7-7M-Qut" kind="unwind" unwindAction="unwindToMealList:" id="d20-Fl-Ubu"/>
                             </connections>
                         </barButtonItem>

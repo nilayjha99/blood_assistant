@@ -9,37 +9,32 @@
 import UIKit
 
 class AddAppointmentViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+    // MARK: - Variables -
     private var datePicker : UIDatePicker?
     private var picker: UIPickerView?
-
+    @IBOutlet weak var appointmentDate: UITextField!
     @IBOutlet weak var hospitalpickerField: UITextField!
+    var selectedHospital:String?
+    var appointment: VolunteerAppointments?
+    
+    // MARK: - Initializer -
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
-    var selectedHospital:String?
-    
+  
+    // MARK: - Overriden Methods -
     override func viewDidLoad() {
         SharedValues.hospitalNames = SharedValues.getNames(collection: SharedValues.hospitals)
         self.selectedHospital = SharedValues.hospitalNames[0]
         super.viewDidLoad()
         self.initDatePicker()
-        self.initPriorityPicker()
+        self.initHospitalPicker()
         if self.appointment == nil {
             self.appointment = VolunteerAppointments()
         }
     }
 
-    
-    @IBAction func cancelClicked(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    @IBOutlet weak var appointmentDate: UITextField!
-    var appointment: VolunteerAppointments?
-    
-    @IBAction func saveClicked(_ sender: Any) {
-    }
-    
+    // MARK: - Date Picker Config -
     // code for date picker
     private func initDatePicker() {
         // code for toolbar
@@ -70,9 +65,10 @@ class AddAppointmentViewController: UIViewController, UIPickerViewDataSource, UI
         appointment?.date = self.appointmentDate.text
         view.endEditing(true)
     }
-
-    // code for priority picker
-    private func initPriorityPicker() {
+    
+    // MARK: - Hospital Picker Config -
+    // code for hospital picker
+    private func initHospitalPicker() {
         // code for toolbar
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
@@ -98,7 +94,7 @@ class AddAppointmentViewController: UIViewController, UIPickerViewDataSource, UI
         view.endEditing(true)
     }
     
-    // code for custom picker to take input the priority
+    // MARK : - Delegate Methods -
     // returns the number of 'columns' to display.
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -118,6 +114,11 @@ class AddAppointmentViewController: UIViewController, UIPickerViewDataSource, UI
     // set the appereance of the "lables" on the picker
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return SharedValues.hospitalNames[row]
+    }
+    
+    // MARK: - Action -
+    @IBAction func cancelClicked(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
 
 }

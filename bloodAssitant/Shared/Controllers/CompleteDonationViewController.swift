@@ -12,16 +12,24 @@ import SwiftyJSON
 
 class CompleteDonationViewController: UIViewController {
 
+    //MARK: - variables -
+    // view reference for submit Button
     @IBOutlet weak var submitButton: BlackButton!
+    // view reference for cancel button
     @IBOutlet weak var cancelButton: BlackButton!
+    // view reference for donation code field
     @IBOutlet weak var donationCode: UITextField!
+    // view reference for donation reference number field
     @IBOutlet weak var donationReferenceNumber: UITextField!
+    
+    // MARK: - Overriden Methods -
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
+    //MARK: - Actions -
     @IBAction func cancelButtonAction(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
