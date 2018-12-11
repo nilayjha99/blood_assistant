@@ -277,12 +277,9 @@ ABCD - 454 898,</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NHI-7d-tDl"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Appointments" id="Cwx-Xc-8gg">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="qtU-1v-j8Y"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Appointments" id="Cwx-Xc-8gg"/>
                     <connections>
                         <outlet property="appointsTableView" destination="lcB-Ml-OGK" id="yLB-8r-JCD"/>
-                        <outlet property="refreshAppointments" destination="qtU-1v-j8Y" id="wjc-lh-Qt6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PT5-au-spg" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -31,7 +31,6 @@
 		BF9D3BBF21B5DFD2006101A2 /* HospitalAppointMentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D3BB721B5DFD2006101A2 /* HospitalAppointMentViewCell.swift */; };
 		BF9D3BC021B5DFD2006101A2 /* HospitalDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D3BB821B5DFD2006101A2 /* HospitalDashboardController.swift */; };
 		BF9D3BC221B5DFE1006101A2 /* VolunteerDshboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D3BC121B5DFE1006101A2 /* VolunteerDshboardViewController.swift */; };
-		BF9D3BC821B5E4F3006101A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF9D3BC721B5E4F3006101A2 /* LaunchScreen.storyboard */; };
 		BF9D3BD521B60184006101A2 /* BlackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D3BD421B60184006101A2 /* BlackButton.swift */; };
 		BF9D3BD721B6068F006101A2 /* BorderedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D3BD621B6068F006101A2 /* BorderedTextField.swift */; };
 		BF9D3BD921B61EC5006101A2 /* AddAppoinmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D3BD821B61EC5006101A2 /* AddAppoinmentsViewController.swift */; };
@@ -46,6 +45,7 @@
 		BFAC69A521B90D8E00B8D112 /* SearchReasultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC69A421B90D8E00B8D112 /* SearchReasultTableViewCell.swift */; };
 		BFAC69A721B90EDF00B8D112 /* SearchResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC69A621B90EDF00B8D112 /* SearchResultModel.swift */; };
 		BFAC69A921B9331C00B8D112 /* DonationRequestsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC69A821B9331C00B8D112 /* DonationRequestsTableViewCell.swift */; };
+		BFD36EB921BF83A2002F2C12 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFD36EB821BF83A2002F2C12 /* SplashScreen.storyboard */; };
 		C5AE4E358082BAB75AF9F12F /* Pods_bloodAssitant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97991F0C02001A80CEDC43FF /* Pods_bloodAssitant.framework */; };
 		CE2453CF21B0D80600F7D79E /* UserDonationHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2453CE21B0D80600F7D79E /* UserDonationHistoryViewController.swift */; };
 		CEEEADF621961E6C00BD847C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEADF521961E6C00BD847C /* AppDelegate.swift */; };
@@ -83,7 +83,6 @@
 		BF9D3BB721B5DFD2006101A2 /* HospitalAppointMentViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HospitalAppointMentViewCell.swift; sourceTree = "<group>"; };
 		BF9D3BB821B5DFD2006101A2 /* HospitalDashboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HospitalDashboardController.swift; sourceTree = "<group>"; };
 		BF9D3BC121B5DFE1006101A2 /* VolunteerDshboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolunteerDshboardViewController.swift; sourceTree = "<group>"; };
-		BF9D3BC721B5E4F3006101A2 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ../../LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF9D3BD421B60184006101A2 /* BlackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackButton.swift; sourceTree = "<group>"; };
 		BF9D3BD621B6068F006101A2 /* BorderedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedTextField.swift; sourceTree = "<group>"; };
 		BF9D3BD821B61EC5006101A2 /* AddAppoinmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAppoinmentsViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +97,7 @@
 		BFAC69A421B90D8E00B8D112 /* SearchReasultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchReasultTableViewCell.swift; sourceTree = "<group>"; };
 		BFAC69A621B90EDF00B8D112 /* SearchResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultModel.swift; sourceTree = "<group>"; };
 		BFAC69A821B9331C00B8D112 /* DonationRequestsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationRequestsTableViewCell.swift; sourceTree = "<group>"; };
+		BFD36EB821BF83A2002F2C12 /* SplashScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashScreen.storyboard; sourceTree = "<group>"; };
 		CE2453CE21B0D80600F7D79E /* UserDonationHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDonationHistoryViewController.swift; sourceTree = "<group>"; };
 		CEEEADF221961E6C00BD847C /* bloodAssitant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bloodAssitant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEEEADF521961E6C00BD847C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -311,11 +311,11 @@
 				BF9D3BD321B5FBF6006101A2 /* Utils */,
 				BF9D3BCD21B5FB64006101A2 /* Hospital */,
 				BF9D3BCB21B5FB45006101A2 /* Volunteer */,
-				BF9D3BC721B5E4F3006101A2 /* LaunchScreen.storyboard */,
 				CEEEADF521961E6C00BD847C /* AppDelegate.swift */,
 				CEEEADFF21961EBA00BD847C /* Assets.xcassets */,
 				CEEEAE0421961EBA00BD847C /* Info.plist */,
 				CEEEADFC21961E6C00BD847C /* bloodAssitant.xcdatamodeld */,
+				BFD36EB821BF83A2002F2C12 /* SplashScreen.storyboard */,
 			);
 			path = bloodAssitant;
 			sourceTree = "<group>";
@@ -381,11 +381,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEEEAE0021961EBA00BD847C /* Assets.xcassets in Resources */,
-				BF9D3BC821B5E4F3006101A2 /* LaunchScreen.storyboard in Resources */,
 				CEEEADFB21961E6C00BD847C /* Main.storyboard in Resources */,
 				BF9D3BDF21B634A9006101A2 /* UserEditProfile.storyboard in Resources */,
 				BF9D3BAE21B5DF4D006101A2 /* Doctor.storyboard in Resources */,
 				BFAC699921B88FA200B8D112 /* CompleteDonation.storyboard in Resources */,
+				BFD36EB921BF83A2002F2C12 /* SplashScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
