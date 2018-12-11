@@ -9,8 +9,9 @@
 import UIKit
 import FacebookCore
 import FacebookLogin
+import MessageUI
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, MFMailComposeViewControllerDelegate {
 
     @IBOutlet weak var withFacebookButon: UIButton!
     @IBOutlet weak var withEmailButton: BlackButton!
@@ -24,18 +25,6 @@ class SignUpViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        UserProfileViewController.passedUser = nil
-//    }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     func validateInputs() -> Bool {
         if !(self.userEmail.text?.isEmpty)! && !(self.userPassword.text?.isEmpty)! &&
@@ -83,6 +72,26 @@ class SignUpViewController: UIViewController {
         connection.start()
     }
     
+    func configureMailController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self
+        
+        mailComposerVC.setToRecipients(["nilayjha99@gmail.com"])
+        mailComposerVC.setSubject("Help required!")
+        mailComposerVC.setMessageBody("I need help regarding ...", isHTML: false)
+        return mailComposerVC
+    }
+    
+    func showMailError() {
+        let sendMailErrorAlert = UIAlertController(title: "Could not send email", message: "Your device could not send email", preferredStyle: .alert)
+        let dismiss = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        sendMailErrorAlert.addAction(dismiss)
+        self.present(sendMailErrorAlert, animated: true, completion: nil)
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
     @IBAction func signUpWithFacebook(_ sender: Any) {
         let manager = LoginManager()
         manager.logIn(readPermissions: [.publicProfile, .email], viewController: self) {
@@ -96,6 +105,17 @@ class SignUpViewController: UIViewController {
                 print("access token = \(accessToken)")
                 self.getUserProfile()
             }
+        }
+    }
+    
+    
+    
+    @IBAction func openEmailApp(_ sender: UIButton) {
+        let mailComposeViewController = configureMailController()
+        if MFMailComposeViewController.canSendMail() {
+            self.present(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            showMailError()
         }
     }
     //MARK: - Navigation -

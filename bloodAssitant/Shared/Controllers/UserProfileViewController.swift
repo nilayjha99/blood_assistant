@@ -23,7 +23,7 @@ class UserProfileViewController: UIViewController, UITextFieldDelegate  {
     var user: UserModel?
     static var isEdit = false
     static var isSso = false
-    var selectedBloodGroup: String = "O+"
+    var selectedBloodGroup: String = "A+"
     var selectedGender: String = "male"
     
    // @IBOutlet weak var datePickerTF: UITextField!
